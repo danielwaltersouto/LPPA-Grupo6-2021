@@ -2,7 +2,7 @@
 
 UAI - Lenguajes de Programacion para la Administracion
 
-Grupo 3 - Proyecto de E-Commerce
+Grupo 6 - Proyecto de E-Commerce
 
 Integrantes del Grupo:
 
