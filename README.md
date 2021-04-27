@@ -6,6 +6,12 @@ Grupo 6 - Proyecto de E-Commerce
 
 Integrantes del Grupo:
 
-Ricardo Misme
 Daniel Souto
+
+Ricardo Misme
+
 Julian Gonzalez
+
+Ariel Pavon
+
+Juan Cruz Bossio
