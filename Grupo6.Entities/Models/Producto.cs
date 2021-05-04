@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Grupo6.Entities.Models
 {
-   public class Producto
-   {
+   public class Producto : IdentityBase
+    {
         public int IdProducto { get; set; }
         public string CodigoBarra { get; set; }
         public string Descripcion { get; set; }

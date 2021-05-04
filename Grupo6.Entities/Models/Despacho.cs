@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Grupo6.Entities.Models
 {
-    public class Despacho
+    public class Despacho : IdentityBase
     {
         public int IdDespacho { get; set; }
         public string Letra { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Grupo6.Entities.Models
 {
-    public class Usuario
+    public class Usuario : IdentityBase
     {
         public Usuario()
         {

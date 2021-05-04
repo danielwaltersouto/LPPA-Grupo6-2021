@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Grupo6.Entities.Models
 {
-    public class CategoriaFiscal
+    public class CategoriaFiscal : IdentityBase
     {
         public int IdCategoriaFiscal { get; set; }
         public string Detalle { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Grupo6.Entities.Models
 {
-    public class ItemCarrito
+    public class ItemCarrito : IdentityBase
     {
         public int IdPedido { get; set; }
         public int IdProducto { get; set; }
