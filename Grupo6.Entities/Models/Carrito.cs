@@ -19,6 +19,6 @@ namespace Grupo6.Entities.Models
         public DateTime Modificado { get; set; }
 
         public virtual Usuario Usuario { get; set; }
-        public virtual ItemCarrito ItemCarrito { get; set; }
+        public virtual ICollection<ItemCarrito>  ItemCarrito { get; set; }
     }
 }

@@ -17,4 +17,4 @@ namespace Grupo6.Entities.Models
         public virtual Factura Factura { get; set; }
     }
 }
-}
+
