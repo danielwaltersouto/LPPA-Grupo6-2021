@@ -13,13 +13,17 @@ namespace Grupo6.Services
         public static void BienvenidaUsuario(string nombre, string correoElectronico) 
         {
             //TODO
-            EnviarMail("", "", "");
+            var body = "";
+            var subject = "Bienvenida Usuario New Market";
+            EnviarMail(subject, body, correoElectronico);
         }
 
         public static void RecuperarPassword(string nombre,string nuevoPassword, string correoElectronico)
         {
             //TODO
-            EnviarMail("", "", "");
+            var body = "";
+            var subject = "Recuperacion de Contraseña";
+            EnviarMail(subject, body, correoElectronico);
         }
         public static void EnviarMail(string subject, string body, string correoElectronico) 
         {
