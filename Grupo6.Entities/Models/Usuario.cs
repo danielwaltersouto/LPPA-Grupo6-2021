@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Grupo6.Entities.Models
 {
@@ -14,7 +11,6 @@ namespace Grupo6.Entities.Models
             this.Bloqueo = false;
             this.EmailConfirmed = false;
         }
-
         public int IdUsuario { get; set; }
         public DateTime FechaAlta { get; set; }
         public int IdCategoriaFiscal { get; set; }

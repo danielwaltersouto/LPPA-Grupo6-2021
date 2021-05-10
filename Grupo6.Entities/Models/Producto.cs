@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Grupo6.Entities.Models
 {
-   public class Producto : IdentityBase
+    public class Producto : IdentityBase
     {
         public int IdProducto { get; set; }
         public string CodigoBarra { get; set; }

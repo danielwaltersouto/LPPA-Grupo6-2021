@@ -9,24 +9,24 @@ namespace Grupo6.Data.Services
     public class BaseDataService<T> : IDataService<T> where T : Entities.Models.IdentityBase, new()
     {
 
-        protected MarketDbContext Db;
+        protected MarketDbContext marketContext;
 
         public BaseDataService()
         {
-            this.Db = new MarketDbContext();
+            this.marketContext = new MarketDbContext();
         }
 
         public T Create(T entity)
         {
-            Db.Set<T>().Add(entity);
-            Db.SaveChanges();
+            marketContext.Set<T>().Add(entity);
+            marketContext.SaveChanges();
             return entity;
         }
 
         public void delete(T entity)
         {
-            Db.Set<T>().Remove(entity);
-            Db.SaveChanges();
+            marketContext.Set<T>().Remove(entity);
+            marketContext.SaveChanges();
         }
 
         public void delete(int id)

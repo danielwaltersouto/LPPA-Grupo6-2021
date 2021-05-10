@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\TipoFactura.cs" />
     <Compile Include="Models\Carrito.cs" />
     <Compile Include="Models\CategoriaFiscal.cs" />
     <Compile Include="Models\CategoriaProducto.cs" />
