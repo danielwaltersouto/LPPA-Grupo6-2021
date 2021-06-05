@@ -23,18 +23,18 @@ namespace Grupo6.Data.Services
             return entity;
         }
 
-        public void delete(T entity)
+        public void Delete(T entity)
         {
             marketContext.Set<T>().Remove(entity);
             marketContext.SaveChanges();
         }
 
-        public void delete(int id)
+        public void Delete(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<T> get(Expression<Func<T, bool>> WhereExpression = null, Func<IQueryable<T>> orderfunction = null, string includeModels = "")
+        public List<T> Get(Expression<Func<T, bool>> WhereExpression = null, Func<IQueryable<T>> orderfunction = null, string includeModels = "")
         {
             throw new NotImplementedException();
         }
@@ -44,7 +44,7 @@ namespace Grupo6.Data.Services
             throw new NotImplementedException();
         }
 
-        public void update(T entity)
+        public void Update(T entity)
         {
             throw new NotImplementedException();
         }
