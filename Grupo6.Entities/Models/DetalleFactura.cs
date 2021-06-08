@@ -1,9 +1,12 @@
-﻿namespace Grupo6.Entities.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Grupo6.Entities.Models
 {
     public class DetalleFactura : IdentityBase
     {
-        public string Letra { get; set; }
-        public int Numero { get; set; }
+        [ForeignKey("Factura"), DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int NroFactura { get; set; }
+        [ForeignKey("Producto"), DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IdProducto { get; set; }
         public int Cantidad { get; set; }
 

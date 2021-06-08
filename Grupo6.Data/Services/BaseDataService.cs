@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -34,9 +35,21 @@ namespace Grupo6.Data.Services
             throw new NotImplementedException();
         }
 
-        public List<T> Get(Expression<Func<T, bool>> WhereExpression = null, Func<IQueryable<T>> orderfunction = null, string includeModels = "")
+        public List<T> Get(Expression<Func<T, bool>> whereExpression = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderFunction = null, string includeModels = "")
         {
-            throw new NotImplementedException();
+            IQueryable<T> query = marketContext.Set<T>();
+
+            if (whereExpression != null)
+                query = query.Where(whereExpression);
+
+            var entity = includeModels.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+            query = entity.Aggregate(query, (current, model) => current.Include(model));
+
+            if (orderFunction != null)
+                query = orderFunction(query);
+
+            return query.ToList();
         }
 
         public T GetById(int id)

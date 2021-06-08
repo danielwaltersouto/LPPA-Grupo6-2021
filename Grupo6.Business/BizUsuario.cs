@@ -1,6 +1,7 @@
 ﻿using Grupo6.Data.Services;
 using Grupo6.Entities.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Grupo6.Business
 {
@@ -24,6 +25,12 @@ namespace Grupo6.Business
         {
             var db = new BaseDataService<Usuario>();
             return db.GetById(id);
+        }
+
+        public Usuario TraerPorEmail(string email) 
+        {
+            var db = new BaseDataService<Usuario>();
+            return db.Get((Usuario usuario) => usuario.Email == email).First();
         }
 
         public void Eliminar(Usuario usuario)

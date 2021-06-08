@@ -9,10 +9,7 @@ namespace Grupo6.Data.Services
     public interface IDataService<T>
     {
         List<ValidationResult> ValidateModel(T model);
-        List<T> Get(
-            Expression<Func<T, bool>> WhereExpression = null,
-            Func<IQueryable<T>> orderfunction = null,
-            string includeModels = "");
+        List<T> Get(Expression<Func<T, bool>> whereExpression = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderFunction = null, string includeModels = "");
         T GetById(int id);
         T Create(T entity);
         void Update(T entity);
