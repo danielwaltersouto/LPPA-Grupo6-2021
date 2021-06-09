@@ -46,7 +46,7 @@
     <Compile Include="BizCategoriaProducto.cs" />
     <Compile Include="BizDespacho.cs" />
     <Compile Include="BizDireccion.cs" />
-    <Compile Include="BizEstado.cs" />
+    <Compile Include="BizEstadoPedido.cs" />
     <Compile Include="BizFactura.cs" />
     <Compile Include="BizProducto.cs" />
     <Compile Include="BizRol.cs" />

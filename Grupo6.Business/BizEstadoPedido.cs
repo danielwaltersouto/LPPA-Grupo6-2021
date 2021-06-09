@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Grupo6.Business
 {
-    public class BizEstado
+    public class BizEstadoPedido
     {
         public void Agregar(EstadoPedido estado)
         {
