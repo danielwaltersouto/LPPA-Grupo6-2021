@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Grupo6.Entities.Models
 {
@@ -7,9 +8,10 @@ namespace Grupo6.Entities.Models
     {
         public Factura()
         {
-            this.FechaInicio = DateTime.Now;
+            FechaInicio = DateTime.Now;
         }
         public int NroFactura { get; set; }
+        [ForeignKey("Usuario"), DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IdUsuario { get; set; }
         public DateTime FechaInicio { get; set; }
         public DateTime FechaCierre { get; set; }

@@ -2,7 +2,7 @@
 
 namespace Grupo6.Entities.Models
 {
-    public class Estado : IdentityBase
+    public class EstadoPedido : IdentityBase
     {
         public int IdEstadoPedido { get; set; }
         public string Descripcion { get; set; }

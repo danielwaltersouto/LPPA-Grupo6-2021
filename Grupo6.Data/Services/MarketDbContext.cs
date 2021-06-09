@@ -6,14 +6,14 @@ namespace Grupo6.Data.Services
 {
     public class MarketDbContext : DbContext
     {
-        public MarketDbContext() : base(nameOrConnectionString: "DefaultConnection") {}
+        public MarketDbContext() : base(nameOrConnectionString: "MarketConnection") {}
         public DbSet<Carrito> Carritos { get; set; }
         public DbSet<CategoriaFiscal> CategoriasFiscales { get; set; }
         public DbSet<CategoriaProducto> CategoriasProductos { get; set; }
         public DbSet<Despacho> Despachos { get; set; }
         public DbSet<DetalleFactura> DetallesFacturas { get; set; }
         public DbSet<Direccion> Direcciones { get; set; }
-        public DbSet<Estado> Estados { get; set; }
+        public DbSet<EstadoPedido> Estados { get; set; }
         public DbSet<Factura> Facturas { get; set; }
         public DbSet<ItemCarrito> ItemsCarrito { get; set; }
         public DbSet<Producto> Productos { get; set; }

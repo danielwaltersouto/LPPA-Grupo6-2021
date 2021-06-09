@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Grupo6.Entities.Models
 {
@@ -9,7 +10,8 @@ namespace Grupo6.Entities.Models
         public string Descripcion { get; set; }
         public decimal Precio { get; set; }
         public int StockActual { get; set; }
-        public int IdCategoria { get; set; }
+        [ForeignKey("CategoriaProducto"), DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int IdCategoriaProducto { get; set; }
         public byte[] FotoProducto { get; set; }
 
         public virtual CategoriaProducto CategoriaProducto { get; set; }

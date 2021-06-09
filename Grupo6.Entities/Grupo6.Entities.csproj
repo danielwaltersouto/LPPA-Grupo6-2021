@@ -49,7 +49,7 @@
     <Compile Include="Models\Despacho.cs" />
     <Compile Include="Models\DetalleFactura.cs" />
     <Compile Include="Models\Direccion.cs" />
-    <Compile Include="Models\Estado.cs" />
+    <Compile Include="Models\EstadoPedido.cs" />
     <Compile Include="Models\Factura.cs" />
     <Compile Include="Models\IdentityBase.cs" />
     <Compile Include="Models\ItemCarrito.cs" />
