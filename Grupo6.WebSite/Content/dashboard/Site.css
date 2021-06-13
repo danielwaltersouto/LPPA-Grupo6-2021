@@ -52,16 +52,7 @@
     .sidebar .nav-link i {
         margin-right: 4px;
     }
-
-    .sidebar .nav-link.active {
-        color: #007bff;
-    }
-
-        .sidebar .nav-link:hover .feather,
-        .sidebar .nav-link.active .feather {
-            color: inherit;
-        }
-
+  
 .sidebar-heading {
     font-size: .75rem;
     text-transform: uppercase;
@@ -70,6 +61,15 @@
 .custom-icon {
     font-size: 1.5rem;
     vertical-align: middle;
+}
+.ul.nav > .active > a {
+    background-color: #6c706d;
+    color: white;
+}
+
+.ul.nav > a:hover {
+    background-color: #6c706d;
+    color: white;
 }
 /*
  * Navbar
@@ -103,3 +103,7 @@
         border-color: transparent;
         box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
     }
+
+.bg-custom {
+    background-color: #287cbf !important;
+}
