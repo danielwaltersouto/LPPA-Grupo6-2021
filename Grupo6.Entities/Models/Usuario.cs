@@ -33,7 +33,7 @@ namespace Grupo6.Entities.Models
 
         public string Token { get; set; }
         public int Bloqueo { get; set; }
-        public int IntentosFallidosLogin { get; set; }
+        public int IntentosLogin { get; set; }
         public int IdRol { get; set; }
         
         
