@@ -102,13 +102,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Banana.jpg" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\carne.png" />
+    <Content Include="Content\Filet-De-Merluza-Congelado-X-1-Kg-1-63164.jpg" />
+    <Content Include="Content\istockphoto-1128949343-612x612.jpg" />
+    <Content Include="Content\pescado.png" />
+    <Content Include="Content\Pollo-Fresco-X-3-Kg.jpg" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\StyleSheet1.css" />
+    <Content Include="Content\unnamed.jpg" />
+    <Content Include="Content\upscale supermarket_600x.jpg" />
+    <Content Include="Content\vacio.jpg" />
+    <Content Include="Content\vegetal.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -225,7 +236,6 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.js.flow" />
@@ -238,6 +248,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.6.0.min.map" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
