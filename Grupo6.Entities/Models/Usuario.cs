@@ -9,7 +9,7 @@ namespace Grupo6.Entities.Models
         public Usuario()
         {
             FechaAlta = DateTime.Now;
-            Bloqueo = false;
+            Bloqueo = 0;
             EmailConfirmed = false;
         }
         public int IdUsuario { get; set; }
@@ -18,7 +18,7 @@ namespace Grupo6.Entities.Models
         public int IdCategoriaFiscal { get; set; }
         public string NombreWeb { get; set; }
         public string Password { get; set; }
-        public bool Bloqueo { get; set; }
+        public int Bloqueo { get; set; }
         [ForeignKey("Rol"), DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IdRol { get; set; }
         public string Nombre { get; set; }
@@ -28,6 +28,8 @@ namespace Grupo6.Entities.Models
         public int Telefono { get; set; }
         public string Email { get; set; }
         public bool EmailConfirmed { get; set; }
+
+        public string UserToken { get; set; }
 
         public virtual ICollection<Carrito> Carrito { get; set; }
         public virtual CategoriaFiscal CategoriaFiscal { get; set; }
