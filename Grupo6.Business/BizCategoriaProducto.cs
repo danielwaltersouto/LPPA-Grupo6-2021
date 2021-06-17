@@ -32,6 +32,12 @@ namespace Grupo6.Business
             db.Delete(categoriaProducto);
         }
 
+        public void Eliminar(int idCategoriaProducto)
+        {
+            var db = new BaseDataService<CategoriaProducto>();
+            db.Delete(idCategoriaProducto);
+        }
+
         public void Actualizar(CategoriaProducto categoriaProducto)
         {
             var db = new BaseDataService<CategoriaProducto>();
