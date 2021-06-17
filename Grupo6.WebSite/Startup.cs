@@ -10,7 +10,7 @@ namespace Grupo6.WebSite
 {
     public class Startup
     {
-        public void Configuracion(IAppBuilder app)
+        public void Configuration(IAppBuilder app)
         {
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions
