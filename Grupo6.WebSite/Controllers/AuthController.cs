@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Security.Claims;
+using Microsoft.Owin;
+using Microsoft.Owin.Security;
 using Grupo6.Entities.Models;
 using Grupo6.Services;
+
 
 
 namespace Grupo6.WebSite.Controllers
@@ -29,25 +33,51 @@ namespace Grupo6.WebSite.Controllers
             {
                 if (!ModelState.IsValid)
 
-                { return View(); 
+                {
+
+                  
+                    return View();
+                    
                 }
 
 
-                else 
+                else
                 {
 
 
                     bool valida = ValidarIngreso.Validar(Model);
 
-                    if (valida == true){ 
-                     return RedirectToAction("Index", "Home");
+                    if (valida == true)
+                    {
+
+                        var claims = new[]
+                 {
+                    
+                    new Claim(ClaimTypes.Email, Model.Email),
+                    new Claim(ClaimTypes.Country, "Argentina"),
+                };
+                        var identity = new ClaimsIdentity(claims, "ApplicationCookie");
+                        IOwinContext ctx = Request.GetOwinContext();
+                        IAuthenticationManager authManager = ctx.Authentication;
+                        authManager.SignIn(identity);
+
+
+
+
+
+                        return RedirectToAction("Index", "Home");
                    
+                    
+                    
+                    
                     }
+                        return View();
 
 
-                    return View();
-                 }
-            
+                    
+                }
+
+
             }
             
        
@@ -87,7 +117,14 @@ namespace Grupo6.WebSite.Controllers
         }
 
 
+        public ActionResult LogOut()
+        {
+            var ctx = Request.GetOwinContext();
+            var authManager = ctx.Authentication;
 
+            authManager.SignOut("ApplicationCookie");
+            return RedirectToAction("Index", "Home");
+        }
 
 
 
