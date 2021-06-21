@@ -1,9 +1,9 @@
-namespace Grupo6.Data.Migrations
+﻿namespace Grupo6.Data.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class nuevoNugget : DbMigration
     {
         public override void Up()
         {
@@ -16,11 +16,10 @@ namespace Grupo6.Data.Migrations
                         IdUsuario = c.Int(nullable: false),
                         Creado = c.DateTime(nullable: false),
                         Modificado = c.DateTime(nullable: false),
-                        Usuario_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Usuario", t => t.Usuario_Id)
-                .Index(t => t.Usuario_Id);
+                .ForeignKey("dbo.Usuario", t => t.IdUsuario, cascadeDelete: true)
+                .Index(t => t.IdUsuario);
             
             CreateTable(
                 "dbo.ItemCarrito",
@@ -30,14 +29,12 @@ namespace Grupo6.Data.Migrations
                         IdPedido = c.Int(nullable: false),
                         IdProducto = c.Int(nullable: false),
                         Cantidad = c.Int(nullable: false),
-                        Carrito_Id = c.Int(),
-                        Producto_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Carrito", t => t.Carrito_Id)
-                .ForeignKey("dbo.Producto", t => t.Producto_Id)
-                .Index(t => t.Carrito_Id)
-                .Index(t => t.Producto_Id);
+                .ForeignKey("dbo.Carrito", t => t.IdPedido, cascadeDelete: true)
+                .ForeignKey("dbo.Producto", t => t.IdProducto, cascadeDelete: true)
+                .Index(t => t.IdPedido)
+                .Index(t => t.IdProducto);
             
             CreateTable(
                 "dbo.Producto",
@@ -49,20 +46,19 @@ namespace Grupo6.Data.Migrations
                         Descripcion = c.String(),
                         Precio = c.Decimal(nullable: false, precision: 18, scale: 2),
                         StockActual = c.Int(nullable: false),
-                        IdCategoria = c.Int(nullable: false),
+                        IdCategoriaProducto = c.Int(nullable: false),
                         FotoProducto = c.Binary(),
-                        CategoriaProducto_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.CategoriaProducto", t => t.CategoriaProducto_Id)
-                .Index(t => t.CategoriaProducto_Id);
+                .ForeignKey("dbo.CategoriaProducto", t => t.IdCategoriaProducto, cascadeDelete: true)
+                .Index(t => t.IdCategoriaProducto);
             
             CreateTable(
                 "dbo.CategoriaProducto",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        IdCategoria = c.Int(nullable: false),
+                        IdCategoriaProducto = c.Int(nullable: false),
                         Nombre = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
@@ -72,18 +68,15 @@ namespace Grupo6.Data.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Letra = c.String(),
-                        Numero = c.Int(nullable: false),
+                        NroFactura = c.Int(nullable: false),
                         IdProducto = c.Int(nullable: false),
                         Cantidad = c.Int(nullable: false),
-                        Factura_Id = c.Int(),
-                        Producto_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Factura", t => t.Factura_Id)
-                .ForeignKey("dbo.Producto", t => t.Producto_Id)
-                .Index(t => t.Factura_Id)
-                .Index(t => t.Producto_Id);
+                .ForeignKey("dbo.Factura", t => t.NroFactura, cascadeDelete: true)
+                .ForeignKey("dbo.Producto", t => t.IdProducto, cascadeDelete: true)
+                .Index(t => t.NroFactura)
+                .Index(t => t.IdProducto);
             
             CreateTable(
                 "dbo.Factura",
@@ -95,11 +88,10 @@ namespace Grupo6.Data.Migrations
                         FechaInicio = c.DateTime(nullable: false),
                         FechaCierre = c.DateTime(nullable: false),
                         TipoFactura = c.String(),
-                        Usuario_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Usuario", t => t.Usuario_Id)
-                .Index(t => t.Usuario_Id);
+                .ForeignKey("dbo.Usuario", t => t.IdUsuario, cascadeDelete: true)
+                .Index(t => t.IdUsuario);
             
             CreateTable(
                 "dbo.Despacho",
@@ -109,17 +101,15 @@ namespace Grupo6.Data.Migrations
                         IdDespacho = c.Int(nullable: false),
                         NroFactura = c.Int(nullable: false),
                         IdEstadoPedido = c.Int(nullable: false),
-                        Estado_Id = c.Int(),
-                        Factura_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Estado", t => t.Estado_Id)
-                .ForeignKey("dbo.Factura", t => t.Factura_Id)
-                .Index(t => t.Estado_Id)
-                .Index(t => t.Factura_Id);
+                .ForeignKey("dbo.EstadoPedido", t => t.IdEstadoPedido, cascadeDelete: true)
+                .ForeignKey("dbo.Factura", t => t.NroFactura, cascadeDelete: true)
+                .Index(t => t.NroFactura)
+                .Index(t => t.IdEstadoPedido);
             
             CreateTable(
-                "dbo.Estado",
+                "dbo.EstadoPedido",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
@@ -138,7 +128,7 @@ namespace Grupo6.Data.Migrations
                         IdCategoriaFiscal = c.Int(nullable: false),
                         NombreWeb = c.String(),
                         Password = c.String(),
-                        Bloqueo = c.Boolean(nullable: false),
+                        Bloqueo = c.Int(nullable: false),
                         IdRol = c.Int(nullable: false),
                         Nombre = c.String(),
                         Apellido = c.String(),
@@ -147,14 +137,13 @@ namespace Grupo6.Data.Migrations
                         Telefono = c.Int(nullable: false),
                         Email = c.String(),
                         EmailConfirmed = c.Boolean(nullable: false),
-                        CategoriaFiscal_Id = c.Int(),
-                        Rol_Id = c.Int(),
+                        UserToken = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.CategoriaFiscal", t => t.CategoriaFiscal_Id)
-                .ForeignKey("dbo.Rol", t => t.Rol_Id)
-                .Index(t => t.CategoriaFiscal_Id)
-                .Index(t => t.Rol_Id);
+                .ForeignKey("dbo.CategoriaFiscal", t => t.IdCategoriaFiscal, cascadeDelete: true)
+                .ForeignKey("dbo.Rol", t => t.IdRol, cascadeDelete: true)
+                .Index(t => t.IdCategoriaFiscal)
+                .Index(t => t.IdRol);
             
             CreateTable(
                 "dbo.CategoriaFiscal",
@@ -177,11 +166,10 @@ namespace Grupo6.Data.Migrations
                         Provincia = c.String(),
                         DireccionCompleta = c.String(),
                         CodigoPostal = c.String(),
-                        Usuario_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Usuario", t => t.Usuario_Id)
-                .Index(t => t.Usuario_Id);
+                .ForeignKey("dbo.Usuario", t => t.IdUsuario, cascadeDelete: true)
+                .Index(t => t.IdUsuario);
             
             CreateTable(
                 "dbo.Rol",
@@ -197,35 +185,35 @@ namespace Grupo6.Data.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.ItemCarrito", "Producto_Id", "dbo.Producto");
-            DropForeignKey("dbo.DetalleFactura", "Producto_Id", "dbo.Producto");
-            DropForeignKey("dbo.Usuario", "Rol_Id", "dbo.Rol");
-            DropForeignKey("dbo.Factura", "Usuario_Id", "dbo.Usuario");
-            DropForeignKey("dbo.Direccion", "Usuario_Id", "dbo.Usuario");
-            DropForeignKey("dbo.Usuario", "CategoriaFiscal_Id", "dbo.CategoriaFiscal");
-            DropForeignKey("dbo.Carrito", "Usuario_Id", "dbo.Usuario");
-            DropForeignKey("dbo.DetalleFactura", "Factura_Id", "dbo.Factura");
-            DropForeignKey("dbo.Despacho", "Factura_Id", "dbo.Factura");
-            DropForeignKey("dbo.Despacho", "Estado_Id", "dbo.Estado");
-            DropForeignKey("dbo.Producto", "CategoriaProducto_Id", "dbo.CategoriaProducto");
-            DropForeignKey("dbo.ItemCarrito", "Carrito_Id", "dbo.Carrito");
-            DropIndex("dbo.Direccion", new[] { "Usuario_Id" });
-            DropIndex("dbo.Usuario", new[] { "Rol_Id" });
-            DropIndex("dbo.Usuario", new[] { "CategoriaFiscal_Id" });
-            DropIndex("dbo.Despacho", new[] { "Factura_Id" });
-            DropIndex("dbo.Despacho", new[] { "Estado_Id" });
-            DropIndex("dbo.Factura", new[] { "Usuario_Id" });
-            DropIndex("dbo.DetalleFactura", new[] { "Producto_Id" });
-            DropIndex("dbo.DetalleFactura", new[] { "Factura_Id" });
-            DropIndex("dbo.Producto", new[] { "CategoriaProducto_Id" });
-            DropIndex("dbo.ItemCarrito", new[] { "Producto_Id" });
-            DropIndex("dbo.ItemCarrito", new[] { "Carrito_Id" });
-            DropIndex("dbo.Carrito", new[] { "Usuario_Id" });
+            DropForeignKey("dbo.Carrito", "IdUsuario", "dbo.Usuario");
+            DropForeignKey("dbo.ItemCarrito", "IdProducto", "dbo.Producto");
+            DropForeignKey("dbo.DetalleFactura", "IdProducto", "dbo.Producto");
+            DropForeignKey("dbo.DetalleFactura", "NroFactura", "dbo.Factura");
+            DropForeignKey("dbo.Factura", "IdUsuario", "dbo.Usuario");
+            DropForeignKey("dbo.Usuario", "IdRol", "dbo.Rol");
+            DropForeignKey("dbo.Direccion", "IdUsuario", "dbo.Usuario");
+            DropForeignKey("dbo.Usuario", "IdCategoriaFiscal", "dbo.CategoriaFiscal");
+            DropForeignKey("dbo.Despacho", "NroFactura", "dbo.Factura");
+            DropForeignKey("dbo.Despacho", "IdEstadoPedido", "dbo.EstadoPedido");
+            DropForeignKey("dbo.Producto", "IdCategoriaProducto", "dbo.CategoriaProducto");
+            DropForeignKey("dbo.ItemCarrito", "IdPedido", "dbo.Carrito");
+            DropIndex("dbo.Direccion", new[] { "IdUsuario" });
+            DropIndex("dbo.Usuario", new[] { "IdRol" });
+            DropIndex("dbo.Usuario", new[] { "IdCategoriaFiscal" });
+            DropIndex("dbo.Despacho", new[] { "IdEstadoPedido" });
+            DropIndex("dbo.Despacho", new[] { "NroFactura" });
+            DropIndex("dbo.Factura", new[] { "IdUsuario" });
+            DropIndex("dbo.DetalleFactura", new[] { "IdProducto" });
+            DropIndex("dbo.DetalleFactura", new[] { "NroFactura" });
+            DropIndex("dbo.Producto", new[] { "IdCategoriaProducto" });
+            DropIndex("dbo.ItemCarrito", new[] { "IdProducto" });
+            DropIndex("dbo.ItemCarrito", new[] { "IdPedido" });
+            DropIndex("dbo.Carrito", new[] { "IdUsuario" });
             DropTable("dbo.Rol");
             DropTable("dbo.Direccion");
             DropTable("dbo.CategoriaFiscal");
             DropTable("dbo.Usuario");
-            DropTable("dbo.Estado");
+            DropTable("dbo.EstadoPedido");
             DropTable("dbo.Despacho");
             DropTable("dbo.Factura");
             DropTable("dbo.DetalleFactura");

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace Grupo6.Entities.Models
 {
@@ -26,6 +27,7 @@ namespace Grupo6.Entities.Models
         public int Documento { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public int Telefono { get; set; }
+      
         public string Email { get; set; }
         public bool EmailConfirmed { get; set; }
 

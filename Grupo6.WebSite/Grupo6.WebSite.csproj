@@ -132,6 +132,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\carne.png" />
+    <Content Include="Content\LogIn\EstiloLogin.css" />
     <Content Include="Content\Filet-De-Merluza-Congelado-X-1-Kg-1-63164.jpg" />
     <Content Include="Content\istockphoto-1128949343-612x612.jpg" />
     <Content Include="Content\pescado.png" />
@@ -250,6 +251,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -277,6 +279,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Auth\Index.cshtml" />
+    <Content Include="Views\Auth\StartRecovery.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -302,6 +306,10 @@
     <ProjectReference Include="..\Grupo6.Entities\Grupo6.Entities.csproj">
       <Project>{9EEDBFE1-4C36-48DF-B888-987F5D448EAE}</Project>
       <Name>Grupo6.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grupo6.Services\Grupo6.Services.csproj">
+      <Project>{8e32bd9e-c95f-40fb-9732-bf9665bf0cd4}</Project>
+      <Name>Grupo6.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

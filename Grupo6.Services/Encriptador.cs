@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Grupo6.Services
 {
-    class Encriptador
+    public static class Encriptador
     {
         public static string Encriptar(string Pass)
         {
