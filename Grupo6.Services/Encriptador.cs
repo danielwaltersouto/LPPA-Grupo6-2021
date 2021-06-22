@@ -1,5 +1,7 @@
-﻿using System.Security.Cryptography;
+﻿using System;
+using System.Security.Cryptography;
 using System.Text;
+
 
 namespace Grupo6.Services
 {
@@ -36,6 +38,15 @@ namespace Grupo6.Services
             }
 
         }
+        public  static string GeneradorClave()
+        {
+            string clave = Guid.NewGuid().ToString();
+            
+            return clave;
+       
+        }
+
+
 
 
     }

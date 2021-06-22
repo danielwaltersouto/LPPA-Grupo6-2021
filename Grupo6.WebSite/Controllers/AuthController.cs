@@ -8,6 +8,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Grupo6.Entities.Models;
 using Grupo6.Services;
+using Grupo6.Business;
 
 
 
@@ -54,7 +55,7 @@ namespace Grupo6.WebSite.Controllers
                  {
                     
                     new Claim(ClaimTypes.Email, Model.Email),
-                    new Claim(ClaimTypes.Country, "Argentina"),
+                    
                 };
                         var identity = new ClaimsIdentity(claims, "ApplicationCookie");
                         IOwinContext ctx = Request.GetOwinContext();
@@ -113,8 +114,28 @@ namespace Grupo6.WebSite.Controllers
             {
                 return View(model);
             }
+
+            BizUsuario Busuario = new BizUsuario();
+            var oUsuario = Busuario.TraerPorEmail(model.Email);
+
+            if (oUsuario != null)
+            {
+                string clave = Encriptador.GeneradorClave();
+
+
+
+                CorreoElectronico.RecuperarPassword(oUsuario.NombreWeb, clave, oUsuario.Email);
+
+
+                return RedirectToAction("Index", "Auth");
+            }
+
             return View();
+        
         }
+
+
+
 
 
         public ActionResult LogOut()
