@@ -12,15 +12,12 @@ namespace Grupo6.Entities.Models
             Bloqueo = 0;
             EmailConfirmed = false;
         }
-        public int IdUsuario { get; set; }
         public DateTime FechaAlta { get; set; }
-        [ForeignKey("CategoriaFiscal"), DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int IdCategoriaFiscal { get; set; }
+        public int CategoriaFiscalId { get; set; }
         public string NombreWeb { get; set; }
         public string Password { get; set; }
         public int Bloqueo { get; set; }
-        [ForeignKey("Rol"), DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int IdRol { get; set; }
+        public int RolId { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public int Documento { get; set; }
@@ -28,7 +25,6 @@ namespace Grupo6.Entities.Models
         public int Telefono { get; set; }
         public string Email { get; set; }
         public bool EmailConfirmed { get; set; }
-
         public string UserToken { get; set; }
 
         public virtual ICollection<Carrito> Carrito { get; set; }

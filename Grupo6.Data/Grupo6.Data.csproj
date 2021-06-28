@@ -69,6 +69,14 @@
     <Compile Include="Migrations\202106260038000_FixUserMigration.designer.cs">
       <DependentUpon>202106260038000_FixUserMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106281626031_FixIdsEntities.cs" />
+    <Compile Include="Migrations\202106281626031_FixIdsEntities.designer.cs">
+      <DependentUpon>202106281626031_FixIdsEntities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106281629165_FixCarritoIdMigration.cs" />
+    <Compile Include="Migrations\202106281629165_FixCarritoIdMigration.designer.cs">
+      <DependentUpon>202106281629165_FixCarritoIdMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseDataService.cs" />
@@ -100,6 +108,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106260038000_FixUserMigration.resx">
       <DependentUpon>202106260038000_FixUserMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106281626031_FixIdsEntities.resx">
+      <DependentUpon>202106281626031_FixIdsEntities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106281629165_FixCarritoIdMigration.resx">
+      <DependentUpon>202106281629165_FixCarritoIdMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

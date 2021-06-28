@@ -18,14 +18,6 @@
                 </div>
                 @Html.ValidationMessageFor(model => model.Nombre)
             </div>
-            @Html.Label("IdCatProducto", new { @class = "control-label col-md-2", @id = "colorNaranja" })
-            <div class="col-md-10">
-                <div class="input-group">
-                    @Html.TextBoxFor(x => x.IdCategoriaProducto, new { @placeholder = "IdCategoriaProducto", @class = "form-control" })
-                </div>
-                @Html.ValidationMessageFor(model => model.IdCategoriaProducto)
-
-            </div>
         </div>
         <div class="float-right">
             <a href="@Url.Action("Index","CategoriaProducto")" class="btn btn-danger">Volver</a>
