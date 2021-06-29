@@ -119,10 +119,16 @@
     <Content Include="Content\carne.png" />
     <Content Include="Content\Filet-De-Merluza-Congelado-X-1-Kg-1-63164.jpg" />
     <Content Include="Content\istockphoto-1128949343-612x612.jpg" />
+    <Content Include="Content\oferta-supermercado-min-1024x789-1.jpg" />
+    <Content Include="Content\ofertas_supermercados.jpg" />
     <Content Include="Content\pescado.png" />
     <Content Include="Content\Pollo-Fresco-X-3-Kg.jpg" />
     <Content Include="Content\dashboard\Site.css" />
+    <Content Include="Content\Promociones.jpg" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\slide1.jpg" />
+    <Content Include="Content\slide2.jpg" />
+    <Content Include="Content\slide3.jpg" />
     <Content Include="Content\StyleSheet1.css" />
     <Content Include="Content\unnamed.jpg" />
     <Content Include="Content\upscale supermarket_600x.jpg" />
