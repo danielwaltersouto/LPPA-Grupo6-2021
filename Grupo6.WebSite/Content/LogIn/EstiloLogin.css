@@ -73,6 +73,12 @@ h1, h2, h3 {
     border: 1px solid lightgrey;
 }
 
+.form-horizontal {
+
+    font-weight:bold;
+
+}
+
 form .error {
     color: #ff0000;
 }
@@ -80,3 +86,13 @@ form .error {
 #second {
     display: none;
 }
+
+.ocultar {
+    display: none;
+}
+
+.mostrar {
+    display: block;
+}
+
+

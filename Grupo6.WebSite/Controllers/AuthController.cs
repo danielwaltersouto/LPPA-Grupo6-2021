@@ -26,7 +26,7 @@ namespace Grupo6.WebSite.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult Index( Usuario Model)
+        public ActionResult LogIn( Usuario Model)
 
             
         {
@@ -55,6 +55,7 @@ namespace Grupo6.WebSite.Controllers
                  {
                     
                     new Claim(ClaimTypes.Email, Model.Email),
+                    new Claim(ClaimTypes.Name, Model.Email),
                     
                 };
                         var identity = new ClaimsIdentity(claims, "ApplicationCookie");

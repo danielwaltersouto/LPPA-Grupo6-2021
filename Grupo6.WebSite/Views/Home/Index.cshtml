@@ -5,16 +5,40 @@
 }
 
 <section class="main">
-    <div class="container py-5">
-        <div class="row py-5">
-            <div class="col-lg-7 pt-5 text-center">
-                <h1 class="pt-5">Ofertas Exclusivas!</h1>
-                <form action="/Auth/Index">
-                    <button class="btn1 mt-3">Acceder</button>
-                </form>
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <div class="container py-5">
+            <div class="row py-5">
+                <div class="col-lg-7 pt-5 text-center">
+                    <h1 class="pt-5">Ofertas Exclusivas!</h1>
+
+                    <form action="/Auth/Index">
+
+                        <button class="btn1 mt-3">Acceder</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
+    }
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="container py-5">
+            <div class="row py-5">
+                <div class="col-lg-7 pt-5 text-center">
+                    <h1 class="pt-5">BIENVENIDO!</h1>
+                    <h2>@User.Identity.Name</h2>
+
+                    
+                </div>
+            </div>
+        </div>
+    }
+
+
+
+
+
 
 </section>
 

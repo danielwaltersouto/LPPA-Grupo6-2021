@@ -1,0 +1,202 @@
+﻿@model Grupo6.Entities.Models.Usuario
+
+
+<head>
+    <link href="~/Content/LogIn/EstiloLogin.css" rel="stylesheet" />
+    
+</head>
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-5 mx-auto">
+
+            <div class="myform form ">
+                <div class="logo mb-3">
+                    <div class="col-md-12 text-center">
+
+
+                        <h1>Nuevo Registro</h1>
+                        <img src="~/Content/User/user-plus.svg" width="50" height="50" />
+                        <br />
+                        <hr />
+                    </div>
+                </div>
+
+                @using (Html.BeginForm())
+                {
+
+
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+                            <span>
+                                <img src="~/Content/User/person.svg" />
+                            </span>
+                            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <span>
+                                <img src="~/Content/User/person.svg" />
+                            </span>
+                            @Html.LabelFor(model => model.Apellido, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Apellido, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <span>
+                                <img src="~/Content/User/card.svg" />
+                            </span>
+                            @Html.LabelFor(model => model.Documento, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Documento, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Documento, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <span>
+                                <img src="~/Content/User/calendar.svg" />
+                            </span>
+                            @Html.LabelFor(model => model.FechaNacimiento, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+
+                                @Html.EditorFor(model => model.FechaNacimiento, new { htmlAttributes = new { @class = "form-control datepicker", Value = DateTime.Now.ToShortDateString(), @type = "date" } })
+                                @Html.ValidationMessageFor(model => model.FechaNacimiento, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <span>
+                                <img src="~/Content/User/tele.svg" />
+                            </span>
+                            @Html.LabelFor(model => model.Telefono, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
+                          
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <span>
+                                <img src="~/Content/User/cart.svg" />
+                            </span>
+                            @Html.LabelFor(model => model.IdCategoriaFiscal, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.ValidationMessageFor(model => model.IdCategoriaFiscal, "", new { @class = "text-danger" })
+                                <select name=@Html.EditorFor(model => model.IdCategoriaFiscal, new { htmlAttributes = new { @class = "form-control" } })>
+                                    <option value=""></option>
+                                    <option value="1">Consumidor Final</option>
+                                    <option value="2">Discrimina IVA</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <span>
+                                <img src="~/Content/User/mail.svg" />
+                            </span>
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span>
+                                <img src="~/Content/User/file-lock.svg" />
+                            </span>
+                            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                           
+                            <input type="password" class="form-control" id="pass1" required>
+                          
+                        </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <span>
+                                <img src="~/Content/User/file-lock-fill.svg" />
+                            </span>
+                            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="password" class="form-control" id="pass2" required>
+
+                            <!-- Mensajes de Verificación -->
+
+                            <script src="~/Scripts/Validaciones/PasswordScript.js"></script>
+
+                            <div id="msg"></div>
+                            <div id="error" class="alert alert-danger ocultar" role="alert">
+                                Las Contraseñas no coinciden, vuelve a intentar !
+                            </div>
+                            <div id="ok" class="alert alert-success ocultar" role="alert">
+                                Las Contraseñas coinciden ! (Procesando formulario ... )
+                            </div>
+
+
+                            <!-- Fin Mensajes de Verificación -->
+
+
+                        </div>
+                        </div>
+
+                        <br />
+                        <hr />
+
+                        <div class="col-md-12 text-center ">
+
+                            <button type="submit" onclick="verificarPasswords();return false" id="Registro" class=" btn btn-block mybtn btn-primary tx-tfm">Registrar</button>
+                        </div>
+                    </div>
+                }
+
+                <hr />
+                <div>
+                    <span>
+                        <img src="~/Content/User/box-arrow-in-left.svg" />
+                    </span>
+                    <a href="/Home/Index">Regresar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
