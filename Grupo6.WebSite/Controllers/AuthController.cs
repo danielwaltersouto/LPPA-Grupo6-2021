@@ -120,16 +120,23 @@ namespace Grupo6.WebSite.Controllers
 
             
             BizUsuario Busuario = new BizUsuario();
-            var oUsuario = Busuario.TraerPorEmail(model.Email);
+           
+            Usuario AutUsuario = new Usuario();
 
-            if (oUsuario != null)
+           
+        
+           AutUsuario = Busuario.TraerPorEmail(model.Email);
+
+            if (AutUsuario != null)
             {
                 string clave = Encriptador.GeneradorClave();
+                string SHAClave = Encriptador.Encriptar(clave);
 
 
-
-                CorreoElectronico.RecuperarPassword(oUsuario.NombreWeb, clave, oUsuario.Email);
-
+                //CorreoElectronico.RecuperarPassword(AutUsuario.NombreWeb, clave, AutUsuario.Email);
+                AutUsuario.UserToken = SHAClave;
+              
+                Busuario.Actualizar(AutUsuario);
 
                 return RedirectToAction("Index", "Home");
             }

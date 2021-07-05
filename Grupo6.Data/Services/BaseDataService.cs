@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Collections.ObjectModel;
+using System.Collections;
 
 namespace Grupo6.Data.Services
 {
@@ -59,7 +61,10 @@ namespace Grupo6.Data.Services
 
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            
+         
+            marketContext.Entry(entity).State = EntityState.Modified;
+            marketContext.SaveChanges();
         }
 
         public List<ValidationResult> ValidateModel(T model)

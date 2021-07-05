@@ -27,7 +27,18 @@ namespace Grupo6.Services
 
             string Password2 = Ouser.Password;
 
+
             ValidadorIngreso = Encriptador.Validar(Password,Password2) ;
+
+            if (ValidadorIngreso == false)
+            {
+
+                string uToken = Ouser.UserToken;
+
+                ValidadorIngreso = Encriptador.Validar(Password, uToken);
+
+            }
+
 
       
             return ValidadorIngreso ;
