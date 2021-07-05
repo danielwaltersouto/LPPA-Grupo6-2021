@@ -1,8 +1,5 @@
-﻿@model Grupo6.Entities.Models.Usuario
+﻿@model Grupo6.WebSite.ViewModels.ViewModelLogIn
 
-@{
-    ViewBag.Title = "StartRecovery";
-}
 
 <head>
     <link href="~/Content/LogIn/EstiloLogin.css" rel="stylesheet" />
@@ -18,7 +15,7 @@
                                 <h1>Login</h1>
                             </div>
                         </div>
-                        <form action="LogIn" method="post" name="login">
+                        <form action="" method="post">
 
 
                             <div class="form-group">
@@ -31,7 +28,9 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Password</label>
                                 <input type="password" name="@Html.IdFor(model=>model.Password)" id="@Html.IdFor(model=>model.Password)" class="form-control" placeholder="Ingrese Password">
+
                                 @Html.ValidationMessageFor(model => model.Password, null, new { style = "colour:red;" })
+
                             </div>
                             <br />
 

@@ -2,6 +2,7 @@
 using Grupo6.Entities.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Grupo6.Services;
 
 namespace Grupo6.Business
 {
@@ -10,6 +11,16 @@ namespace Grupo6.Business
         public void Agregar(Usuario usuario)
         {
             var db = new BaseDataService<Usuario>();
+
+
+
+            usuario.IdRol = 2;
+            usuario.Password = Encriptador.Encriptar(usuario.Password);
+            usuario.Password_ = Encriptador.Encriptar(usuario.Password_);
+            usuario.NombreWeb = usuario.Nombre + " " + usuario.Apellido;
+
+
+
             db.Create(usuario);
 
         }

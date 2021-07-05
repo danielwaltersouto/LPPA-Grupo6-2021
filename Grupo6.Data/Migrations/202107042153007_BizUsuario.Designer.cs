@@ -7,13 +7,13 @@ namespace Grupo6.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class nuevoNugget : IMigrationMetadata
+    public sealed partial class BizUsuario : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(nuevoNugget));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(BizUsuario));
         
         string IMigrationMetadata.Id
         {
-            get { return "202106211749044_nuevoNugget"; }
+            get { return "202107042153007_BizUsuario"; }
         }
         
         string IMigrationMetadata.Source

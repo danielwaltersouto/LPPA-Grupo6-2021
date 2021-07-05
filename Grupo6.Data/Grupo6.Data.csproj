@@ -53,9 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202106211749044_nuevoNugget.cs" />
-    <Compile Include="Migrations\202106211749044_nuevoNugget.designer.cs">
-      <DependentUpon>202106211749044_nuevoNugget.cs</DependentUpon>
+    <Compile Include="Migrations\202107042153007_BizUsuario.cs" />
+    <Compile Include="Migrations\202107042153007_BizUsuario.designer.cs">
+      <DependentUpon>202107042153007_BizUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,8 +77,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202106211749044_nuevoNugget.resx">
-      <DependentUpon>202106211749044_nuevoNugget.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107042153007_BizUsuario.resx">
+      <DependentUpon>202107042153007_BizUsuario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

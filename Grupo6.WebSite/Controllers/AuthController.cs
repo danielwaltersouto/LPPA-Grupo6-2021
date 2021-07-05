@@ -8,8 +8,8 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Grupo6.Entities.Models;
 using Grupo6.Services;
+using Grupo6.WebSite.ViewModels;
 using Grupo6.Business;
-
 
 
 namespace Grupo6.WebSite.Controllers
@@ -18,7 +18,7 @@ namespace Grupo6.WebSite.Controllers
     {
        [AllowAnonymous]
        [HttpGet]
-        public ActionResult Index()
+        public ActionResult LogIn()
         {
             return View();
         }
@@ -26,7 +26,7 @@ namespace Grupo6.WebSite.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult LogIn( Usuario Model)
+        public ActionResult LogIn( ViewModelLogIn  Model)
 
             
         {
@@ -44,9 +44,12 @@ namespace Grupo6.WebSite.Controllers
 
                 else
                 {
-
-
-                    bool valida = ValidarIngreso.Validar(Model);
+                    Usuario UserModel = new Usuario();
+                    UserModel.Email = Model.Email;
+                    UserModel.Password = Model.Password;
+                    UserModel.UserToken = Model.Password;
+                     
+                    bool valida = ValidarIngreso.Validar(UserModel);
 
                     if (valida == true)
                     {
@@ -106,8 +109,7 @@ namespace Grupo6.WebSite.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult StartRecovery(Usuario model)
-
+        public ActionResult StartRecovery(ViewModelRecovery model)
 
         {
 
@@ -116,6 +118,7 @@ namespace Grupo6.WebSite.Controllers
                 return View(model);
             }
 
+            
             BizUsuario Busuario = new BizUsuario();
             var oUsuario = Busuario.TraerPorEmail(model.Email);
 
@@ -128,7 +131,7 @@ namespace Grupo6.WebSite.Controllers
                 CorreoElectronico.RecuperarPassword(oUsuario.NombreWeb, clave, oUsuario.Email);
 
 
-                return RedirectToAction("Index", "Auth");
+                return RedirectToAction("Index", "Home");
             }
 
             return View();

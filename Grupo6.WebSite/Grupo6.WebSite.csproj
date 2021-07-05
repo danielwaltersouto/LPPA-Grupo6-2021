@@ -186,7 +186,6 @@
     <Content Include="Scripts\jquery-3.6.0.min.js" />
     <Content Include="Scripts\jquery-3.6.0.slim.js" />
     <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
-    <Content Include="Scripts\Validaciones\PasswordScript.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -274,7 +273,8 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\ViewModelUsuario.cs" />
+    <Compile Include="ViewModels\ViewModelLogIn.cs" />
+    <Compile Include="ViewModels\ViewModelRecovery.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -296,7 +296,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Auth\Index.cshtml" />
+    <Content Include="Views\Auth\LogIn.cshtml" />
     <Content Include="Views\Auth\StartRecovery.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\UserRegister.cshtml" />
