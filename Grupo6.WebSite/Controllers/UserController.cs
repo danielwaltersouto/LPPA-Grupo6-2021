@@ -13,6 +13,7 @@ namespace Grupo6.WebSite.Controllers
     {
         // GET: User
 
+       // [Authorize]
         [AllowAnonymous]
         public ActionResult Index()
         {
