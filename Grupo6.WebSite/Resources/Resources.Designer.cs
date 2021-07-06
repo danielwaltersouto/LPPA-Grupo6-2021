@@ -59,5 +59,77 @@ namespace Grupo6.WebSite.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Apellido.
+        /// </summary>
+        internal static string Apellido {
+            get {
+                return ResourceManager.GetString("Apellido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a BIENVENIDO A UAI MARKET.
+        /// </summary>
+        internal static string BIENVENIDO_A_UAI_MARKET {
+            get {
+                return ResourceManager.GetString("BIENVENIDO A UAI MARKET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Contraseña.
+        /// </summary>
+        internal static string Contraseña {
+            get {
+                return ResourceManager.GetString("Contraseña", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Enviar Correo de Recuperacion.
+        /// </summary>
+        internal static string Enviar_Correo_de_Recuperacion {
+            get {
+                return ResourceManager.GetString("Enviar Correo de Recuperacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Iniciar Sesion.
+        /// </summary>
+        internal static string Iniciar_Sesion {
+            get {
+                return ResourceManager.GetString("Iniciar Sesion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre.
+        /// </summary>
+        internal static string Nombre {
+            get {
+                return ResourceManager.GetString("Nombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Olvidaste tu Contraseña.
+        /// </summary>
+        internal static string Olvidaste_tu_Contraseña {
+            get {
+                return ResourceManager.GetString("Olvidaste tu Contraseña", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Registrate.
+        /// </summary>
+        internal static string Registrate {
+            get {
+                return ResourceManager.GetString("Registrate", resourceCulture);
+            }
+        }
     }
 }
