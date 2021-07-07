@@ -33,26 +33,72 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr id="row_@item.Id">
-                <td style="vertical-align: inherit;">
-                    @Html.DisplayFor(itemModel => item.Descripcion)
-                </td>
-                <td style="vertical-align: inherit;">
-                    @Html.DisplayFor(itemModel => item.CategoriaProducto.Nombre)
-                </td>
-                <td style="vertical-align: inherit;">
-                    @Html.DisplayFor(itemModel => item.Precio)
-                </td>
-                <td style="vertical-align: inherit;">
-                    @Html.DisplayFor(itemModel => item.StockActual)
-                </td>
-                <td class="float-right">
-                    <a class="btn btn-info" style="font-size: 1rem;" href="@Url.Action("Edit", "Producto", new { id = item.Id})"><i class="bi bi-pencil-square"></i></a>
-                    <a class="btn btn-danger" style="font-size: 1rem;" href="#" onclick="confirmDelete(@item.Id)"><i class="bi bi-trash"></i></a>
-                </td>
-            </tr>
+                <tr id="row_@item.Id">
+                    <td style="vertical-align: inherit;">
+                        @Html.DisplayFor(itemModel => item.Descripcion)
+                    </td>
+                    <td style="vertical-align: inherit;">
+                        @Html.DisplayFor(itemModel => item.CategoriaProducto.Nombre)
+                    </td>
+                    <td style="vertical-align: inherit;">
+                        @Html.DisplayFor(itemModel => item.Precio)
+                    </td>
+                    <td style="vertical-align: inherit;">
+                        @Html.DisplayFor(itemModel => item.StockActual)
+                    </td>
+                    <td class="float-right">
+                        <a class="btn btn-info" style="font-size: 1rem;" href="@Url.Action("Edit", "Producto", new { id = item.Id})"><i class="bi bi-pencil-square"></i></a>
+                        <a class="btn btn-danger" style="font-size: 1rem;" href="#" onclick="confirmDelete(@item.Id)"><i class="bi bi-trash"></i></a>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar Producto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h6>Esta seguro de querer eliminar el producto ?</h6>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="deleteProducto()">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        var confirmDelete = function (productoId) {
+            $("#hiddenIdtoDelete").val(productoId);
+            $("#myDeleteModal").modal('show');
+        }
+
+        var deleteProducto = function () {
+            var productoId = $("#hiddenIdtoDelete").val();
+            $.ajax({
+                type: "POST",
+                url: "/Producto/Delete",
+                data: { id: productoId },
+                success: function (result) {
+                    $("#myDeleteModal").modal('hide');
+                    $("#row_" + productoId).remove();
+                }
+            })
+        }
+
+    </script>
+}
 

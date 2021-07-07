@@ -44,5 +44,44 @@ namespace Grupo6.WebSite.Controllers
                 return View(model);
             }
         }
+
+        [HttpGet]
+        public ActionResult Edit(int id) 
+        {
+            var bizCategoriaProducto = new BizCategoriaProducto();
+            var bizProducto = new BizProducto();
+            ViewBag.ListadoCategorias = new SelectList(bizCategoriaProducto.TraerTodos(), "Id", "Nombre");
+            var model = bizProducto.TraerPorId(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Producto producto, HttpPostedFileBase imagenProducto)
+        {
+            var bizProducto = new BizProducto();
+
+            if (imagenProducto == null)
+            {
+                producto.FotoProducto = bizProducto.TraerPorId(producto.Id).FotoProducto;
+            }
+            else 
+            {
+                producto.FotoProducto = new byte[imagenProducto.ContentLength];
+                imagenProducto.InputStream.Read(producto.FotoProducto, 0, imagenProducto.ContentLength);
+            }
+            
+            bizProducto.Actualizar(producto);
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public JsonResult Delete(int id)
+        {
+            var bizProducto = new BizProducto();
+            bizProducto.Eliminar(id);
+
+            return Json(new { status = "Success" });
+        }
     }
 }

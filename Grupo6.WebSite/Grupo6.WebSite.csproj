@@ -275,6 +275,7 @@
     <Content Include="Views\Rol\Edit.cshtml" />
     <Content Include="Views\Factura\Index.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Producto\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
