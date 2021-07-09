@@ -1,0 +1,134 @@
+﻿@model Grupo6.Entities.Models.Usuario
+
+<head>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="~/Content/LogIn/EstiloLogin.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-9">
+                <ul class="nav nav-pills nav-stacked admin-menu" style="font-size:25px">
+                    <li class="active"><a href=""><i class="glyphicon glyphicon-user"></i> Perfil</a></li>
+                    <li><a href="@Url.Action("ChangePass", "Auth")" data-target-id="change-password"><i class="glyphicon glyphicon-lock"></i> Cambiar Contraseña</a></li>
+                    <li><a href="" data-target-id="settings"><i class="glyphicon glyphicon-cog"></i>Ajustes</a></li>
+                    <li><a href="@Url.Action("LogOut", "Auth")" data-target-id="logout"><i class="glyphicon glyphicon-log-out"></i>Cerrar Sesion</a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-md-9  admin-content" id="profile">
+            <div class="panel panel-info" style="margin: 1em;">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Email</h3>
+                </div>
+                <div class="panel-body">
+                    @ViewBag.Usuario.Email
+
+                </div>
+            </div>
+        </div>
+
+
+            <div class="col-md-9  admin-content" id="profile">
+                <div class="panel panel-info" style="margin: 1em;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Nombre</h3>
+                    </div>
+                    <div class="panel-body">
+                        @ViewBag.Usuario.Nombre
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-9  admin-content" id="profile">
+                <div class="panel panel-info" style="margin: 1em;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Apellido</h3>
+                    </div>
+                    <div class="panel-body">
+                        @ViewBag.Usuario.Apellido
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-9  admin-content" id="profile">
+                <div class="panel panel-info" style="margin: 1em;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Documento</h3>
+                    </div>
+                    <div class="panel-body">
+                        @ViewBag.Usuario.Documento
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-9  admin-content" id="profile">
+                <div class="panel panel-info" style="margin: 1em;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Direccion Principal</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        @ViewBag.Usuario.Direccion
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-9  admin-content" id="profile">
+                <div class="panel panel-info" style="margin: 1em;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Direccion Secundaria</h3>
+                    </div>
+                    <div class="panel-body">
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            
+
+            <div class="col-md-9  admin-content" id="profile">
+                <div class="panel panel-info" style="margin: 1em;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Tipo de Facturacion</h3>
+                    </div>
+                    <div class="panel-body">
+
+
+                        var items = (from @ViewBag.Usuario.CategoriaFiscal value in values
+                        select new SelectListItem)
+
+
+                        @ViewBag.Usuario.CategoriaFiscal
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+
+
+
+
+

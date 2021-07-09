@@ -20,6 +20,8 @@ namespace Grupo6.WebSite.Controllers
        [HttpGet]
         public ActionResult LogIn()
         {
+           
+            
             return View();
         }
 
@@ -54,12 +56,15 @@ namespace Grupo6.WebSite.Controllers
                     if (valida == true)
                     {
 
+                       
+                        
                         var claims = new[]
                  {
                     
                     new Claim(ClaimTypes.Email, Model.Email),
-                    new Claim(ClaimTypes.Name, Model.Email),
-                    
+                      new Claim(ClaimTypes.Name,  Model.Email),
+
+
                 };
                         var identity = new ClaimsIdentity(claims, "ApplicationCookie");
                         IOwinContext ctx = Request.GetOwinContext();
@@ -94,7 +99,19 @@ namespace Grupo6.WebSite.Controllers
                 throw;
             }
         }
-        
+
+
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult ChangePass()
+
+
+        {
+            return View();
+        }
+
+
 
 
 

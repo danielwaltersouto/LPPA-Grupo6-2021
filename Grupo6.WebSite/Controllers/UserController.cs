@@ -6,6 +6,9 @@ using System.Web.Mvc;
 using Owin;
 using Grupo6.Entities.Models;
 using Grupo6.Business;
+using System.Security.Claims;
+using Microsoft.Owin;
+using Microsoft.Owin.Security;
 
 namespace Grupo6.WebSite.Controllers
 {
@@ -13,13 +16,27 @@ namespace Grupo6.WebSite.Controllers
     {
         // GET: User
 
-       // [Authorize]
-        [AllowAnonymous]
-        public ActionResult Index()
+       [Authorize]
+        //  [AllowAnonymous]
+        public ActionResult Profile()
         {
-            return View();
+            BizUsuario bizUsuario = new BizUsuario();
+            Usuario usuario = new Usuario();
+            var CUser = (ClaimsIdentity)User.Identity;
+            var VMail = CUser.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email);
+            string eMail = VMail.Value;
+            usuario=bizUsuario.TraerPorEmail(eMail);
+
+            ViewBag.Usuario = usuario;
+            
+            
+        return View();
 
         }
+
+      
+
+
 
 
         [AllowAnonymous]
@@ -29,6 +46,8 @@ namespace Grupo6.WebSite.Controllers
 
             return View();
         }
+
+
 
 
 

@@ -87,4 +87,25 @@ form .error {
     display: none;
 }
 
+#profile {
+    
+}
+
+.panel-heading {
+    background-color: black;
+    color: black;
+    padding: 4px 4px 4px 4px;
+}
+.panel-title {
+    background-color: black;
+    font-size: 30px;
+    color: white;
+}
+
+.panel-info {
+    background-color: white;
+    font-size: 20px;
+    font-family:Arial;
+    font-weight:bold;
+}
 

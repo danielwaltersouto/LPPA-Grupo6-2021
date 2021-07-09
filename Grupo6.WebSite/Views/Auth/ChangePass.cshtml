@@ -1,0 +1,100 @@
+﻿@model Grupo6.Entities.Models.Usuario
+
+<head>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="~/Content/LogIn/EstiloLogin.css" rel="stylesheet" />
+</head>
+
+
+<body>
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-9">
+                <ul class="nav nav-pills nav-stacked admin-menu" style="font-size:25px">
+                    <li class="active"><a href="@Url.Action("Profile", "User") "><i class="glyphicon glyphicon-user"></i> Perfil</a></li>
+                    <li><a href="" data-target-id="settings"><i class="glyphicon glyphicon-cog"></i>Ajustes</a></li>
+                    <li><a href="@Url.Action("LogOut", "Auth")" data-target-id="logout"><i class="glyphicon glyphicon-log-out"></i>Cerrar Sesion</a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-md-9  admin-content" id="profile">
+                <div class="panel panel-info" style="margin: 1em;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Contraseña</h3>
+                    </div>
+                    <div class="panel-body">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                       @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="col-md-9  admin-content" id="profile">
+                <div class="panel panel-info" style="margin: 1em;">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Re Ingrese Contraseña</h3>
+                    </div>
+                    <div class="panel-body">
+                        @Html.EditorFor(model => model.Password_, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Modificar" class="btn1 mt-3" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--
+
+                        Html.ValidationSummary(true, "", new { class = "text-danger" })
+                        Html.HiddenFor(model => model.Id)
+
+
+
+                        <div class="form-group">
+                           Html.LabelFor(model => model.Password, htmlAttributes: new { class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                Html.EditorFor(model => model.Password, new { htmlAttributes = new { class = "form-control" } })
+                                Html.ValidationMessageFor(model => model.Password, "", new { class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            Html.LabelFor(model => model.Password_, htmlAttributes: new { class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                Html.EditorFor(model => model.Password_, new { htmlAttributes = new { class = "form-control" } })
+                                Html.ValidationMessageFor(model => model.Password_, "", new { class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                }
+
+                <div>
+                   Html.ActionLink("Back to List", "Index")
+                </div>
+            </div>
+        </div>
+      </div>
+    -->
+</body>
