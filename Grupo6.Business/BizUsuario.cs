@@ -27,7 +27,7 @@ namespace Grupo6.Business
             return db.GetById(id);
         }
 
-        public Usuario TraerPorEmail(string email) 
+        public Usuario TraerPorEmail(string email)
         {
             var db = new BaseDataService<Usuario>();
             return db.Get((Usuario usuario) => usuario.Email == email).First();
@@ -37,6 +37,11 @@ namespace Grupo6.Business
         {
             var db = new BaseDataService<Usuario>();
             db.Delete(usuario);
+        }
+        public void Eliminar(int idUsuario)
+        {
+            var db = new BaseDataService<Usuario>();
+            db.Delete(idUsuario);
         }
 
         public void Actualizar(Usuario usuario)

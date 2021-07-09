@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Grupo6.Entities.Models
@@ -21,6 +22,8 @@ namespace Grupo6.Entities.Models
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public int Documento { get; set; }
+        [DataType(DataType.Date, ErrorMessage = "Fecha Nacimiento Invalida")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime FechaNacimiento { get; set; }
         public int Telefono { get; set; }
         public string Email { get; set; }

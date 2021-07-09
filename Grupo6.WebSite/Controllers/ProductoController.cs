@@ -17,7 +17,7 @@ namespace Grupo6.WebSite.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create() 
+        public ActionResult Create()
         {
             var bizCategoriaProducto = new BizCategoriaProducto();
             ViewBag.ListadoCategorias = new SelectList(bizCategoriaProducto.TraerTodos(), "Id", "Nombre");
@@ -28,7 +28,11 @@ namespace Grupo6.WebSite.Controllers
         public ActionResult Create(Producto model, HttpPostedFileBase imagenProducto)
         {
             if (!ModelState.IsValid)
+            {
+                var bizCategoriaProducto = new BizCategoriaProducto();
+                ViewBag.ListadoCategorias = new SelectList(bizCategoriaProducto.TraerTodos(), "Id", "Nombre");
                 return View();
+            }
 
             try
             {
@@ -46,7 +50,7 @@ namespace Grupo6.WebSite.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit(int id) 
+        public ActionResult Edit(int id)
         {
             var bizCategoriaProducto = new BizCategoriaProducto();
             var bizProducto = new BizProducto();
@@ -64,12 +68,12 @@ namespace Grupo6.WebSite.Controllers
             {
                 producto.FotoProducto = bizProducto.TraerPorId(producto.Id).FotoProducto;
             }
-            else 
+            else
             {
                 producto.FotoProducto = new byte[imagenProducto.ContentLength];
                 imagenProducto.InputStream.Read(producto.FotoProducto, 0, imagenProducto.ContentLength);
             }
-            
+
             bizProducto.Actualizar(producto);
 
             return RedirectToAction("Index");

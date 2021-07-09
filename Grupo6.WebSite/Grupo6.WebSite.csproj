@@ -234,6 +234,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CategoriaFiscalController.cs" />
     <Compile Include="Controllers\CategoriaProductoController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -276,6 +277,10 @@
     <Content Include="Views\Factura\Index.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Producto\Edit.cshtml" />
+    <Content Include="Views\Usuario\Create.cshtml" />
+    <Content Include="Views\CategoriaFiscal\Index.cshtml" />
+    <Content Include="Views\CategoriaFiscal\Create.cshtml" />
+    <Content Include="Views\CategoriaFiscal\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

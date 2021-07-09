@@ -1,8 +1,6 @@
 ﻿using Grupo6.Business;
+using Grupo6.Entities.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Grupo6.WebSite.Controllers
@@ -15,6 +13,65 @@ namespace Grupo6.WebSite.Controllers
             var bizUsuario = new BizUsuario();
             var model = bizUsuario.TraerTodos();
             return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            var bizRol = new BizRol();
+            ViewBag.ListadoRoles = new SelectList(bizRol.TraerTodos(), "Id", "Nombre");
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Usuario usuario)
+        {
+            if (!ModelState.IsValid)
+            {
+                var bizRol = new BizRol();
+                ViewBag.ListadoRoles = new SelectList(bizRol.TraerTodos(), "Id", "Nombre");
+                ModelState.AddModelError("FechaNacimiento", "Fecha Nacimiento Invalida");
+                return View(usuario);
+            }
+
+            try
+            {
+                var bizUsuario = new BizUsuario();
+                //Agregar el generador de pass y Save usuario
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                return View(usuario);
+            }
+        }
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var bizRol = new BizRol();
+            ViewBag.ListadoRoles = new SelectList(bizRol.TraerTodos(), "Id", "Nombre");
+            var bizUsuario = new BizUsuario();
+            var model = bizUsuario.TraerPorId(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Usuario usuario)
+        {
+            var bizUsuario = new BizUsuario();
+
+            bizUsuario.Actualizar(usuario);
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public JsonResult Delete(int id)
+        {
+            var bizUsuario = new BizUsuario();
+            bizUsuario.Eliminar(id);
+
+            return Json(new { status = "Success" });
         }
     }
 }

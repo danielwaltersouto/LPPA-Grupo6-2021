@@ -35,30 +35,30 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr id="row_@item.Id">
-                <td style="vertical-align: inherit;">
-                    @Html.DisplayFor(itemModel => item.Documento)
-                </td>
-                <td style="vertical-align: inherit;">
-                    @Html.DisplayFor(itemModel => item.Nombre)
-                </td>
-                <td style="vertical-align: inherit;">
-                    @Html.DisplayFor(itemModel => item.Apellido)
-                </td>
-                <td style="vertical-align: inherit;">
-                    @Html.DisplayFor(itemModel => item.FechaAlta)
-                </td>
-                <td style="vertical-align: inherit;">
-                    @Html.DisplayFor(itemModel => item.Email)
-                </td>
-                <td style="vertical-align: inherit;">
-                    @Html.DisplayFor(itemModel => item.Rol)
-                </td>
-                <td class="float-right">
-                    <a class="btn btn-info" style="font-size: 1rem;" href="@Url.Action("Edit", "Usuario", new { id = item.Id})"><i class="bi bi-pencil-square"></i></a>
-                    <a class="btn btn-danger" style="font-size: 1rem;" href="#" onclick="confirmDelete(@item.Id)"><i class="bi bi-trash"></i></a>
-                </td>
-            </tr>
+                <tr id="row_@item.Id">
+                    <td style="vertical-align: inherit;">
+                        @Html.DisplayFor(itemModel => item.Documento)
+                    </td>
+                    <td style="vertical-align: inherit;">
+                        @Html.DisplayFor(itemModel => item.Nombre)
+                    </td>
+                    <td style="vertical-align: inherit;">
+                        @Html.DisplayFor(itemModel => item.Apellido)
+                    </td>
+                    <td style="vertical-align: inherit;">
+                        @item.FechaAlta.ToString("dd/MM/yyyy");
+                    </td>
+                    <td style="vertical-align: inherit;">
+                        @Html.DisplayFor(itemModel => item.Email)
+                    </td>
+                    <td style="vertical-align: inherit;">
+                        @Html.DisplayFor(itemModel => item.Rol.Nombre)
+                    </td>
+                    <td class="float-right">
+                        <a class="btn btn-info" style="font-size: 1rem;" href="@Url.Action("Edit", "Usuario", new { id = item.Id})"><i class="bi bi-pencil-square"></i></a>
+                        <a class="btn btn-danger" style="font-size: 1rem;" href="#" onclick="confirmDelete(@item.Id)"><i class="bi bi-trash"></i></a>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
@@ -103,8 +103,8 @@
                 success: function (result) {
                     $("#myDeleteModal").modal('hide');
                     $("#row_" + usuarioId).remove();
-                    }
-                })
+                }
+            })
         }
 
     </script>
