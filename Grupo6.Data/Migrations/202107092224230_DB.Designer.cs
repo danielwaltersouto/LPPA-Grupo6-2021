@@ -7,13 +7,13 @@ namespace Grupo6.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class FixCarritoIdMigration : IMigrationMetadata
+    public sealed partial class DB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(FixCarritoIdMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(DB));
         
         string IMigrationMetadata.Id
         {
-            get { return "202106281629165_FixCarritoIdMigration"; }
+            get { return "202107092224230_DB"; }
         }
         
         string IMigrationMetadata.Source

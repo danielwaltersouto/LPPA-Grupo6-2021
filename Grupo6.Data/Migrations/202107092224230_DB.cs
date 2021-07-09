@@ -3,13 +3,11 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class FixIdsEntities : DbMigration
+    public partial class DB : DbMigration
     {
         public override void Up()
         {
-            DropForeignKey("dbo.ItemCarrito", "IdPedido", "dbo.Carrito");
-            DropIndex("dbo.ItemCarrito", new[] { "IdPedido" });
-            RenameColumn(table: "dbo.ItemCarrito", name: "IdPedido", newName: "Carrito_Id");
+            RenameColumn(table: "dbo.ItemCarrito", name: "IdPedido", newName: "CarritoId");
             RenameColumn(table: "dbo.Carrito", name: "IdUsuario", newName: "UsuarioId");
             RenameColumn(table: "dbo.ItemCarrito", name: "IdProducto", newName: "ProductoId");
             RenameColumn(table: "dbo.Producto", name: "IdCategoriaProducto", newName: "CategoriaProductoId");
@@ -22,6 +20,7 @@
             RenameColumn(table: "dbo.Direccion", name: "IdUsuario", newName: "UsuarioId");
             RenameColumn(table: "dbo.Usuario", name: "IdRol", newName: "RolId");
             RenameIndex(table: "dbo.Carrito", name: "IX_IdUsuario", newName: "IX_UsuarioId");
+            RenameIndex(table: "dbo.ItemCarrito", name: "IX_IdPedido", newName: "IX_CarritoId");
             RenameIndex(table: "dbo.ItemCarrito", name: "IX_IdProducto", newName: "IX_ProductoId");
             RenameIndex(table: "dbo.Producto", name: "IX_IdCategoriaProducto", newName: "IX_CategoriaProductoId");
             RenameIndex(table: "dbo.DetalleFactura", name: "IX_NroFactura", newName: "IX_FacturaId");
@@ -32,10 +31,6 @@
             RenameIndex(table: "dbo.Usuario", name: "IX_IdCategoriaFiscal", newName: "IX_CategoriaFiscalId");
             RenameIndex(table: "dbo.Usuario", name: "IX_IdRol", newName: "IX_RolId");
             RenameIndex(table: "dbo.Direccion", name: "IX_IdUsuario", newName: "IX_UsuarioId");
-            AddColumn("dbo.ItemCarrito", "PedidoId", c => c.Int(nullable: false));
-            AlterColumn("dbo.ItemCarrito", "Carrito_Id", c => c.Int());
-            CreateIndex("dbo.ItemCarrito", "Carrito_Id");
-            AddForeignKey("dbo.ItemCarrito", "Carrito_Id", "dbo.Carrito", "Id");
             DropColumn("dbo.Carrito", "IdPedido");
             DropColumn("dbo.Producto", "IdProducto");
             DropColumn("dbo.CategoriaProducto", "IdCategoriaProducto");
@@ -60,10 +55,6 @@
             AddColumn("dbo.CategoriaProducto", "IdCategoriaProducto", c => c.Int(nullable: false));
             AddColumn("dbo.Producto", "IdProducto", c => c.Int(nullable: false));
             AddColumn("dbo.Carrito", "IdPedido", c => c.Int(nullable: false));
-            DropForeignKey("dbo.ItemCarrito", "Carrito_Id", "dbo.Carrito");
-            DropIndex("dbo.ItemCarrito", new[] { "Carrito_Id" });
-            AlterColumn("dbo.ItemCarrito", "Carrito_Id", c => c.Int(nullable: false));
-            DropColumn("dbo.ItemCarrito", "PedidoId");
             RenameIndex(table: "dbo.Direccion", name: "IX_UsuarioId", newName: "IX_IdUsuario");
             RenameIndex(table: "dbo.Usuario", name: "IX_RolId", newName: "IX_IdRol");
             RenameIndex(table: "dbo.Usuario", name: "IX_CategoriaFiscalId", newName: "IX_IdCategoriaFiscal");
@@ -74,6 +65,7 @@
             RenameIndex(table: "dbo.DetalleFactura", name: "IX_FacturaId", newName: "IX_NroFactura");
             RenameIndex(table: "dbo.Producto", name: "IX_CategoriaProductoId", newName: "IX_IdCategoriaProducto");
             RenameIndex(table: "dbo.ItemCarrito", name: "IX_ProductoId", newName: "IX_IdProducto");
+            RenameIndex(table: "dbo.ItemCarrito", name: "IX_CarritoId", newName: "IX_IdPedido");
             RenameIndex(table: "dbo.Carrito", name: "IX_UsuarioId", newName: "IX_IdUsuario");
             RenameColumn(table: "dbo.Usuario", name: "RolId", newName: "IdRol");
             RenameColumn(table: "dbo.Direccion", name: "UsuarioId", newName: "IdUsuario");
@@ -86,9 +78,7 @@
             RenameColumn(table: "dbo.Producto", name: "CategoriaProductoId", newName: "IdCategoriaProducto");
             RenameColumn(table: "dbo.ItemCarrito", name: "ProductoId", newName: "IdProducto");
             RenameColumn(table: "dbo.Carrito", name: "UsuarioId", newName: "IdUsuario");
-            RenameColumn(table: "dbo.ItemCarrito", name: "Carrito_Id", newName: "IdPedido");
-            CreateIndex("dbo.ItemCarrito", "IdPedido");
-            AddForeignKey("dbo.ItemCarrito", "IdPedido", "dbo.Carrito", "Id", cascadeDelete: true);
+            RenameColumn(table: "dbo.ItemCarrito", name: "CarritoId", newName: "IdPedido");
         }
     }
 }

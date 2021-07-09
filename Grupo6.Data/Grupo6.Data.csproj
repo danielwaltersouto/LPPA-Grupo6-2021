@@ -53,29 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202105100213402_Initial.cs" />
-    <Compile Include="Migrations\202105100213402_Initial.Designer.cs">
-      <DependentUpon>202105100213402_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106072330518_FixForeignKey_Migration.cs" />
-    <Compile Include="Migrations\202106072330518_FixForeignKey_Migration.Designer.cs">
-      <DependentUpon>202106072330518_FixForeignKey_Migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106072349585_FixAllForeignKey_Migration.cs" />
-    <Compile Include="Migrations\202106072349585_FixAllForeignKey_Migration.Designer.cs">
-      <DependentUpon>202106072349585_FixAllForeignKey_Migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106260038000_FixUserMigration.cs" />
-    <Compile Include="Migrations\202106260038000_FixUserMigration.designer.cs">
-      <DependentUpon>202106260038000_FixUserMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106281626031_FixIdsEntities.cs" />
-    <Compile Include="Migrations\202106281626031_FixIdsEntities.designer.cs">
-      <DependentUpon>202106281626031_FixIdsEntities.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202106281629165_FixCarritoIdMigration.cs" />
-    <Compile Include="Migrations\202106281629165_FixCarritoIdMigration.designer.cs">
-      <DependentUpon>202106281629165_FixCarritoIdMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202107092224230_DB.cs" />
+    <Compile Include="Migrations\202107092224230_DB.designer.cs">
+      <DependentUpon>202107092224230_DB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,23 +77,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105100213402_Initial.resx">
-      <DependentUpon>202105100213402_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106072330518_FixForeignKey_Migration.resx">
-      <DependentUpon>202106072330518_FixForeignKey_Migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106072349585_FixAllForeignKey_Migration.resx">
-      <DependentUpon>202106072349585_FixAllForeignKey_Migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106260038000_FixUserMigration.resx">
-      <DependentUpon>202106260038000_FixUserMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106281626031_FixIdsEntities.resx">
-      <DependentUpon>202106281626031_FixIdsEntities.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202106281629165_FixCarritoIdMigration.resx">
-      <DependentUpon>202106281629165_FixCarritoIdMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202107092224230_DB.resx">
+      <DependentUpon>202107092224230_DB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
