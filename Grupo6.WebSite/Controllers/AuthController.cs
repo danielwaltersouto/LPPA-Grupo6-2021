@@ -63,7 +63,7 @@ namespace Grupo6.WebSite.Controllers
                     
                     new Claim(ClaimTypes.Email, Model.Email),
                       new Claim(ClaimTypes.Name,  Model.Email),
-
+                      
 
                 };
                         var identity = new ClaimsIdentity(claims, "ApplicationCookie");
@@ -83,12 +83,12 @@ namespace Grupo6.WebSite.Controllers
                     }
                         return View();
 
-
-                    
-                }
-
+ }
 
             }
+                    
+               
+
             
        
            
@@ -111,8 +111,68 @@ namespace Grupo6.WebSite.Controllers
             return View();
         }
 
+        [Authorize]
+        [HttpPost]
+        public ActionResult ChangePass(Usuario usuario)
 
 
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+
+                {
+                    return View();
+
+
+                }
+
+
+
+                else
+
+                {
+
+                    var Busuario = new BizUsuario();
+
+                    Usuario AutUsuario = new Usuario();
+
+
+
+                    AutUsuario = Busuario.TraerPorEmail(User.Identity.Name );
+
+                    if (AutUsuario != null)
+                    {
+                        string clave = usuario.Password;
+                        string SHAClave = Encriptador.Encriptar(clave);
+                        usuario.Password = SHAClave;
+                        string Titulo = "Cambio de Contraseña";
+                        string Cuerpo = AutUsuario.Nombre + " " + AutUsuario.Apellido + " Tu Clave se Cambio con Exito";
+
+                        AutUsuario.UserToken = SHAClave;
+                        Busuario.Actualizar(AutUsuario);
+                        CorreoElectronico.EnviarMail(Titulo,Cuerpo, AutUsuario.Email);
+                                                
+                       
+
+                        return RedirectToAction("Index", "Home");
+                    }
+
+
+
+
+                    return View();
+                }
+            }
+            catch (Exception)
+
+            { 
+
+                throw;
+            }
+
+        }
+                 
 
 
         [AllowAnonymous]
