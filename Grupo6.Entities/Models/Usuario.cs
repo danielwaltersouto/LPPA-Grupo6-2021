@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Grupo6.Entities.Models
@@ -21,23 +20,8 @@ namespace Grupo6.Entities.Models
 
    
         public int CategoriaFiscalId { get; set; }
-
         public string NombreWeb { get; set; }
-      
-        [Required(ErrorMessage = "Se requiere Password")]
-        [DataType(DataType.Password)]
         public string Password { get; set; }
-
-
-        [NotMapped]
-        [Compare(nameof(Email), ErrorMessage = "Password no Coincide")]
-        [Required(ErrorMessage = "Se requiere Password")]
-        [Display(Name = "Re Ingrese Password")]
-        [DataType(DataType.Password)]
-
-        public string PasswordCheck { get; set; }
-
-        public string Token { get; set; }
         public int Bloqueo { get; set; }
         public int IntentosLogin { get; set; }
         public int IdRol { get; set; }
@@ -54,20 +38,12 @@ namespace Grupo6.Entities.Models
         [Required(ErrorMessage = "Se requiere Apellido")]
         [MaxLength(30)]
         public string Apellido { get; set; }
-       
-        [Required(ErrorMessage = "Se requiere Documento")]
-        [StringLength(8, ErrorMessage = "Requiere 8 numeros")]
         public int Documento { get; set; }
-
-        [Required(ErrorMessage ="Se requiere fecha" )]
         public DateTime FechaNacimiento { get; set; }
        
         public DateTime FechaAlta { get; set; }
 
         public int Telefono { get; set; }
-        
-        [EmailAddress]
-        [Required(ErrorMessage = "Se requiere Email")]
         public string Email { get; set; }
         
         [NotMapped]
@@ -78,8 +54,6 @@ namespace Grupo6.Entities.Models
        
         public bool EmailConfirmed { get; set; }
         public string UserToken { get; set; }
-
-
 
         public virtual ICollection<Carrito> Carrito { get; set; }
         public virtual CategoriaFiscal CategoriaFiscal { get; set; }
