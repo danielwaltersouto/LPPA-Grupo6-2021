@@ -45,13 +45,14 @@ namespace Grupo6.Entities.Models
         
         [Required(ErrorMessage = "Se requiere Nombre")]
         [MaxLength(30)]
+        public string Nombre { get; set; }
 
         public int Bloqueo { get; set; }
         public int RolId { get; set; }
 
-        public string Nombre { get; set; }
+      
         
-        
+      
         [Required(ErrorMessage = "Se requiere Apellido")]
         [MaxLength(30)]
         public string Apellido { get; set; }
@@ -62,6 +63,7 @@ namespace Grupo6.Entities.Models
 
         [Required(ErrorMessage ="Se requiere fecha" )]
         public DateTime FechaNacimiento { get; set; }
+       
         public DateTime FechaAlta { get; set; }
 
         public int Telefono { get; set; }
@@ -75,6 +77,7 @@ namespace Grupo6.Entities.Models
         [Required(ErrorMessage = "Se requiere Email")]
         [Display(Name = "Re-Ingreso Email")]
         [Compare(nameof(Email), ErrorMessage = "Email no Coincide")]
+       
         public bool EmailConfirmed { get; set; }
         public string UserToken { get; set; }
 
