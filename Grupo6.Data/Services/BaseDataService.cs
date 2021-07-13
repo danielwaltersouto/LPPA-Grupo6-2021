@@ -26,13 +26,15 @@ namespace Grupo6.Data.Services
 
         public void Delete(T entity)
         {
+            marketContext.Set<T>().Attach(entity);
             marketContext.Set<T>().Remove(entity);
             marketContext.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var entity = GetById(id);
+            this.Delete(entity);
         }
 
         public List<T> Get(Expression<Func<T, bool>> whereExpression = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderFunction = null, string includeModels = "")
@@ -54,12 +56,13 @@ namespace Grupo6.Data.Services
 
         public T GetById(int id)
         {
-            throw new NotImplementedException();
+            return marketContext.Set<T>().SingleOrDefault(o => o.Id == id);
         }
 
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            marketContext.Entry(entity).State = EntityState.Modified;
+            marketContext.SaveChanges();
         }
 
         public List<ValidationResult> ValidateModel(T model)

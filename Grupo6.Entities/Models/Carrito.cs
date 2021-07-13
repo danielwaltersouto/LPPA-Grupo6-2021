@@ -10,10 +10,7 @@ namespace Grupo6.Entities.Models
         {
             this.Creado = DateTime.Now;
         }
-
-        public int IdPedido { get; set; }
-        [ForeignKey("Usuario"), DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int IdUsuario { get; set; }
+        public int UsuarioId { get; set; }
         public DateTime Creado { get; set; }
         public DateTime Modificado { get; set; }
 

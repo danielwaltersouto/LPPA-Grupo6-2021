@@ -13,15 +13,21 @@ namespace Grupo6.Entities.Models
             Bloqueo = 0;
             EmailConfirmed = false;
         }
+
         [Display(Name = "Categoria Fiscal")]
         public int IdCategoriaFiscal { get; set; }
        
         [Display(Name = "Usuario WEB")]
+
+        public DateTime FechaAlta { get; set; }
+        public int CategoriaFiscalId { get; set; }
+
         public string NombreWeb { get; set; }
       
         [Required(ErrorMessage = "Se requiere Password")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
 
         [NotMapped]
         [Compare(nameof(Email), ErrorMessage = "Password no Coincide")]
@@ -39,6 +45,10 @@ namespace Grupo6.Entities.Models
         
         [Required(ErrorMessage = "Se requiere Nombre")]
         [MaxLength(30)]
+
+        public int Bloqueo { get; set; }
+        public int RolId { get; set; }
+
         public string Nombre { get; set; }
         
         
@@ -66,6 +76,7 @@ namespace Grupo6.Entities.Models
         [Display(Name = "Re-Ingreso Email")]
         [Compare(nameof(Email), ErrorMessage = "Email no Coincide")]
         public bool EmailConfirmed { get; set; }
+        public string UserToken { get; set; }
 
 
 
