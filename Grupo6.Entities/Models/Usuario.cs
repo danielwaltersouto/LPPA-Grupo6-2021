@@ -19,7 +19,7 @@ namespace Grupo6.Entities.Models
        
         [Display(Name = "Usuario WEB")]
 
-        public DateTime FechaAlta { get; set; }
+   
         public int CategoriaFiscalId { get; set; }
 
         public string NombreWeb { get; set; }
@@ -47,12 +47,10 @@ namespace Grupo6.Entities.Models
         [MaxLength(30)]
         public string Nombre { get; set; }
 
-        public int Bloqueo { get; set; }
+    
         public int RolId { get; set; }
 
-      
-        
-      
+     
         [Required(ErrorMessage = "Se requiere Apellido")]
         [MaxLength(30)]
         public string Apellido { get; set; }
