@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
@@ -13,20 +14,15 @@ namespace Grupo6.Entities.Models
             Bloqueo = 0;
             EmailConfirmed = false;
         }
-        public int IdUsuario { get; set; }
-      
-      
+
+        [Display(Name = "Categoria Fiscal")]
+        public int CategoriaFiscalId { get; set; }
+
         [Display(Name = "Usuario WEB")]
         public string NombreWeb { get; set; }
-        
-        
-        public DateTime FechaAlta { get; set; }
-       
-        
-        [ForeignKey("CategoriaFiscal"), DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Display(Name = "Categoria Fiscal")]
-        public int IdCategoriaFiscal { get; set; }
-       
+        public string Password { get; set; }
+        public int Bloqueo { get; set; }
+        public int IntentosLogin { get; set; }
 
         [Required(ErrorMessage = "Se requiere Nombre")]
         [MaxLength(30)]
@@ -43,7 +39,9 @@ namespace Grupo6.Entities.Models
         [Required(ErrorMessage = "Se requiere fecha")]
         [Display(Name = "Fecha de Nacimiento")]
         public DateTime FechaNacimiento { get; set; }
-       
+
+        public DateTime FechaAlta { get; set; }
+
         public int Telefono { get; set; }
 
        
@@ -69,20 +67,9 @@ namespace Grupo6.Entities.Models
         [Required(ErrorMessage = "Se requiere Email")]
         [Display(Name = "Re-Ingreso Email")]
         [Compare(nameof(Email), ErrorMessage = "Email no Coincide")]
-        public string Email_ { get; set; }
-
         public bool EmailConfirmed { get; set; }
-
-        public int Bloqueo { get; set; }
-
-        public int IntentosLogin { get; set; }
-
         public string UserToken { get; set; }
-        
-        [ForeignKey("Rol"), DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int IdRol { get; set; }
-   
-    
+        public int RolId { get; set; }
 
         public virtual ICollection<Carrito> Carrito { get; set; }
         public virtual CategoriaFiscal CategoriaFiscal { get; set; }

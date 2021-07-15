@@ -46,6 +46,16 @@
     font-weight: 700;
 }
 
+.btn3{
+    height: 40px;
+    width: 10%;
+    outline: none;
+    background-color: blue;
+    color: white;
+    border-radius: 60px;
+    font-weight: 700;
+}
+
 /*-- Layout ----------------------------------------------------------*/
 
 .main {
@@ -118,4 +128,40 @@
     font-size: 2.5rem;
     cursor: pointer;
     padding-right: 5px;
+}
+.carousel-caption{
+    position: absolute;
+    top: 55%;
+    transform: translateY(-80%);
+    left: -8%;
+}
+    .carousel-caption h1 {
+        font-size: 70px;
+        font-weight: 600;
+        color:white;        
+        background-color:red;
+
+    }
+    .carousel-caption p {
+        color: white;
+        font-weight: 600;
+        background-color: red;
+    }
+
+.product input {
+    height: 45px;
+    width: 35%;
+    border: none;
+    outline: none;
+    background-color: red;
+    color: white;
+    font-weight: 700;
+    border-radius: 60px;
+}
+
+.product span{
+    color: red;
+    font-size: 19px;
+    font-weight: 800;
+    padding-left: 5px;
 }

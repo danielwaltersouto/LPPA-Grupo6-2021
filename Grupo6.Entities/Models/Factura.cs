@@ -10,9 +10,7 @@ namespace Grupo6.Entities.Models
         {
             FechaInicio = DateTime.Now;
         }
-        public int NroFactura { get; set; }
-        [ForeignKey("Usuario"), DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int IdUsuario { get; set; }
+        public int UsuarioId { get; set; }
         public DateTime FechaInicio { get; set; }
         public DateTime FechaCierre { get; set; }
         public string TipoFactura { get; set; }

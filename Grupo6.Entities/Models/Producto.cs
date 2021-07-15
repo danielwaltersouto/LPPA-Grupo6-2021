@@ -5,13 +5,11 @@ namespace Grupo6.Entities.Models
 {
     public class Producto : IdentityBase
     {
-        public int IdProducto { get; set; }
         public string CodigoBarra { get; set; }
         public string Descripcion { get; set; }
         public decimal Precio { get; set; }
         public int StockActual { get; set; }
-        [ForeignKey("CategoriaProducto"), DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int IdCategoriaProducto { get; set; }
+        public int CategoriaProductoId { get; set; }
         public byte[] FotoProducto { get; set; }
 
         public virtual CategoriaProducto CategoriaProducto { get; set; }
