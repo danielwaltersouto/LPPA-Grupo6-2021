@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace Grupo6.Entities.Models
 {
@@ -30,12 +31,35 @@ namespace Grupo6.Entities.Models
         [Required(ErrorMessage = "Se requiere Apellido")]
         [MaxLength(30)]
         public string Apellido { get; set; }
+
+        [Required(ErrorMessage = "Se requiere Documento")]
+ 
         public int Documento { get; set; }
+
+        [Required(ErrorMessage = "Se requiere fecha")]
+        [Display(Name = "Fecha de Nacimiento")]
         public DateTime FechaNacimiento { get; set; }
 
         public DateTime FechaAlta { get; set; }
 
         public int Telefono { get; set; }
+
+       
+        [Required(ErrorMessage = "Se requiere Password")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+
+
+        [NotMapped]
+        [Compare(nameof(Password), ErrorMessage = "Password no Coincide")]
+        [Required(ErrorMessage = "Se requiere Password")]
+        [Display(Name = "Re Ingrese Password")]
+        [DataType(DataType.Password)]
+        public string Password_ { get; set; }
+
+
+        [EmailAddress]
+        [Required(ErrorMessage = "Se requiere Email")]
         public string Email { get; set; }
 
         [NotMapped]
@@ -54,3 +78,28 @@ namespace Grupo6.Entities.Models
         public virtual Rol Rol { get; set; }
     }
 }
+
+
+  
+       
+
+
+
+ 
+
+   
+
+
+        
+
+
+
+  
+
+
+        
+
+        
+
+
+

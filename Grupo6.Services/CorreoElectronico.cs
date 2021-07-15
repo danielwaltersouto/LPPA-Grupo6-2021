@@ -16,7 +16,7 @@ namespace Grupo6.Services
         public static void RecuperarPassword(string nombre,string nuevoPassword, string correoElectronico)
         {
             //TODO
-            var body = "";
+            var body = "Hola "+nombre+" tu nueva contraseña es: "+nuevoPassword+" " ;
             var subject = "Recuperacion de Contraseña";
             EnviarMail(subject, body, correoElectronico);
         }
@@ -42,7 +42,7 @@ namespace Grupo6.Services
             {
                 _SMTP.Send(_Message);
             }
-            catch (SmtpException e)
+            catch (SmtpException ex)
             {
                 throw;
             }
