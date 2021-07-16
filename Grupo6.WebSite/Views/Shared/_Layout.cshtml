@@ -14,7 +14,7 @@
 
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="#">UAI Market</a>
+            <a class="navbar-brand" href="~/Home/Index">UAI Market</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,11 +34,8 @@
                     <input class="px-2 search" type="search" placeholder="Buscar" aria-label="Search">
                     <button class="btn0" type="submit">Buscar</button>
                 </form>&emsp;&emsp;
-                <button class="btn3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                    </svg>Carrito
-                </button>
+
+                <a class="btn btn-primary" href="~/Carrito/MyCart"><i class="fas fa-shopping-cart" style="font-size: 1.5rem; vertical-align: middle;"></i> @Grupo6.WebSite.Resources.Resource.Carrito</a>
                 &emsp;<button type="button" class="btn btn-link">Ingresar</button>
                 <button type="button" class="btn btn-link">Registrarse</button>
             </div>
@@ -46,7 +43,7 @@
     </nav>
     <section>@RenderBody()</section>
 
-    
+
 
     <!-- =========================================== -->
 
@@ -84,7 +81,7 @@
                             <h5 class="pb-3">Descubrí UAI Market</h5>
                             <span><i class="fab fa-facebook"></i></span>
                             <span><i class="fab fa-instagram"></i></span>
-                            <span><i class="fab fa-twitter"></i></span>                            
+                            <span><i class="fab fa-twitter"></i></span>
                         </div>
                     </div>
                 </div>
@@ -92,10 +89,10 @@
             <hr />
             <p class="text-center">LPPA 2021 - Grupo 6</p>
         </div>
-    </section>   
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>
