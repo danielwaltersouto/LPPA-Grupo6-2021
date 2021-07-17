@@ -20,7 +20,7 @@ namespace Grupo6.Entities.Models
 
         [Display(Name = "Usuario WEB")]
         public string NombreWeb { get; set; }
-        public string Password { get; set; }
+    
         public int Bloqueo { get; set; }
         public int IntentosLogin { get; set; }
 
