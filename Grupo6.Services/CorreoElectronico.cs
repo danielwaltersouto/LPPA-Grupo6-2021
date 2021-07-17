@@ -38,14 +38,19 @@ namespace Grupo6.Services
             _Message.Body = body;
             _Message.Priority = MailPriority.Normal;
 
+
             try
             {
                 _SMTP.Send(_Message);
             }
-            catch (SmtpException ex)
+            catch (System.Exception)
             {
+
                 throw;
             }
+            
+            
+            
 
         }
     }

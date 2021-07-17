@@ -14,7 +14,7 @@ namespace Grupo6.Business
 
 
 
-            usuario.IdRol = 2;
+            usuario.RolId = 2;
             usuario.Password = Encriptador.Encriptar(usuario.Password);
             usuario.Password_ = Encriptador.Encriptar(usuario.Password_);
             usuario.NombreWeb = usuario.Nombre + " " + usuario.Apellido;
