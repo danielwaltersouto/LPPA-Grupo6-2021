@@ -57,48 +57,64 @@ namespace Grupo6.WebSite.Controllers
         [HttpPost]
         public ActionResult UserRegister(Usuario Model)
         {
+            /* var bizUsuario = new BizUsuario();
+            bizUsuario.Agregar(Model);
+            return RedirectToAction("Index", "Home");*/
 
-            {
-                try
+           try
                 {
-                    if (!ModelState.IsValid)
+                          if (!ModelState.IsValid)
 
-                    {
-                        return View();
+                           {
+                             return View();
+                           }
 
-                    }
+              
 
-                     
-                    else
-                    {
-                        var bizUsuario = new BizUsuario();
+                         else
+                            {
+                                var bizUsuario = new BizUsuario();
 
-                      var oUser= bizUsuario.TraerPorEmail(Model.Email);
-                        if (oUser.Email == Model.Email)
-                        {
-                            ViewBag.Mensaje = "eMail Ya Registrado! ";
-                           
-                            return View();
-                        }
-                        else { 
+                                var oUser = new Entities.Models.Usuario();
+                        
+                                oUser = bizUsuario.TraerPorEmail(Model.Email);
 
 
-                        bizUsuario.Agregar(Model);
 
-                        return RedirectToAction("Index", "Home");
+
+                                     if (oUser.Email == Model.Email)
+                                         {
+                                             ViewBag.Mensaje = "eMail Ya Registrado! ";
+
+                                                return View();
+                                          }
+
+
+
+
+                                        else
+                                              {
+                                                 bizUsuario.Agregar(Model);
+                                                 return RedirectToAction("Index", "Home");
+                                              }
 
                              }
-                    }
-
+                    
+     
                 }
+                    
+
+           
+                    
+
 
                 catch (Exception)
                 {
 
                     throw;
                 }
-            }
+            
         }
     }
-}  
 
+ }

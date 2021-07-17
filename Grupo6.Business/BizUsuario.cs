@@ -42,6 +42,8 @@ namespace Grupo6.Business
         {
             var db = new BaseDataService<Usuario>();
             return db.Get((Usuario usuario) => usuario.Email == email).First();
+
+
         }
 
         public void Eliminar(Usuario usuario)
