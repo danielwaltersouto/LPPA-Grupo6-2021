@@ -328,7 +328,7 @@
     <Content Include="Views\Auth\LogIn.cshtml" />
     <Content Include="Views\Auth\StartRecovery.cshtml" />
     <Content Include="Views\User\UserRegister.cshtml" />
-    <Content Include="Views\User\Profile.cshtml" />
+    <Content Include="Views\User\UserProfile.cshtml" />
     <Content Include="Views\Auth\ChangePass.cshtml" />
     <Content Include="Views\User\UserRegisterAddress.cshtml" />
     <None Include="Web.Debug.config">

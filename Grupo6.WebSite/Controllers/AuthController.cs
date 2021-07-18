@@ -47,9 +47,11 @@ namespace Grupo6.WebSite.Controllers
                 else
                 {
                     Usuario UserModel = new Usuario();
+
                     UserModel.Email = Model.Email;
                     UserModel.Password = Model.Password;
                     UserModel.UserToken = Model.Password;
+
                      
                     bool valida = ValidarIngreso.Validar(UserModel);
 
@@ -133,9 +135,9 @@ namespace Grupo6.WebSite.Controllers
                     var Busuario = new BizUsuario();
                   
 
-                    Usuario AutUsuario = new Usuario();
+                    
                    
-                    AutUsuario = Busuario.TraerPorEmail(User.Identity.Name);
+                    var AutUsuario = Busuario.TraerPorEmail(User.Identity.Name);
 
                     if (AutUsuario != null)
                     {
@@ -198,11 +200,11 @@ namespace Grupo6.WebSite.Controllers
             
             BizUsuario Busuario = new BizUsuario();
            
-            Usuario AutUsuario = new Usuario();
+             
 
            
         
-           AutUsuario = Busuario.TraerPorEmail(model.Email);
+          Usuario AutUsuario = Busuario.TraerPorEmail(model.Email);
 
             if (AutUsuario != null)
             {

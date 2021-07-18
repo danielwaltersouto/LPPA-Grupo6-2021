@@ -18,7 +18,7 @@ namespace Grupo6.WebSite.Controllers
 
        [Authorize]
        
-        public ActionResult Profile()
+        public ActionResult UserProfile()
         {
             BizUsuario bizUsuario = new BizUsuario();
             Usuario usuario = new Usuario();
