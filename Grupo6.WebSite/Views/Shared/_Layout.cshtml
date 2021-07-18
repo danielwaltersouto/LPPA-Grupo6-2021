@@ -68,10 +68,14 @@
 
                 &nbsp;   &nbsp;
 
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <a class="btn4" href="~/User/UserRegister" role="button">Registrate</a>
 
-                <a class="btn4" href="~/User/UserRegister" role="button">Registrate</a>
+                }
             </div>
-
+        
+        
         </div>
 
         <div class="carousel-user">
