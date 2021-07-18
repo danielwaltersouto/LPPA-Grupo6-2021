@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grupo6.Entities.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,6 +19,17 @@ namespace Grupo6.WebSite.Controllers
         [HttpGet]
         public ActionResult MyCart()
         {
+            var items = new List<ItemCarrito>();
+            var item = new ItemCarrito();
+            item.ProductoId = 1;
+            item.Cantidad = 1;
+            items.Add(item);
+
+            var pruebaXML = Services.Serializer.ObjectToXml(items);
+
+            var lista = Services.Serializer.XmlToObject(pruebaXML);
+
+
             return View();
         }
 
