@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Caching;
 using System.Web.Mvc;
 
 namespace Grupo6.WebSite.Controllers
@@ -34,10 +35,16 @@ namespace Grupo6.WebSite.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost]
-        public ActionResult AddItemCart()
+        [HttpGet]
+        public ActionResult AddItemCart(int idProducto)
         {
-            return View();
+            if (HttpRuntime.Cache.Get("Carrito") != null)
+            {
+                var prueba = HttpRuntime.Cache.Get("Carrito");
+                HttpRuntime.Cache.Insert("Carrito", idProducto.ToString(), null, DateTime.Now.AddMinutes(5), Cache.NoSlidingExpiration);
+            }
+            HttpRuntime.Cache.Insert("Carrito", idProducto.ToString(), null, DateTime.Now.AddMinutes(5), Cache.NoSlidingExpiration);
+            return RedirectToAction("MyCart");
         }
     }
 }
