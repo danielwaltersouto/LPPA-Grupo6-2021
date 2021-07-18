@@ -210,7 +210,7 @@ namespace Grupo6.WebSite.Controllers
                 string SHAClave = Encriptador.Encriptar(clave);
 
 
-                //CorreoElectronico.RecuperarPassword(AutUsuario.NombreWeb, clave, AutUsuario.Email);
+                CorreoElectronico.RecuperarPassword(AutUsuario.NombreWeb, clave, AutUsuario.Email);
                 AutUsuario.UserToken = SHAClave;
               
                 Busuario.Actualizar(AutUsuario);

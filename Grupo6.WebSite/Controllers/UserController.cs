@@ -17,7 +17,7 @@ namespace Grupo6.WebSite.Controllers
         // GET: User
 
        [Authorize]
-        //  [AllowAnonymous]
+       
         public ActionResult Profile()
         {
             BizUsuario bizUsuario = new BizUsuario();
@@ -34,11 +34,7 @@ namespace Grupo6.WebSite.Controllers
 
         }
 
-      
-
-
-
-
+     
         [AllowAnonymous]
         [HttpGet]
         public ActionResult UserRegister()
@@ -48,7 +44,22 @@ namespace Grupo6.WebSite.Controllers
         }
 
 
+        //[Authorize]
+        [HttpGet]
+        public ActionResult UserRegisterAddress()
+        {
+            
+            return View();
+        }
 
+        //[Authorize]
+        [HttpPost]
+        public ActionResult UserRegisterAddress(Direccion Model)
+        {
+
+           
+            return View();
+        }
 
 
 
