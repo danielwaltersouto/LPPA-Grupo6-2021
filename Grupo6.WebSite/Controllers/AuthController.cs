@@ -113,7 +113,7 @@ namespace Grupo6.WebSite.Controllers
 
         [Authorize]
         [HttpPost]
-        public ActionResult ChangePass(Usuario usuario)
+        public ActionResult ChangePass(ViewModelChangePass viewModelChangePass)
 
 
         {
@@ -124,36 +124,36 @@ namespace Grupo6.WebSite.Controllers
                 {
                     return View();
 
-
                 }
-
-
 
                 else
 
                 {
 
                     var Busuario = new BizUsuario();
+                  
 
                     Usuario AutUsuario = new Usuario();
-
-
-
-                    AutUsuario = Busuario.TraerPorEmail(User.Identity.Name );
+                   
+                    AutUsuario = Busuario.TraerPorEmail(User.Identity.Name);
 
                     if (AutUsuario != null)
                     {
-                        string clave = usuario.Password;
+                        string clave = viewModelChangePass.Password;
                         string SHAClave = Encriptador.Encriptar(clave);
-                        usuario.Password = SHAClave;
+                        AutUsuario.Password = SHAClave;
                         string Titulo = "Cambio de Contraseña";
                         string Cuerpo = AutUsuario.Nombre + " " + AutUsuario.Apellido + " Tu Clave se Cambio con Exito";
 
                         AutUsuario.UserToken = SHAClave;
+
+                       
+
                         Busuario.Actualizar(AutUsuario);
+                        
                         CorreoElectronico.EnviarMail(Titulo,Cuerpo, AutUsuario.Email);
                                                 
-                       
+                   
 
                         return RedirectToAction("Index", "Home");
                     }
