@@ -56,10 +56,82 @@
     font-weight: 700;
 }
 
-/*-- Layout ----------------------------------------------------------*/
+.btn4 {
+    height: 40px;
+    width: 10%;
+    outline: none;
+    background-color: green;
+    color: white;
+    border-radius: 60px;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 5px;
+}
+.btn4:hover {
+    background-color: blue;
+    color:black;
+}
 
-.main {
-    background: url('./istockphoto-1128949343-612x612.jpg')no-repeat;
+
+.btn6:hover {
+    background-color: black;
+}
+
+.btn5 {
+    height: 40px;
+    width: 10%;
+    outline: none;
+    background-color: blue;
+    color: white;
+    border-radius: 60px;
+    font-weight: 700;
+    text-decoration: none;
+    text-align:center;
+    padding-top: 5px;
+}
+
+
+.btn5:hover {
+    background-color: green;
+    color:black;
+
+}
+.btn6 {
+    height: 40px;
+    width: 10%;
+    outline: none;
+    background-color: black;
+    color: white;
+    border-radius: 60px;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 5px;
+   
+}
+
+.btn6:hover {
+    background-color: red;
+    color:black;
+
+}
+
+
+.carousel-user{
+
+color:black;
+font-weight:bolder;
+padding-right:10px;
+}
+
+
+
+
+    /*-- Layout ----------------------------------------------------------*/
+
+    .main {
+   /*background: url('./istockphoto-1128949343-612x612.jpg')no-repeat;*/ 
     background-size: contain;
     height: 100vh;
     background-position: 50% 50%;

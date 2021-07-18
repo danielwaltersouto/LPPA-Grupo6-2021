@@ -67,6 +67,9 @@ namespace Grupo6.Entities.Models
         [Required(ErrorMessage = "Se requiere Email")]
         [Display(Name = "Re-Ingreso Email")]
         [Compare(nameof(Email), ErrorMessage = "Email no Coincide")]
+        public string Email_ { get; set; }
+
+
         public bool EmailConfirmed { get; set; }
         public string UserToken { get; set; }
         public int RolId { get; set; }

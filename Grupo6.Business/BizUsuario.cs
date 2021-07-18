@@ -41,7 +41,22 @@ namespace Grupo6.Business
         public Usuario TraerPorEmail(string email) 
         {
             var db = new BaseDataService<Usuario>();
+            int contador;
+            Usuario Busuario = new Usuario();
+
+            contador = db.Get((Usuario usuario) => usuario.Email == email).Count();
+             
+            if (contador != 0)
+               { 
             return db.Get((Usuario usuario) => usuario.Email == email).First();
+               }
+            else
+            {
+                Busuario.Email = "";
+                return Busuario;
+
+            }
+
         }
 
         public void Eliminar(Usuario usuario)
