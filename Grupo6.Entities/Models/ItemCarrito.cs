@@ -11,7 +11,6 @@ namespace Grupo6.Entities.Models
         public int Cantidad { get; set; }
         [XmlIgnore]
         public virtual Carrito Carrito { get; set; }
-
         [XmlIgnore]
         public virtual Producto Producto { get; set; }
     }
