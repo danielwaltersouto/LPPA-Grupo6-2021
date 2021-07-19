@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Grupo6.Entities.Models.Producto>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -16,9 +16,7 @@
             <div class="carousel-caption d-none d-md-block">
                 <div class="container">
                     <div class="row justify-content-start text-center">
-
                         <div class="col-lg-8 mx-auto">
-
                             <p>Ofertas Otoño 2021</p>
                             <h1>Días de Descuento</h1>
                             <h1></h1>
@@ -49,7 +47,6 @@
                             <p>Ofertas Otoño 2021</p>
                             <h1>Nuevos productos!!</h1>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -119,51 +116,24 @@
                 <h1 class="product">Ofertas de la Semana!</h1>
                 <h6 style="color:red;">Compre en UAI Market, la mejor opción de compra online</h6>
             </div>
-
-
-            <div class="col-lg-3 text-center">
-                <div class="card border-0 bg-light mb-2">
-                    <div class="card-body">
-                        <img src="~/Content/vacio.jpg" class="img-fluid" alt="" />
+            @foreach (var producto in Model)
+            {
+                <div class="col-lg-3 text-center">
+                    <div class="card border-0 bg-light mb-2">
+                        <div class="card-body">
+                            @{
+                                var base64 = Convert.ToBase64String(producto.FotoProducto);
+                                var imgSrc = string.Format("data:image/jpg;base64,{0}", base64);
+                                var precioSin = producto.Precio + 50;
+                            }
+                            <img src="@imgSrc" style="width:230px;height:230px" alt="" />
+                        </div>
                     </div>
+                    <a class="btn btn-danger" href="@Url.Action("ItemCart","Carrito", new { idProducto = producto.Id })">Agregar</a>
+                    <h6><br />@producto.Descripcion</h6>
+                    <p><small><del>$@precioSin</del><span>  $@producto.Precio</span></small></p>
                 </div>
-
-
-                <button class="btn1">Agregar</button>
-                <h6><br />Vacío de Novillito X 1,4 Kg.</h6>
-                <p><small><del>$1384,60 </del><span>  $1200,00</span></small></p>
-            </div>
-            <div class="col-lg-3 text-center">
-                <div class="card border-0 bg-light mb-2">
-                    <div class="card-body">
-                        <img src="~/Content/Banana.jpg" class="img-fluid" alt="" />
-                    </div>
-                </div>
-                <button class="btn1">Agregar</button>
-                <h6><br />Banana X 1 Kg.</h6>
-                <p><small><del>$120 </del><span>  $166,5</span></small></p>
-            </div>
-            <div class="col-lg-3 text-center">
-                <div class="card border-0 bg-light mb-2">
-                    <div class="card-body">
-                        <img src="~/Content/Pollo-Fresco-X-3-Kg.jpg" class="img-fluid" alt="" />
-                    </div>
-                </div>
-                <button class="btn1">Agregar</button>
-                <h6><br />Pollo Fresco X 3 Kg.</h6>
-                <p><small><del>$438 </del><span>  $388,99</span></small></p>
-            </div>
-            <div class="col-lg-3 text-center">
-                <div class="card border-0 bg-light mb-2">
-                    <div class="card-body">
-                        <img src="~/Content/Filet-De-Merluza-Congelado-X-1-Kg-1-63164.jpg" class="img-fluid" alt="" />
-                    </div>
-                </div>
-                <button class="btn1">Agregar</button>
-                <h6><br />Filet De Merluza Despinado X Kg.</h6>
-                <p><small><del>$1549 </del><span>  $1456,65</span></small></p>
-            </div>
-
+            }
             <div class="row">
                 <div class="col-lg-6 text-center m-auto">
                     <button class="btn1">Click para más Info</button>

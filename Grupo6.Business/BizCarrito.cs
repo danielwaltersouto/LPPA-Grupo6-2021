@@ -6,11 +6,10 @@ namespace Grupo6.Business
 {
     public class BizCarrito
     {
-        public void Agregar(Carrito carrito)
+        public Carrito Agregar(Carrito carrito)
         {
             var db = new BaseDataService<Carrito>();
-            db.Create(carrito);
-
+            return db.Create(carrito);
         }
 
         public List<Carrito> TraerTodos()
@@ -36,6 +35,12 @@ namespace Grupo6.Business
         {
             var db = new BaseDataService<Carrito>();
             db.Update(carrito);
+        }
+
+        public void AgregarItemCarrito(ItemCarrito itemCarrito)
+        {
+            var db = new BaseDataService<ItemCarrito>();
+            db.Create(itemCarrito);
         }
     }
 }

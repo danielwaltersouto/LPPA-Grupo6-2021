@@ -123,6 +123,9 @@
   <data name="BIENVENIDO A UAI MARKET" xml:space="preserve">
     <value>BIENVENIDO A UAI MARKET</value>
   </data>
+  <data name="Carrito" xml:space="preserve">
+    <value>Carrito</value>
+  </data>
   <data name="Contraseña" xml:space="preserve">
     <value>Contraseña</value>
   </data>
@@ -131,6 +134,9 @@
   </data>
   <data name="Iniciar Sesion" xml:space="preserve">
     <value>Iniciar Sesion</value>
+  </data>
+  <data name="MiCarrito" xml:space="preserve">
+    <value>Mi Carrito</value>
   </data>
   <data name="Nombre" xml:space="preserve">
     <value>Nombre</value>

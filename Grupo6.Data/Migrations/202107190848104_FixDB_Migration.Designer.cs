@@ -7,13 +7,13 @@ namespace Grupo6.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class BizUsuario : IMigrationMetadata
+    public sealed partial class FixDB_Migration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(BizUsuario));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(FixDB_Migration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202107042153007_BizUsuario"; }
+            get { return "202107190848104_FixDB_Migration"; }
         }
         
         string IMigrationMetadata.Source

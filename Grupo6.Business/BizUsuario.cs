@@ -38,25 +38,10 @@ namespace Grupo6.Business
             return db.GetById(id);
         }
 
-        public Usuario TraerPorEmail(string email) 
+        public Usuario TraerPorEmail(string email)
         {
             var db = new BaseDataService<Usuario>();
-            int contador;
-            Usuario Busuario = new Usuario();
-
-            contador = db.Get((Usuario usuario) => usuario.Email == email).Count();
-             
-            if (contador != 0)
-               { 
-            return db.Get((Usuario usuario) => usuario.Email == email).First();
-               }
-            else
-            {
-                Busuario.Email = "";
-                return Busuario;
-
-            }
-
+            return db.Get().SingleOrDefault(u => u.Email == email);
         }
 
         public void Eliminar(Usuario usuario)
@@ -67,10 +52,7 @@ namespace Grupo6.Business
 
         public void Actualizar(Usuario usuario)
         {
-            
-            
             var db = new BaseDataService<Usuario>();
-            
             db.Update(usuario);
         }
     }

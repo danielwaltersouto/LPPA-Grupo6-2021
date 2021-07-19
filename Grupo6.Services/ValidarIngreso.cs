@@ -16,19 +16,17 @@ namespace Grupo6.Services
         public static bool Validar(Usuario model)
         {
             bool ValidadorIngreso = false;
-
-
             string Password = model.Password;
-          
-
             var db = new BaseDataService<Usuario>();
-          
-            var Ouser= db.Get((Usuario usuario) => usuario.Email == model.Email).First();
+            var Ouser = db.Get((Usuario usuario) => usuario.Email == model.Email).FirstOrDefault();
+
+            if (Ouser == null)
+            {
+                return false;
+            }
 
             string Password2 = Ouser.Password;
-
-
-            ValidadorIngreso = Encriptador.Validar(Password,Password2) ;
+            ValidadorIngreso = Encriptador.Validar(Password, Password2);
 
             if (ValidadorIngreso == false)
             {
@@ -38,18 +36,8 @@ namespace Grupo6.Services
                 ValidadorIngreso = Encriptador.Validar(Password, uToken);
 
             }
-
-
-      
-            return ValidadorIngreso ;
-
-
+            return ValidadorIngreso;
         }
-
-
-           
-        }
-
-
     }
+}
 
