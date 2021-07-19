@@ -52,10 +52,7 @@ namespace Grupo6.Business
 
         public void Actualizar(Usuario usuario)
         {
-            
-            
             var db = new BaseDataService<Usuario>();
-            
             db.Update(usuario);
         }
     }

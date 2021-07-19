@@ -102,7 +102,6 @@ namespace Grupo6.WebSite.Controllers
             return RedirectToAction("MyCart");
         }
 
-        [AllowAnonymous]
         [HttpGet]
         public ActionResult CheckOut()
         {
@@ -123,7 +122,7 @@ namespace Grupo6.WebSite.Controllers
                     item.CarritoId = nuevoCarrito.Id;
                     bizCarrito.AgregarItemCarrito(item);
                 }
-                InsertItemsIntoCache(new List<ItemCarrito>());
+                HttpRuntime.Cache.Remove("Carrito");
                 return RedirectToAction("Index", "Home");
             }
             else
