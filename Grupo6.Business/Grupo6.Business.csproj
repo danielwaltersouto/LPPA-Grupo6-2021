@@ -62,6 +62,10 @@
       <Project>{9EEDBFE1-4C36-48DF-B888-987F5D448EAE}</Project>
       <Name>Grupo6.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Grupo6.Services\Grupo6.Services.csproj">
+      <Project>{8e32bd9e-c95f-40fb-9732-bf9665bf0cd4}</Project>
+      <Name>Grupo6.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

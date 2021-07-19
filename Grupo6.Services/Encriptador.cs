@@ -1,9 +1,11 @@
-﻿using System.Security.Cryptography;
+﻿using System;
+using System.Security.Cryptography;
 using System.Text;
+
 
 namespace Grupo6.Services
 {
-    class Encriptador
+    public static class Encriptador
     {
         public static string Encriptar(string Pass)
         {
@@ -36,6 +38,15 @@ namespace Grupo6.Services
             }
 
         }
+        public  static string GeneradorClave()
+        {
+            string clave = Guid.NewGuid().ToString();
+            
+            return clave;
+       
+        }
+
+
 
 
     }

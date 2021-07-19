@@ -133,6 +133,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\carne.png" />
+    <Content Include="Content\LogIn\EstiloLogin.css" />
     <Content Include="Content\entraña-1.jpg" />
     <Content Include="Content\Filet-De-Merluza-Congelado-X-1-Kg-1-63164.jpg" />
     <Content Include="Content\istockphoto-1128949343-612x612.jpg" />
@@ -154,6 +155,19 @@
     <Content Include="Content\Tomate-Redondo-X-1-Kg-1-17182.jpg" />
     <Content Include="Content\unnamed.jpg" />
     <Content Include="Content\upscale supermarket_600x.jpg" />
+    <Content Include="Content\User\box-arrow-in-left.svg" />
+    <Content Include="Content\User\box-arrow-left.svg" />
+    <Content Include="Content\User\calendar-event-fill.svg" />
+    <Content Include="Content\User\card.svg" />
+    <Content Include="Content\User\cart.svg" />
+    <Content Include="Content\User\envelope-fill.svg" />
+    <Content Include="Content\User\file-lock-fill.svg" />
+    <Content Include="Content\User\file-lock.svg" />
+    <Content Include="Content\User\person.svg" />
+    <Content Include="Content\User\tele.svg" />
+    <Content Include="Content\User\user-plus.svg" />
+    <Content Include="Content\User\calendar.svg" />
+    <Content Include="Content\User\mail.svg" />
     <Content Include="Content\vacio.jpg" />
     <Content Include="Content\vegetal.png" />
     <Content Include="Content\Zanahoria-X-1-Kg-1-16798.jpg" />
@@ -264,9 +278,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CarritoController.cs" />
     <Compile Include="Controllers\CategoriaProductoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -282,6 +299,9 @@
       <DependentUpon>Resource.en-US.resx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ViewModelChangePass.cs" />
+    <Compile Include="ViewModels\ViewModelLogIn.cs" />
+    <Compile Include="ViewModels\ViewModelRecovery.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -306,6 +326,11 @@
     <Content Include="Views\CategoriaProducto\Index.cshtml" />
     <Content Include="Views\CategoriaProducto\Create.cshtml" />
     <Content Include="Views\CategoriaProducto\Edit.cshtml" />
+    <Content Include="Views\Auth\LogIn.cshtml" />
+    <Content Include="Views\Auth\StartRecovery.cshtml" />
+    <Content Include="Views\User\UserRegister.cshtml" />
+    <Content Include="Views\User\Profile.cshtml" />
+    <Content Include="Views\Auth\ChangePass.cshtml" />
     <Content Include="Views\Carrito\MyCart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
