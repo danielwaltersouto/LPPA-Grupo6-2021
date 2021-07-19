@@ -59,6 +59,12 @@ namespace Grupo6.WebSite.Controllers
         public ActionResult Edit(Usuario usuario)
         {
             var bizUsuario = new BizUsuario();
+            var oldUsuario = bizUsuario.TraerPorId(usuario.Id);
+            usuario.Email_ = oldUsuario.Email;
+            usuario.Email = oldUsuario.Email;
+            usuario.Password_ = oldUsuario.Password;
+            usuario.Password = oldUsuario.Password;
+            usuario.CategoriaFiscalId = oldUsuario.CategoriaFiscalId;
 
             bizUsuario.Actualizar(usuario);
 

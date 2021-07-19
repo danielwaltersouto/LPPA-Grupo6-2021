@@ -16,7 +16,7 @@ namespace Grupo6.WebSite.Controllers
     {
         // GET: User
 
-       [Authorize]
+        [Authorize]
         //  [AllowAnonymous]
         public ActionResult Profile()
         {
@@ -25,16 +25,16 @@ namespace Grupo6.WebSite.Controllers
             var CUser = (ClaimsIdentity)User.Identity;
             var VMail = CUser.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email);
             string eMail = VMail.Value;
-            usuario=bizUsuario.TraerPorEmail(eMail);
+            usuario = bizUsuario.TraerPorEmail(eMail);
 
             ViewBag.Usuario = usuario;
-            
-            
-        return View();
+
+
+            return View();
 
         }
 
-      
+
 
 
 
@@ -61,60 +61,37 @@ namespace Grupo6.WebSite.Controllers
             bizUsuario.Agregar(Model);
             return RedirectToAction("Index", "Home");*/
 
-           try
+            try
+            {
+                if (!ModelState.IsValid)
+
                 {
-                          if (!ModelState.IsValid)
-
-                           {
-                             return View();
-                           }
-
-              
-
-                         else
-                            {
-                                var bizUsuario = new BizUsuario();
-
-                                var oUser = new Entities.Models.Usuario();
-                        
-                                oUser = bizUsuario.TraerPorEmail(Model.Email);
-
-
-
-
-                                     if (oUser.Email == Model.Email)
-                                         {
-                                             ViewBag.Mensaje = "eMail Ya Registrado! ";
-
-                                                return View();
-                                          }
-
-
-
-
-                                        else
-                                              {
-                                                 bizUsuario.Agregar(Model);
-                                                 return RedirectToAction("Index", "Home");
-                                              }
-
-                             }
-                    
-     
+                    return View();
                 }
-                    
-
-           
-                    
-
-
-                catch (Exception)
+                else
                 {
+                    var bizUsuario = new BizUsuario();
+                    var oUser = new Entities.Models.Usuario();
+                    oUser = bizUsuario.TraerPorEmail(Model.Email);
 
-                    throw;
+                    if (oUser != null)
+                    {
+                        ViewBag.Mensaje = "eMail Ya Registrado! ";
+                        return View();
+                    }
+                    else
+                    {
+                        bizUsuario.Agregar(Model);
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
-            
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
         }
     }
 
- }
+}
