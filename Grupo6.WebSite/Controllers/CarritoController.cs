@@ -25,7 +25,6 @@ namespace Grupo6.WebSite.Controllers
 
             if (HttpRuntime.Cache.Get("Carrito") != null)
             {
-                //var xml = (string)HttpRuntime.Cache.Get("Carrito");
                 var items = GetItemsFromCache();
                 var bizProducto = new BizProducto();
                 decimal total = 0;
@@ -47,9 +46,7 @@ namespace Grupo6.WebSite.Controllers
         public ActionResult ItemCart(int idProducto, int cantidad = 1)
         {
             if (HttpRuntime.Cache.Get("Carrito") != null)
-
             {
-                //var xml = (string)HttpRuntime.Cache.Get("Carrito");
                 var items = GetItemsFromCache();
 
                 var itemExistente = items.Exists(p => p.ProductoId == idProducto);
@@ -91,8 +88,6 @@ namespace Grupo6.WebSite.Controllers
         [HttpGet]
         public ActionResult DeleteItemCart(int idProducto)
         {
-
-            //var xml = (string)HttpRuntime.Cache.Get("Carrito");
             var items = GetItemsFromCache();
             var itemToRemove = items.Single(i => i.ProductoId == idProducto);
 
