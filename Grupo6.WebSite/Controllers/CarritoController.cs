@@ -113,8 +113,8 @@ namespace Grupo6.WebSite.Controllers
                 var carrito = new Carrito();
 
                 var items = GetItemsFromCache();
-                //var usuario = bizUsuario.TraerPorEmail("misme.ricardo@gmail.com");
-                carrito.UsuarioId = 1;
+                var usuario = bizUsuario.TraerPorEmail(User.Identity.Name);
+                carrito.UsuarioId = usuario.Id;
 
                 var nuevoCarrito = bizCarrito.Agregar(carrito);
 
@@ -123,7 +123,7 @@ namespace Grupo6.WebSite.Controllers
                     item.CarritoId = nuevoCarrito.Id;
                     bizCarrito.AgregarItemCarrito(item);
                 }
-                InsertItemsIntoCache(items);
+                InsertItemsIntoCache(new List<ItemCarrito>());
                 return RedirectToAction("Index", "Home");
             }
             else

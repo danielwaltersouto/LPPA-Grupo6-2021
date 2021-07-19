@@ -7,13 +7,13 @@ namespace Grupo6.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class InitalDB_Migration : IMigrationMetadata
+    public sealed partial class InitialDB_Migration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitalDB_Migration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialDB_Migration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202107180626396_InitalDB_Migration"; }
+            get { return "202107190815304_InitialDB_Migration"; }
         }
         
         string IMigrationMetadata.Source
