@@ -55,8 +55,23 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.2.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.2.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.2.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.2.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
@@ -110,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Banana.jpg" />
+    <Content Include="Content\Baston-De-Merluza-Granja-Del-Sol-300-Gr-1-35698.jpg" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -117,17 +133,44 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\carne.png" />
+    <Content Include="Content\LogIn\EstiloLogin.css" />
+    <Content Include="Content\entraña-1.jpg" />
     <Content Include="Content\Filet-De-Merluza-Congelado-X-1-Kg-1-63164.jpg" />
     <Content Include="Content\istockphoto-1128949343-612x612.jpg" />
+    <Content Include="Content\Manzana-Red-Com-X-1-Kg-1-17492.jpg" />
+    <Content Include="Content\oferta-supermercado-min-1024x789-1.jpg" />
+    <Content Include="Content\ofertas_supermercados.jpg" />
+    <Content Include="Content\peceto.jpg" />
     <Content Include="Content\pescado.png" />
     <Content Include="Content\Pollo-Fresco-X-3-Kg.jpg" />
     <Content Include="Content\dashboard\Site.css" />
+    <Content Include="Content\Promociones.jpg" />
+    <Content Include="Content\Salmon-Ahumado-Superbe-X-200-Grs-1-35707.jpg" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\slide1.jpg" />
+    <Content Include="Content\slide2.jpg" />
+    <Content Include="Content\slide3.jpg" />
+    <Content Include="Content\solomillo-1.jpg" />
     <Content Include="Content\StyleSheet1.css" />
+    <Content Include="Content\Tomate-Redondo-X-1-Kg-1-17182.jpg" />
     <Content Include="Content\unnamed.jpg" />
     <Content Include="Content\upscale supermarket_600x.jpg" />
+    <Content Include="Content\User\box-arrow-in-left.svg" />
+    <Content Include="Content\User\box-arrow-left.svg" />
+    <Content Include="Content\User\calendar-event-fill.svg" />
+    <Content Include="Content\User\card.svg" />
+    <Content Include="Content\User\cart.svg" />
+    <Content Include="Content\User\envelope-fill.svg" />
+    <Content Include="Content\User\file-lock-fill.svg" />
+    <Content Include="Content\User\file-lock.svg" />
+    <Content Include="Content\User\person.svg" />
+    <Content Include="Content\User\tele.svg" />
+    <Content Include="Content\User\user-plus.svg" />
+    <Content Include="Content\User\calendar.svg" />
+    <Content Include="Content\User\mail.svg" />
     <Content Include="Content\vacio.jpg" />
     <Content Include="Content\vegetal.png" />
+    <Content Include="Content\Zanahoria-X-1-Kg-1-16798.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -231,14 +274,18 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CarritoController.cs" />
     <Compile Include="Controllers\CategoriaFiscalController.cs" />
     <Compile Include="Controllers\CategoriaProductoController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
     <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -246,6 +293,20 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Resource.en-US.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ViewModelChangePass.cs" />
+    <Compile Include="ViewModels\ViewModelLogIn.cs" />
+    <Compile Include="ViewModels\ViewModelRecovery.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -283,6 +344,12 @@
     <Content Include="Views\CategoriaFiscal\Create.cshtml" />
     <Content Include="Views\CategoriaFiscal\Edit.cshtml" />
     <Content Include="Views\Carrito\Index.cshtml" />
+    <Content Include="Views\Auth\LogIn.cshtml" />
+    <Content Include="Views\Auth\StartRecovery.cshtml" />
+    <Content Include="Views\User\UserRegister.cshtml" />
+    <Content Include="Views\User\Profile.cshtml" />
+    <Content Include="Views\Auth\ChangePass.cshtml" />
+    <Content Include="Views\Carrito\MyCart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -309,6 +376,20 @@
       <Project>{9EEDBFE1-4C36-48DF-B888-987F5D448EAE}</Project>
       <Name>Grupo6.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Grupo6.Services\Grupo6.Services.csproj">
+      <Project>{8e32bd9e-c95f-40fb-9732-bf9665bf0cd4}</Project>
+      <Name>Grupo6.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resource.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
