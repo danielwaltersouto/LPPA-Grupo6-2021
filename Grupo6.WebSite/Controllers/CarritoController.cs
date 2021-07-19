@@ -14,7 +14,9 @@ namespace Grupo6.WebSite.Controllers
         // GET: Carrito
         public ActionResult Index()
         {
-            return View();
+            var bizCarrito = new BizCarrito();
+            var model = bizCarrito.TraerTodos();
+            return View(model);
         }
 
         [AllowAnonymous]
@@ -37,6 +39,7 @@ namespace Grupo6.WebSite.Controllers
                 ViewBag.PrecioTotal = total;
                 model = items;
             }
+
 
             return View(model);
         }

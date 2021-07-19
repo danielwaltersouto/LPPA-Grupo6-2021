@@ -5,13 +5,13 @@ using System.Web.Mvc;
 
 namespace Grupo6.WebSite.Controllers
 {
-    public class CategoriaProductoController : Controller
+    public class CategoriaFiscalController : Controller
     {
-        // GET: CategoriaProducto
+        // GET: CategoriaFiscal
         public ActionResult Index()
         {
-            var bizCategoriaProducto = new BizCategoriaProducto();
-            var model = bizCategoriaProducto.TraerTodos();
+            var bizCategoriaFiscal = new BizCategoriaFiscal();
+            var model = bizCategoriaFiscal.TraerTodos();
             return View(model);
         }
 
@@ -22,14 +22,14 @@ namespace Grupo6.WebSite.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(CategoriaProducto model)
+        public ActionResult Create(CategoriaFiscal model)
         {
             if (!ModelState.IsValid)
                 return View();
 
             try
             {
-                var biz = new BizCategoriaProducto();
+                var biz = new BizCategoriaFiscal();
                 biz.Agregar(model);
                 return RedirectToAction("Index");
             }
@@ -37,22 +37,23 @@ namespace Grupo6.WebSite.Controllers
             {
                 /// Que pasa con el error -> Bitacoras
                 return View(model);
+
             }
         }
 
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var bizCategoriaProducto = new BizCategoriaProducto();
-            var model = bizCategoriaProducto.TraerPorId(id);
+            var bizCategoriaFiscal = new BizCategoriaFiscal();
+            var model = bizCategoriaFiscal.TraerPorId(id);
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Edit(CategoriaProducto categoriaProducto)
+        public ActionResult Edit(CategoriaFiscal categoriaFiscal)
         {
-            var bizCategoriaProducto = new BizCategoriaProducto();
-            bizCategoriaProducto.Actualizar(categoriaProducto);
+            var bizCategoriaFiscal = new BizCategoriaFiscal();
+            bizCategoriaFiscal.Actualizar(categoriaFiscal);
 
             return RedirectToAction("Index");
         }
@@ -60,8 +61,8 @@ namespace Grupo6.WebSite.Controllers
         [HttpPost]
         public JsonResult Delete(int id)
         {
-            var bizCategoriaProducto = new BizCategoriaProducto();
-            bizCategoriaProducto.Eliminar(id);
+            var bizCategoriaFiscal = new BizCategoriaFiscal();
+            bizCategoriaFiscal.Eliminar(id);
 
             return Json(new { status = "Success" });
         }

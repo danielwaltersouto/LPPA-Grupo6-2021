@@ -1,35 +1,36 @@
 ﻿using Grupo6.Business;
 using Grupo6.Entities.Models;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace Grupo6.WebSite.Controllers
 {
-    public class CategoriaProductoController : Controller
+    public class RolController : Controller
     {
-        // GET: CategoriaProducto
+        // GET: Rol
         public ActionResult Index()
         {
-            var bizCategoriaProducto = new BizCategoriaProducto();
-            var model = bizCategoriaProducto.TraerTodos();
+            var bizRol = new BizRol();
+            var model = bizRol.TraerTodos();
             return View(model);
         }
-
         [HttpGet]
-        public ActionResult Create()
+        public ActionResult Create() 
         {
             return View();
         }
-
         [HttpPost]
-        public ActionResult Create(CategoriaProducto model)
+        public ActionResult Create(Rol model)
         {
             if (!ModelState.IsValid)
                 return View();
 
             try
             {
-                var biz = new BizCategoriaProducto();
+                var biz = new BizRol();
                 biz.Agregar(model);
                 return RedirectToAction("Index");
             }
@@ -43,16 +44,16 @@ namespace Grupo6.WebSite.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var bizCategoriaProducto = new BizCategoriaProducto();
-            var model = bizCategoriaProducto.TraerPorId(id);
+            var bizRol = new BizRol();
+            var model = bizRol.TraerPorId(id);
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Edit(CategoriaProducto categoriaProducto)
+        public ActionResult Edit(Rol rol)
         {
-            var bizCategoriaProducto = new BizCategoriaProducto();
-            bizCategoriaProducto.Actualizar(categoriaProducto);
+            var bizRol = new BizRol();
+            bizRol.Actualizar(rol);
 
             return RedirectToAction("Index");
         }
@@ -60,8 +61,8 @@ namespace Grupo6.WebSite.Controllers
         [HttpPost]
         public JsonResult Delete(int id)
         {
-            var bizCategoriaProducto = new BizCategoriaProducto();
-            bizCategoriaProducto.Eliminar(id);
+            var bizRol = new BizRol();
+            bizRol.Eliminar(id);
 
             return Json(new { status = "Success" });
         }

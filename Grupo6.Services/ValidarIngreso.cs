@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Grupo6.Data.Services;
 using Grupo6.Entities.Models;
-using Grupo6.Data.Services;
+using System.Linq;
 
 
 
@@ -13,7 +9,7 @@ namespace Grupo6.Services
 {
     public class ValidarIngreso
     {
-        public static bool Validar(Usuario model)
+        public static bool Validar(Usuario model, ref string rol)
         {
             bool ValidadorIngreso = false;
             string Password = model.Password;
@@ -27,7 +23,7 @@ namespace Grupo6.Services
 
             string Password2 = Ouser.Password;
             ValidadorIngreso = Encriptador.Validar(Password, Password2);
-
+            rol = Ouser.Rol.Nombre;
             if (ValidadorIngreso == false)
             {
 

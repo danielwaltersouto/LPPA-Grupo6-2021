@@ -1,4 +1,4 @@
-﻿@model Grupo6.Entities.Models.CategoriaProducto
+﻿@model Grupo6.Entities.Models.CategoriaFiscal
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -6,21 +6,21 @@
 
 <h2 class="text-center">Actualizar Categoria</h2>
 
-@using (Html.BeginForm("Edit", "CategoriaProducto"))
+@using (Html.BeginForm("Edit", "CategoriaFiscal"))
 {
     <div class="form-horizontal">
         <hr />
         <div class="form-group">
-            @Html.Label("Nombre", new { @class = "control-label col-md-2", @id = "colorNaranja" })
+            @Html.Label("Detalle", new { @class = "control-label col-md-2", @id = "colorNaranja" })
             <div class="col-md-10">
                 <div class="input-group">
-                    @Html.TextBoxFor(model => model.Nombre, new { @placeholder = "Nombre", @class = "form-control" })
+                    @Html.TextBoxFor(model => model.Detalle, new { @placeholder = "Detalle", @class = "form-control" })
                 </div>
-                @Html.ValidationMessageFor(model => model.Nombre)
+                @Html.ValidationMessageFor(model => model.Detalle)
             </div>
         </div>
         <div class="float-right">
-            <a href="@Url.Action("Index","CategoriaProducto")" class="btn btn-danger">Volver</a>
+            <a href="@Url.Action("Index","CategoriaFiscal")" class="btn btn-danger">Volver</a>
             <button type="submit" class="btn btn-primary">Aceptar</button>
         </div>
     </div>

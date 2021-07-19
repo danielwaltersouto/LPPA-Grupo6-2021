@@ -42,12 +42,13 @@ namespace Grupo6.WebSite.Controllers
                     UserModel.Email = Model.Email;
                     UserModel.Password = Model.Password;
                     UserModel.UserToken = Model.Password;
+                    var rol = string.Empty;
 
-                    bool valida = ValidarIngreso.Validar(UserModel);
+                    bool valida = ValidarIngreso.Validar(UserModel, ref rol);
 
                     if (valida == true)
                     {
-                        var claims = new[] { new Claim(ClaimTypes.Email, Model.Email), new Claim(ClaimTypes.Name, Model.Email), };
+                        var claims = new[] { new Claim(ClaimTypes.Email, Model.Email), new Claim(ClaimTypes.Name, Model.Email), new Claim(ClaimTypes.Role, rol) };
                         var identity = new ClaimsIdentity(claims, "ApplicationCookie");
                         IOwinContext ctx = Request.GetOwinContext();
                         IAuthenticationManager authManager = ctx.Authentication;

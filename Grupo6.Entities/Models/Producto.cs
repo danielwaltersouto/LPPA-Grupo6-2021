@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Grupo6.Entities.Models
 {
@@ -11,7 +10,6 @@ namespace Grupo6.Entities.Models
         public int StockActual { get; set; }
         public int CategoriaProductoId { get; set; }
         public byte[] FotoProducto { get; set; }
-
         public virtual CategoriaProducto CategoriaProducto { get; set; }
         public virtual ICollection<DetalleFactura> DetalleFactura { get; set; }
         public virtual ICollection<ItemCarrito> ItemCarrito { get; set; }

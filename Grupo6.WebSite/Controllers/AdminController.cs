@@ -20,6 +20,9 @@ namespace Grupo6.WebSite.Controllers
             var bizFacturas = new BizFactura();
             ViewBag.CantFacturas = bizFacturas.TraerTodos().Count;
 
+            var bizCarritos = new BizCarrito();
+            ViewBag.CantCarritos = bizCarritos.TraerTodos().Count;
+
             return View();
         }
     }

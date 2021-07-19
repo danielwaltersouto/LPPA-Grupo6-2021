@@ -31,6 +31,11 @@ namespace Grupo6.Business
             var db = new BaseDataService<Rol>();
             db.Delete(rol);
         }
+        public void Eliminar(int idRol)
+        {
+            var db = new BaseDataService<Rol>();
+            db.Delete(idRol);
+        }
 
         public void Actualizar(Rol rol)
         {

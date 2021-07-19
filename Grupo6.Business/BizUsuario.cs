@@ -49,6 +49,11 @@ namespace Grupo6.Business
             var db = new BaseDataService<Usuario>();
             db.Delete(usuario);
         }
+        public void Eliminar(int idUsuario)
+        {
+            var db = new BaseDataService<Usuario>();
+            db.Delete(idUsuario);
+        }
 
         public void Actualizar(Usuario usuario)
         {

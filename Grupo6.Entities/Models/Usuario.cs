@@ -35,6 +35,8 @@ namespace Grupo6.Entities.Models
         [Required(ErrorMessage = "Se requiere Documento")]
  
         public int Documento { get; set; }
+        [DataType(DataType.Date, ErrorMessage = "Fecha Nacimiento Invalida")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
 
         [Required(ErrorMessage = "Se requiere fecha")]
         [Display(Name = "Fecha de Nacimiento")]
