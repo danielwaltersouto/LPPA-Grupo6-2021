@@ -10,7 +10,8 @@ namespace Grupo6.WebSite.Controllers
 {
     public class CatalogoProductosController : Controller
     {
-        // GET: CatalogoProductos        
+        // GET: CatalogoProductos
+        [AllowAnonymous]
         public ActionResult Index()
         {
             var bizProducto = new BizProducto();

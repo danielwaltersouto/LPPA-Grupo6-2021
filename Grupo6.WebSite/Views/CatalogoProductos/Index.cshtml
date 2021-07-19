@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="product">
+<div class="product container">
     <br /><br /><h2 class="text-center">Catálogo de Productos</h2>
-    <div>
-        <div class="category_list">
+    <div class="row">
+        <div class="category_list col-lg-2">
             <br />
             <a href="#" class="category_item" category="all">Todo</a>
             <a href="#" class="category_item" category="Carne">Carne</a>
@@ -16,31 +16,50 @@
             <a href="#" class="category_item" category="Pescado">Pescado</a>
         </div>
 
-        @foreach (var item in Model)
-        {
+        <div class="card-columns col-lg-10">
+            <div class="row">
+                @foreach (var item in Model)
+                {
 
-               <div class="card-columns">                    
-                    <div class="row">
-                        <div class="col-lg-3 text-center">
+                    <div class="col-lg-3 text-center">
+                        <div class="card border-0 bg-light mb-2">
+                            <div class="card-body">
+                                @{
+                                    var base64 = Convert.ToBase64String(item.FotoProducto);
+                                    var imgSrc = string.Format("data:image/jpg;base64,{0}", base64);
+                                }
+                                <img src="@imgSrc" style="width:230px;height:230px" alt="" />
+                            </div>
+                        </div>
+                        <a class="btn btn-danger">Agregar</a>
+                        <h6><br />@item.Descripcion</h6>
+                        <input type="number" value="1" style="text-align: center; background: none; color: black" />
+                        <p>@item.Precio</p>
+                    </div>
+                    @*<div class="col-lg-3 text-center">
                             <div class="card border-0 bg-light mb-2" style="max-width:319px">
                                 <div class="card-body">
-                                    <img src="@item.FotoProducto" class="img-fluid" alt="" />
+                                    @{
+                                        var base64 = Convert.ToBase64String(item.FotoProducto);
+                                        var imgSrc = string.Format("data:image/jpg;base64,{0}", base64);
+                                    }
+                                    <img src="@imgSrc" style="width:230px;height:230px" alt="" />
                                 </div>
 
 
                             </div>
                             <button class="btn1">Agregar</button>
                             <h6><br />@item.Descripcion</h6>
-                            <input type="number" value="1" style="text-align: center; background: none; color: black"/>
+                            <input type="number" value="1" style="text-align: center; background: none; color: black" />
                             <p>@item.Precio</p>
-                        </div>
-                    </div>
-                </div>
-        }
+                        </div>*@
 
+                }
+            </div>
+        </div>
     </div>
-    
+
 </div>
 
 
-   
+
