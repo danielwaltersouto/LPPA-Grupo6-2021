@@ -10,7 +10,7 @@ namespace Grupo6.Entities.Models
         public decimal Precio { get; set; }
         public int StockActual { get; set; }
         public int CategoriaProductoId { get; set; }
-        public byte[] FotoProducto { get; set; }
+        public string FotoProducto { get; set; }
 
         public virtual CategoriaProducto CategoriaProducto { get; set; }
         public virtual ICollection<DetalleFactura> DetalleFactura { get; set; }

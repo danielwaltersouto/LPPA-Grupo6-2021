@@ -1,12 +1,22 @@
-﻿/*-- Layout ----------------------------------------------------------*/
+﻿.product-grid{
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+    .product-grid:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 8 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+.image{
+    position: relative;
+}
+
+/*-- Layout ----------------------------------------------------------*/
 .*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-
-
-
 
 .navbar-brand {
     font-size: 2rem;
@@ -111,12 +121,6 @@
    
 }
 
-.btn6:hover {
-    background-color: red;
-    color:black;
-
-}
-
 
 .carousel-user{
 
@@ -124,8 +128,6 @@ color:black;
 font-weight:bolder;
 padding-right:10px;
 }
-
-
 
 
     /*-- Layout ----------------------------------------------------------*/
@@ -231,9 +233,33 @@ padding-right:10px;
     border-radius: 60px;
 }
 
-.product span{
+.product span {
     color: red;
     font-size: 19px;
     font-weight: 800;
     padding-left: 5px;
 }
+    /*-- catalogo ----------------------------------------------------------*/
+
+
+.category_list{
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+}
+
+.category_list .category_item {
+    display: block;
+    width: 90%;
+    padding: 15px 0;
+    margin-bottom: 20px;
+    background: rgba(248, 9, 9, 0.95);
+
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+}
+
+
+
+

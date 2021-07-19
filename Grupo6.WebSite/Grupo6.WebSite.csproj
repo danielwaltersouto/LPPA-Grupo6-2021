@@ -280,6 +280,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CatalogoProductosController.cs" />
     <Compile Include="Controllers\CategoriaProductoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -330,6 +331,7 @@
     <Content Include="Views\User\UserRegister.cshtml" />
     <Content Include="Views\User\Profile.cshtml" />
     <Content Include="Views\Auth\ChangePass.cshtml" />
+    <Content Include="Views\CatalogoProductos\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Grupo6.Entities.Models.Producto>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="product">
+    <br /><br /><h2 class="text-center">Catálogo de Productos</h2>
+    <div>
+        <div class="category_list">
+            <br />
+            <a href="#" class="category_item" category="all">Todo</a>
+            <a href="#" class="category_item" category="Carne">Carne</a>
+            <a href="#" class="category_item" category="Vegetales">Vegetales</a>
+            <a href="#" class="category_item" category="Pescado">Pescado</a>
+        </div>
+
+        @foreach (var item in Model)
+        {
+
+               <div class="card-columns">                    
+                    <div class="row">
+                        <div class="col-lg-3 text-center">
+                            <div class="card border-0 bg-light mb-2" style="max-width:319px">
+                                <div class="card-body">
+                                    <img src="@item.FotoProducto" class="img-fluid" alt="" />
+                                </div>
+
+
+                            </div>
+                            <button class="btn1">Agregar</button>
+                            <h6><br />@item.Descripcion</h6>
+                            <input type="number" value="1" style="text-align: center; background: none; color: black"/>
+                            <p>@item.Precio</p>
+                        </div>
+                    </div>
+                </div>
+        }
+
+    </div>
+    
+</div>
+
+
+   
