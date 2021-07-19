@@ -135,7 +135,7 @@ namespace Grupo6.WebSite.Controllers
         private void InsertItemsIntoCache(List<ItemCarrito> items)
         {
             var itemsXml = Services.Serializer.ObjectToXml(items);
-            HttpRuntime.Cache.Insert("Carrito", itemsXml, null, DateTime.Now.AddMinutes(5), Cache.NoSlidingExpiration);
+            HttpRuntime.Cache.Insert("Carrito", itemsXml, null, DateTime.Now.AddHours(5), Cache.NoSlidingExpiration);
         }
 
         private List<ItemCarrito> GetItemsFromCache()

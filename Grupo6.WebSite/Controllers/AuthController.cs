@@ -16,91 +16,59 @@ namespace Grupo6.WebSite.Controllers
 {
     public class AuthController : Controller
     {
-       [AllowAnonymous]
-       [HttpGet]
+        [AllowAnonymous]
+        [HttpGet]
         public ActionResult LogIn()
         {
-           
-            
+
+
             return View();
         }
 
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult LogIn( ViewModelLogIn  Model)
-
-            
+        public ActionResult LogIn(ViewModelLogIn Model)
         {
             try
             {
                 if (!ModelState.IsValid)
-
                 {
-
-                  
                     return View();
-                    
+
                 }
-
-
                 else
                 {
                     Usuario UserModel = new Usuario();
                     UserModel.Email = Model.Email;
                     UserModel.Password = Model.Password;
                     UserModel.UserToken = Model.Password;
-                     
+
                     bool valida = ValidarIngreso.Validar(UserModel);
 
                     if (valida == true)
                     {
-
-                       
-                        
-                        var claims = new[]
-                 {
-                    
-                    new Claim(ClaimTypes.Email, Model.Email),
-                      new Claim(ClaimTypes.Name,  Model.Email),
-                      
-
-                };
+                        var claims = new[] { new Claim(ClaimTypes.Email, Model.Email), new Claim(ClaimTypes.Name, Model.Email), };
                         var identity = new ClaimsIdentity(claims, "ApplicationCookie");
                         IOwinContext ctx = Request.GetOwinContext();
                         IAuthenticationManager authManager = ctx.Authentication;
+
                         authManager.SignIn(identity);
 
-
-
-
-
+                        if (HttpRuntime.Cache.Get("Carrito") != null)
+                        {
+                            return RedirectToAction("MyCart", "Carrito");
+                        }
                         return RedirectToAction("Index", "Home");
-                   
-                    
-                    
-                    
                     }
-                        return View();
-
- }
-
+                    return View();
+                }
             }
-                    
-               
-
-            
-       
-           
-
-             catch (Exception)
+            catch (Exception)
             {
-
                 throw;
             }
         }
-
-
 
         [Authorize]
         [HttpGet]
@@ -139,7 +107,7 @@ namespace Grupo6.WebSite.Controllers
 
 
 
-                    AutUsuario = Busuario.TraerPorEmail(User.Identity.Name );
+                    AutUsuario = Busuario.TraerPorEmail(User.Identity.Name);
 
                     if (AutUsuario != null)
                     {
@@ -151,9 +119,9 @@ namespace Grupo6.WebSite.Controllers
 
                         AutUsuario.UserToken = SHAClave;
                         Busuario.Actualizar(AutUsuario);
-                        CorreoElectronico.EnviarMail(Titulo,Cuerpo, AutUsuario.Email);
-                                                
-                       
+                        CorreoElectronico.EnviarMail(Titulo, Cuerpo, AutUsuario.Email);
+
+
 
                         return RedirectToAction("Index", "Home");
                     }
@@ -166,13 +134,13 @@ namespace Grupo6.WebSite.Controllers
             }
             catch (Exception)
 
-            { 
+            {
 
                 throw;
             }
 
         }
-                 
+
 
 
         [AllowAnonymous]
@@ -181,7 +149,7 @@ namespace Grupo6.WebSite.Controllers
 
 
         {
-        return View();
+            return View();
         }
 
         [AllowAnonymous]
@@ -195,14 +163,14 @@ namespace Grupo6.WebSite.Controllers
                 return View(model);
             }
 
-            
+
             BizUsuario Busuario = new BizUsuario();
-           
+
             Usuario AutUsuario = new Usuario();
 
-           
-        
-           AutUsuario = Busuario.TraerPorEmail(model.Email);
+
+
+            AutUsuario = Busuario.TraerPorEmail(model.Email);
 
             if (AutUsuario != null)
             {
@@ -212,14 +180,14 @@ namespace Grupo6.WebSite.Controllers
 
                 //CorreoElectronico.RecuperarPassword(AutUsuario.NombreWeb, clave, AutUsuario.Email);
                 AutUsuario.UserToken = SHAClave;
-              
+
                 Busuario.Actualizar(AutUsuario);
 
                 return RedirectToAction("Index", "Home");
             }
 
             return View();
-        
+
         }
 
 
