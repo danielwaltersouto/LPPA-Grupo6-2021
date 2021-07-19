@@ -11,7 +11,6 @@ using Grupo6.Services;
 using Grupo6.WebSite.ViewModels;
 using Grupo6.Business;
 
-
 namespace Grupo6.WebSite.Controllers
 {
     public class AuthController : Controller
@@ -92,6 +91,7 @@ namespace Grupo6.WebSite.Controllers
                 }
                 else
                 {
+
                     var Busuario = new BizUsuario();
                     var AutUsuario = Busuario.TraerPorEmail(User.Identity.Name);
                     string clave = usuario.Password;
