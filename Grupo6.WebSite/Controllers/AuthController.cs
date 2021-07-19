@@ -81,9 +81,7 @@ namespace Grupo6.WebSite.Controllers
 
         [Authorize]
         [HttpPost]
-        public ActionResult ChangePass(Usuario usuario)
-
-
+        public ActionResult ChangePass(ViewModelChangePass usuario)
         {
             try
             {
@@ -91,57 +89,32 @@ namespace Grupo6.WebSite.Controllers
 
                 {
                     return View();
-
-
                 }
-
-
-
                 else
-
                 {
-
                     var Busuario = new BizUsuario();
+                    var AutUsuario = Busuario.TraerPorEmail(User.Identity.Name);
+                    string clave = usuario.Password;
+                    string SHAClave = Encriptador.Encriptar(clave);
+                    string Titulo = "Cambio de Contraseña";
+                    string Cuerpo = AutUsuario.Nombre + " " + AutUsuario.Apellido + " Tu Clave se Cambio con Exito";
 
-                    Usuario AutUsuario = new Usuario();
+                    AutUsuario.UserToken = SHAClave;
+                    AutUsuario.Password = SHAClave;
 
+                    Busuario.Actualizar(AutUsuario);
+                    CorreoElectronico.EnviarMail(Titulo, Cuerpo, AutUsuario.Email);
 
+                    return RedirectToAction("Index", "Home");
 
-                    AutUsuario = Busuario.TraerPorEmail(User.Identity.Name);
-
-                    if (AutUsuario != null)
-                    {
-                        string clave = usuario.Password;
-                        string SHAClave = Encriptador.Encriptar(clave);
-                        usuario.Password = SHAClave;
-                        string Titulo = "Cambio de Contraseña";
-                        string Cuerpo = AutUsuario.Nombre + " " + AutUsuario.Apellido + " Tu Clave se Cambio con Exito";
-
-                        AutUsuario.UserToken = SHAClave;
-                        Busuario.Actualizar(AutUsuario);
-                        CorreoElectronico.EnviarMail(Titulo, Cuerpo, AutUsuario.Email);
-
-
-
-                        return RedirectToAction("Index", "Home");
-                    }
-
-
-
-
-                    return View();
                 }
             }
             catch (Exception)
-
             {
-
                 throw;
             }
 
         }
-
-
 
         [AllowAnonymous]
         [HttpGet]
