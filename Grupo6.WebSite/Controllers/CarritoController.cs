@@ -113,8 +113,8 @@ namespace Grupo6.WebSite.Controllers
                 var carrito = new Carrito();
 
                 var items = GetItemsFromCache();
-                var usuario = bizUsuario.TraerPorEmail("misme.ricardo@gmail.com");
-                carrito.UsuarioId = usuario.Id;
+                //var usuario = bizUsuario.TraerPorEmail("misme.ricardo@gmail.com");
+                carrito.UsuarioId = 1;
 
                 var nuevoCarrito = bizCarrito.Agregar(carrito);
 

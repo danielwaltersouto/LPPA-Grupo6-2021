@@ -9,9 +9,7 @@ namespace Grupo6.Business
         public Carrito Agregar(Carrito carrito)
         {
             var db = new BaseDataService<Carrito>();
-            db.Create(carrito);
-
-            return carrito;
+            return db.Create(carrito);
         }
 
         public List<Carrito> TraerTodos()
