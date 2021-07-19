@@ -121,13 +121,22 @@ namespace Grupo6.WebSite.Controllers
                     bizCarrito.AgregarItemCarrito(item);
                 }
                 HttpRuntime.Cache.Remove("Carrito");
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("MisCompras", "Carrito");
             }
             else
             {
                 return RedirectToAction("MyCart");
             }
 
+        }
+        [HttpGet]
+        public ActionResult MisCompras()
+        {
+            var bizUsuario = new BizUsuario();
+            var usuario = bizUsuario.TraerPorEmail(User.Identity.Name);
+            var compras = usuario.Carrito;
+
+            return View(compras);
         }
 
         private void InsertItemsIntoCache(List<ItemCarrito> items)
