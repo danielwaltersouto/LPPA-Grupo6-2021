@@ -85,7 +85,7 @@
                             <img src="@imgSrc" style="width:230px;height:230px" alt="" />
                         </div>
                     </div>
-                    <a class="btn btn-danger" href="@Url.Action("AddItemCart","Carrito", new { idProducto = producto.Id })">Agregar</a>
+                    <a class="btn btn-danger" href="@Url.Action("ItemCart","Carrito", new { idProducto = producto.Id })">Agregar</a>
                     <h6><br />@producto.Descripcion</h6>
                     <p><small><del>$@precioSin</del><span>  $@producto.Precio</span></small></p>
                 </div>

@@ -21,33 +21,36 @@ namespace Grupo6.WebSite.Controllers
         [HttpGet]
         public ActionResult MyCart()
         {
+            var model = new List<ItemCarrito>();
+
             if (HttpRuntime.Cache.Get("Carrito") != null)
             {
+                //var xml = (string)HttpRuntime.Cache.Get("Carrito");
+                var items = GetItemsFromCache();
+                var bizProducto = new BizProducto();
+                decimal total = 0;
 
+                foreach (var item in items)
+                {
+                    item.Producto = bizProducto.TraerPorId(item.ProductoId);
+                    total += item.Cantidad * item.Producto.Precio;
+                }
+                ViewBag.PrecioTotal = total;
+                model = items;
             }
-            var items = new List<ItemCarrito>();
-            var item = new ItemCarrito();
-            item.ProductoId = 1;
-            item.Cantidad = 1;
-            items.Add(item);
 
-            var pruebaXML = Services.Serializer.ObjectToXml(items);
-
-            var lista = Services.Serializer.XmlToObject(pruebaXML);
-
-
-            return View();
+            return View(model);
         }
 
         [AllowAnonymous]
         [HttpGet]
-        public ActionResult AddItemCart(int idProducto, int cantidad = 1)
+        public ActionResult ItemCart(int idProducto, int cantidad = 1)
         {
             if (HttpRuntime.Cache.Get("Carrito") != null)
 
             {
-                var xml = (string)HttpRuntime.Cache.Get("Carrito");
-                var items = Services.Serializer.XmlToObject(xml);
+                //var xml = (string)HttpRuntime.Cache.Get("Carrito");
+                var items = GetItemsFromCache();
 
                 var itemExistente = items.Exists(p => p.ProductoId == idProducto);
 
@@ -66,8 +69,7 @@ namespace Grupo6.WebSite.Controllers
                     nuevoItem.ProductoId = producto.Id;
                     items.Add(nuevoItem);
                 }
-                var itemsXml = Services.Serializer.ObjectToXml(items);
-                HttpRuntime.Cache.Insert("Carrito", itemsXml, null, DateTime.Now.AddMinutes(5), Cache.NoSlidingExpiration);
+                InsertItemsIntoCache(items);
             }
             else
             {
@@ -80,12 +82,67 @@ namespace Grupo6.WebSite.Controllers
                 nuevoItem.Producto = producto;
                 nuevoItem.ProductoId = producto.Id;
                 items.Add(nuevoItem);
-
-                var itemsXml = Services.Serializer.ObjectToXml(items);
-
-                HttpRuntime.Cache.Insert("Carrito", itemsXml, null, DateTime.Now.AddMinutes(5), Cache.NoSlidingExpiration);
+                InsertItemsIntoCache(items);
             }
             return RedirectToAction("MyCart");
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public ActionResult DeleteItemCart(int idProducto)
+        {
+
+            //var xml = (string)HttpRuntime.Cache.Get("Carrito");
+            var items = GetItemsFromCache();
+            var itemToRemove = items.Single(i => i.ProductoId == idProducto);
+
+            items.Remove(itemToRemove);
+            InsertItemsIntoCache(items);
+
+            return RedirectToAction("MyCart");
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public ActionResult CheckOut()
+        {
+            if (HttpRuntime.Cache.Get("Carrito") != null)
+            {
+                var bizUsuario = new BizUsuario();
+                var bizCarrito = new BizCarrito();
+                var carrito = new Carrito();
+
+                var items = GetItemsFromCache();
+                var usuario = bizUsuario.TraerPorEmail("misme.ricardo@gmail.com");
+                carrito.UsuarioId = usuario.Id;
+
+                var nuevoCarrito = bizCarrito.Agregar(carrito);
+
+                foreach (var item in items)
+                {
+                    item.CarritoId = nuevoCarrito.Id;
+                    bizCarrito.AgregarItemCarrito(item);
+                }
+                InsertItemsIntoCache(items);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("MyCart");
+            }
+
+        }
+
+        private void InsertItemsIntoCache(List<ItemCarrito> items)
+        {
+            var itemsXml = Services.Serializer.ObjectToXml(items);
+            HttpRuntime.Cache.Insert("Carrito", itemsXml, null, DateTime.Now.AddMinutes(5), Cache.NoSlidingExpiration);
+        }
+
+        private List<ItemCarrito> GetItemsFromCache()
+        {
+            var xml = (string)HttpRuntime.Cache.Get("Carrito");
+            return Services.Serializer.XmlToObject(xml);
         }
     }
 }

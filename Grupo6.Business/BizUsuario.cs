@@ -27,10 +27,10 @@ namespace Grupo6.Business
             return db.GetById(id);
         }
 
-        public Usuario TraerPorEmail(string email) 
+        public Usuario TraerPorEmail(string email)
         {
             var db = new BaseDataService<Usuario>();
-            return db.Get((Usuario usuario) => usuario.Email == email).First();
+            return db.Get((Usuario usuario) => usuario.Email == email).FirstOrDefault();
         }
 
         public void Eliminar(Usuario usuario)
