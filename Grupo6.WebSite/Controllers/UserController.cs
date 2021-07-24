@@ -9,6 +9,7 @@ using Grupo6.Business;
 using System.Security.Claims;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
+using Grupo6.Services;
 
 namespace Grupo6.WebSite.Controllers
 {
@@ -17,8 +18,8 @@ namespace Grupo6.WebSite.Controllers
         // GET: User
 
         [Authorize]
-        //  [AllowAnonymous]
-        public ActionResult Profile()
+
+        public ActionResult UserProfile()
         {
             BizUsuario bizUsuario = new BizUsuario();
             Usuario usuario = new Usuario();
@@ -35,10 +36,6 @@ namespace Grupo6.WebSite.Controllers
         }
 
 
-
-
-
-
         [AllowAnonymous]
         [HttpGet]
         public ActionResult UserRegister()
@@ -48,7 +45,35 @@ namespace Grupo6.WebSite.Controllers
         }
 
 
+        //[Authorize]
+        [HttpGet]
+        public ActionResult UserRegisterAddress()
+        {
 
+
+
+
+
+            return View();
+        }
+
+        //[Authorize]
+        [HttpPost]
+        public ActionResult UserRegisterAddress(Direccion Model)
+        {
+
+
+            BizDireccion bizDireccion = new BizDireccion();
+            BizUsuario bizUsuario = new BizUsuario();
+            Usuario usuario = bizUsuario.TraerPorEmail(User.Identity.Name);
+            Model.UsuarioId = usuario.Id;
+
+            bizDireccion.Agregar(Model);
+
+
+
+            return View();
+        }
 
 
 
@@ -73,21 +98,38 @@ namespace Grupo6.WebSite.Controllers
                     var bizUsuario = new BizUsuario();
                     var oUser = new Entities.Models.Usuario();
                     oUser = bizUsuario.TraerPorEmail(Model.Email);
-
                     if (oUser != null)
                     {
                         ViewBag.Mensaje = "eMail Ya Registrado! ";
+
                         return View();
                     }
                     else
                     {
+
                         bizUsuario.Agregar(Model);
+                        Logger.WriteLog(State.BizChange, this.RouteData.Values["action"], oUser.Email);
                         return RedirectToAction("Index", "Home");
+
+
+
+
                     }
+
+
                 }
+
+
             }
+
+
+
+
+
+
             catch (Exception)
             {
+
                 throw;
             }
 
