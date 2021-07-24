@@ -108,7 +108,7 @@ namespace Grupo6.WebSite.Controllers
                     {
 
                         bizUsuario.Agregar(Model);
-                        Logger.WriteLog(State.BizChange, this.RouteData.Values["action"], oUser.Email);
+                       
                         return RedirectToAction("Index", "Home");
 
 
