@@ -29,7 +29,7 @@ namespace Grupo6.Services
             _SMTP.Credentials = new NetworkCredential("lppa.grupo6.2021@gmail.com", "Grupo6.2021");
             _SMTP.Host = "smtp.gmail.com";
             _SMTP.Port = 587;
-            _SMTP.EnableSsl = true;
+            //_SMTP.EnableSsl = true;
 
             //Configuracion Mensaje
             _Message.To.Add(correoElectronico);
