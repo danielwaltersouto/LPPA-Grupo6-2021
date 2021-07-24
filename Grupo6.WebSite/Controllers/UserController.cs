@@ -72,7 +72,7 @@ namespace Grupo6.WebSite.Controllers
 
 
 
-            return View();
+            return View("Index", "Home");
         }
 
 

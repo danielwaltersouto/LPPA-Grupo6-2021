@@ -157,13 +157,16 @@
     <Content Include="Content\upscale supermarket_600x.jpg" />
     <Content Include="Content\User\box-arrow-in-left.svg" />
     <Content Include="Content\User\box-arrow-left.svg" />
+    <Content Include="Content\User\building.svg" />
     <Content Include="Content\User\calendar-event-fill.svg" />
     <Content Include="Content\User\card.svg" />
     <Content Include="Content\User\cart.svg" />
     <Content Include="Content\User\envelope-fill.svg" />
     <Content Include="Content\User\file-lock-fill.svg" />
     <Content Include="Content\User\file-lock.svg" />
+    <Content Include="Content\User\geo-alt-fill.svg" />
     <Content Include="Content\User\person.svg" />
+    <Content Include="Content\User\signpost-fill.svg" />
     <Content Include="Content\User\tele.svg" />
     <Content Include="Content\User\user-plus.svg" />
     <Content Include="Content\User\calendar.svg" />
