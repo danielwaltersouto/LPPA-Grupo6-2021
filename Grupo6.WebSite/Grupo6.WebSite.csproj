@@ -352,6 +352,7 @@
     <Content Include="Views\Carrito\MyCart.cshtml" />
     <Content Include="Views\Carrito\MisCompras.cshtml" />
     <Content Include="Views\Usuario\Edit.cshtml" />
+    <Content Include="Views\User\UserRegisterAddress.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
