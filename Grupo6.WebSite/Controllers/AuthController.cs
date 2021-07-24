@@ -11,6 +11,8 @@ using Grupo6.Services;
 using Grupo6.WebSite.ViewModels;
 using Grupo6.Business;
 
+
+
 namespace Grupo6.WebSite.Controllers
 {
     public class AuthController : Controller
@@ -39,6 +41,7 @@ namespace Grupo6.WebSite.Controllers
                 else
                 {
                     Usuario UserModel = new Usuario();
+
                     UserModel.Email = Model.Email;
                     UserModel.Password = Model.Password;
                     UserModel.UserToken = Model.Password;
@@ -54,7 +57,7 @@ namespace Grupo6.WebSite.Controllers
                         IAuthenticationManager authManager = ctx.Authentication;
 
                         authManager.SignIn(identity);
-
+                        Logger.WriteLog(State.Info, this.RouteData.Values["action"], identity.Name);
                         if (HttpRuntime.Cache.Get("Carrito") != null)
                         {
                             return RedirectToAction("MyCart", "Carrito");
@@ -64,8 +67,9 @@ namespace Grupo6.WebSite.Controllers
                     return View();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Logger.WriteLog(State.Critical, this.RouteData.Values["action"], ex.Message);
                 throw;
             }
         }
@@ -81,41 +85,45 @@ namespace Grupo6.WebSite.Controllers
 
         [Authorize]
         [HttpPost]
-        public ActionResult ChangePass(ViewModelChangePass usuario)
+        public ActionResult ChangePass(ViewModelChangePass viewModelChangePass)
+
+
         {
+
             try
             {
                 if (!ModelState.IsValid)
 
                 {
                     return View();
+
                 }
+
                 else
+
                 {
+                    string dato = viewModelChangePass.Password;
+                    string email = User.Identity.Name;
 
-                    var Busuario = new BizUsuario();
-                    var AutUsuario = Busuario.TraerPorEmail(User.Identity.Name);
-                    string clave = usuario.Password;
-                    string SHAClave = Encriptador.Encriptar(clave);
-                    string Titulo = "Cambio de Contraseña";
-                    string Cuerpo = AutUsuario.Nombre + " " + AutUsuario.Apellido + " Tu Clave se Cambio con Exito";
+                    BizUsuario bizUsuario = new BizUsuario();
 
-                    AutUsuario.UserToken = SHAClave;
-                    AutUsuario.Password = SHAClave;
+                    bizUsuario.ActualizarPorEmail(dato, email);
 
-                    Busuario.Actualizar(AutUsuario);
-                    CorreoElectronico.EnviarMail(Titulo, Cuerpo, AutUsuario.Email);
 
                     return RedirectToAction("Index", "Home");
-
                 }
+
             }
-            catch (Exception)
+            catch (Exception ex)
+
             {
+                Logger.WriteLog(State.BizChange, this.RouteData.Values["action"], ex.Message);
                 throw;
             }
 
         }
+
+
 
         [AllowAnonymous]
         [HttpGet]
@@ -132,35 +140,49 @@ namespace Grupo6.WebSite.Controllers
 
         {
 
-            if (!ModelState.IsValid)
+
+            try
             {
-                return View(model);
+
+
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+
+
+                BizUsuario Busuario = new BizUsuario();
+
+
+                Usuario AutUsuario = Busuario.TraerPorEmail(model.Email);
+
+                if (AutUsuario != null)
+                {
+                    string clave = Encriptador.GeneradorClave();
+                    string SHAClave = Encriptador.Encriptar(clave);
+
+
+                    CorreoElectronico.RecuperarPassword(AutUsuario.NombreWeb, clave, AutUsuario.Email);
+                    AutUsuario.UserToken = SHAClave;
+
+                    Busuario.Actualizar(AutUsuario);
+
+                    Logger.WriteLog(State.BizChange, this.RouteData.Values["action"], AutUsuario.Email);
+                    return RedirectToAction("Index", "Home");
+                }
+
+                return View();
+
+
             }
 
 
-            BizUsuario Busuario = new BizUsuario();
 
-            Usuario AutUsuario = new Usuario();
-
-
-
-            AutUsuario = Busuario.TraerPorEmail(model.Email);
-
-            if (AutUsuario != null)
+            catch (Exception ex)
             {
-                string clave = Encriptador.GeneradorClave();
-                string SHAClave = Encriptador.Encriptar(clave);
-
-
-                //CorreoElectronico.RecuperarPassword(AutUsuario.NombreWeb, clave, AutUsuario.Email);
-                AutUsuario.UserToken = SHAClave;
-
-                Busuario.Actualizar(AutUsuario);
-
-                return RedirectToAction("Index", "Home");
+                Logger.WriteLog(State.BizChange, this.RouteData.Values["action"], ex.ToString());
+                throw;
             }
-
-            return View();
 
         }
 
@@ -170,14 +192,24 @@ namespace Grupo6.WebSite.Controllers
 
         public ActionResult LogOut()
         {
-            var ctx = Request.GetOwinContext();
-            var authManager = ctx.Authentication;
 
-            authManager.SignOut("ApplicationCookie");
-            return RedirectToAction("Index", "Home");
+            try
+            {
+
+                var ctx = Request.GetOwinContext();
+                var authManager = ctx.Authentication;
+
+                authManager.SignOut("ApplicationCookie");
+                Logger.WriteLog(State.Info, this.RouteData.Values["action"], User.Identity.Name);
+                return RedirectToAction("Index", "Home");
+
+            }
+
+            catch (Exception ex)
+            {
+                Logger.WriteLog(State.BizChange, this.RouteData.Values["action"], ex.ToString());
+                throw;
+            }
         }
-
-
-
     }
 }
