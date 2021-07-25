@@ -100,14 +100,15 @@ namespace Grupo6.Services
         {
             string nombre = "";
 
-            nombre = "log_" + DateTime.Now.Year + "_" + DateTime.Now.Month + "_" + DateTime.Now.Day;
-
+            nombre = "log_" + DateTime.Now.Year + "-" + DateTime.Now.Month.ToString("d2") + "-" + DateTime.Now.Day.ToString("d2");
+           
+           
             return nombre;
         }
 
         /*--------XML++++++++++READ----*/
 
-        private List<Logger> ReadLog(string DatePath)
+        public static List<Logger> ReadLog(string DatePath)
 
         {
 
@@ -116,15 +117,15 @@ namespace Grupo6.Services
 
             //formar ruta de busqueda con fecha
 
-            string PathXML = HttpContext.Current.Server.MapPath("~/LogXML/" + DatePath);
-            String ArcXML = PathXML + "/" + DatePath + ".xml";
+            string PathXML = HttpContext.Current.Server.MapPath("~/LogXML/"+"log_"+ DatePath);
+            String ArcXML = PathXML +"/"+"log_" + DatePath + ".xml";
 
 
             XmlDocument doc = new XmlDocument();
             doc.Load(ArcXML);
 
 
-            foreach (XmlNode node in doc.SelectNodes("/Logger/Log"))
+            foreach (XmlNode node in doc.SelectNodes("/logger/Log"))
             {
              
                 loggers.Add(new Logger

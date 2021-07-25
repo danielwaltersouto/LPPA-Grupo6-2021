@@ -1,40 +1,40 @@
-﻿@using Grupo6.Services
-
-
- 
+﻿
+@using Grupo6.Services;
 @model IEnumerable<Logger>
 
-@{
-    Layout = null;
-}
+    <!DOCTYPE html>
 
-<!DOCTYPE html>
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+    </head>
+    <body>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <table cellpadding="10" cellspacing="5">
-        <tr>
-            <th>Severity</th>
-            <th>Controller</th>
-            <th>Message</th>
-            <th>Date</th>
-        </tr>
-        @if (Model != null)
-        {
-        foreach (Logger log in Model)
-        {
-    <tr>
-        <td>@log.C1</td>
-        <td>@log.C2</td>
-        <td>@log.C3</td>
-        <td>@log.C4</td>
-    </tr>
-        }
-        }
-    </table>
-</body>
+
+
+        <table cellpadding="10" cellspacing="5">
+            <tr>
+                <th>Severity</th>
+                <th>Controller</th>
+                <th>Message</th>
+                <th>Date</th>
+            </tr>
+            @if (Model != null)
+            {
+
+                foreach (Logger Log in Model)
+
+
+                {
+                    <tr>
+                        <td>log.severity</td>
+                        <td>log.Controller</td>
+                        <td>log.Message</td>
+                        <td>log.Date</td>
+                    </tr>
+                }
+            }
+        </table>
+    </body>
 </html>
