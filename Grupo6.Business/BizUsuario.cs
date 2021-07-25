@@ -81,6 +81,28 @@ namespace Grupo6.Business
         }
 
 
+        public void RecuperarPorEmail(string dato, string email)
+        {
+            var db = new BaseDataService<Usuario>();
+            Usuario Busuario = db.Get((Usuario usuario) => usuario.Email == email).First();
+            string clave = dato;
+            string SHAClave = Encriptador.Encriptar(clave);
+            Busuario.Password = SHAClave;
+            Busuario.Password_ = SHAClave;
+            Busuario.Email_ = email;
+            string Titulo = "Recupero de Contraseña";
+            string Cuerpo = Busuario.Nombre + " " + Busuario.Apellido + " Tu Clave se Cambio con Exito a  "+dato;
+            Busuario.UserToken = SHAClave;
+            db.Update(Busuario);
+            CorreoElectronico.EnviarMail(Titulo, Cuerpo, Busuario.Email);
+
+
+        }
+
+
+
+
+
 
     }
 }

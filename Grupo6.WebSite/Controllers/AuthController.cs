@@ -159,13 +159,9 @@ namespace Grupo6.WebSite.Controllers
                 if (AutUsuario != null)
                 {
                     string clave = Encriptador.GeneradorClave();
-                    string SHAClave = Encriptador.Encriptar(clave);
+                  
 
-
-                    CorreoElectronico.RecuperarPassword(AutUsuario.NombreWeb, clave, AutUsuario.Email);
-                    AutUsuario.UserToken = SHAClave;
-
-                    Busuario.Actualizar(AutUsuario);
+                    Busuario.RecuperarPorEmail(clave,model.Email);
 
                     Logger.WriteLog(State.BizChange, this.RouteData.Values["action"], AutUsuario.Email);
                     return RedirectToAction("Index", "Home");
