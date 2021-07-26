@@ -23,39 +23,31 @@ namespace Grupo6.WebSite.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult Find(Logger model)
+        public ActionResult Find( Logger model)
         {
 
-            List<Logger> loggers = new List<Logger>();
-            loggers = Logger.ReadLog(model.Date);
-
-
-            return View();
-
-            // return RedirectToAction ("Found", "FindLog", new { list=loggers });
+           
+            return RedirectToAction ("Found", "FindLog", new {id=model.Date});
 
 
 
 
         }
-
-
-        //[AllowAnonymous]
-        //[HttpPost]
-        //public ActionResult Found(List<Logger> loggers)
-        //{
-
-
-        //  return View(loggers);
-        //}
+      
+        
 
         [AllowAnonymous]
-      
-        public ActionResult Found(List<Logger> loggers)
+       
+        
+        public ActionResult Found(string id )
         {
+            Logger loger = new Logger();
+            loger.Date = id;
+            List<Logger> loggers = new List<Logger>();
+            loggers = Logger.ReadLog(loger.Date);
 
 
-          return View();
+            return View(loggers);
             }
 
 

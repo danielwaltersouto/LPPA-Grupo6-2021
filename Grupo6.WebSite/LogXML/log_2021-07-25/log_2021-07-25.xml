@@ -6,4 +6,46 @@
     <Date>25/07/2021 3:11:39</Date>
     <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
   </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogOut</Controller>
+    <Date>25/07/2021 22:54:55</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogIn</Controller>
+    <Date>25/07/2021 22:55:05</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogOut</Controller>
+    <Date>25/07/2021 22:55:08</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogIn</Controller>
+    <Date>25/07/2021 22:55:19</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogOut</Controller>
+    <Date>25/07/2021 22:55:26</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogIn</Controller>
+    <Date>25/07/2021 22:57:28</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogIn</Controller>
+    <Date>25/07/2021 23:33:37</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
 </logger>

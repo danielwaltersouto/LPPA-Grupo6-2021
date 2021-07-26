@@ -26,9 +26,10 @@ namespace Grupo6.Services
         public string Message{ get; set; }
         public string Date { get; set; }
 
+       
 
 
-        public static void WriteLog(State St, object AccionController, string IdMsj)
+    public static void WriteLog(State St, object AccionController, string IdMsj)
         {
 
             string DatePath = Logger.GetNameFile();
