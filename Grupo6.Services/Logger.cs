@@ -21,14 +21,15 @@ namespace Grupo6.Services
     public class Logger
     {
 
-        public string C1 { get; set; }
-        public string C2 { get; set; }
-        public string C3 { get; set; }
-        public string C4 { get; set; }
+        public string severity { get; set; }
+        public string Controller { get; set; }
+        public string Message{ get; set; }
+        public string Date { get; set; }
+
+       
 
 
-
-        public static void WriteLog(State St, object AccionController, string IdMsj)
+    public static void WriteLog(State St, object AccionController, string IdMsj)
         {
 
             string DatePath = Logger.GetNameFile();
@@ -100,41 +101,49 @@ namespace Grupo6.Services
         {
             string nombre = "";
 
-            nombre = "log_" + DateTime.Now.Year + "_" + DateTime.Now.Month + "_" + DateTime.Now.Day;
-
+            nombre = "log_" + DateTime.Now.Year + "-" + DateTime.Now.Month.ToString("d2") + "-" + DateTime.Now.Day.ToString("d2");
+           
+           
             return nombre;
         }
 
         /*--------XML++++++++++READ----*/
 
-        private List<Logger> ReadLog(string fecha)
+        public static List<Logger> ReadLog(string DatePath)
 
         {
 
-            Logger logger = new Logger();
+            //Logger logger = new Logger();
             List<Logger> loggers = new List<Logger>();
 
+            //formar ruta de busqueda con fecha
 
+            string PathXML = HttpContext.Current.Server.MapPath("~/LogXML/"+"log_"+ DatePath);
+            String ArcXML = PathXML +"/"+"log_" + DatePath + ".xml";
+
+
+            XmlDocument doc = new XmlDocument();
+            doc.Load(ArcXML);
+
+
+            foreach (XmlNode node in doc.SelectNodes("/logger/Log"))
+            {
+             
+                loggers.Add(new Logger
+                {
+                    severity = node["Severity"].InnerText,
+                    Controller = node["Controller"].InnerText,
+                    Message = node["IdMsj"].InnerText,
+                    Date = node["Date"].InnerText
+                });
+            }
 
             return (loggers);
+
         }
 
 
-        private List<Logger> ReadLog(string fecha, string state)
-
-        {
-
-            Logger logger = new Logger();
-            List<Logger> loggers = new List<Logger>();
-
-
-
-            return (loggers);
-
-
-        }
-
-
+        
 
 
 

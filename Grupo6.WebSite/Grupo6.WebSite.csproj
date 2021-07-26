@@ -157,6 +157,7 @@
     <Content Include="Content\upscale supermarket_600x.jpg" />
     <Content Include="Content\User\box-arrow-in-left.svg" />
     <Content Include="Content\User\box-arrow-left.svg" />
+    <Content Include="Content\User\bug-fill.svg" />
     <Content Include="Content\User\building.svg" />
     <Content Include="Content\User\calendar-event-fill.svg" />
     <Content Include="Content\User\card.svg" />
@@ -287,6 +288,7 @@
     <Compile Include="Controllers\CategoriaFiscalController.cs" />
     <Compile Include="Controllers\CategoriaProductoController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
+    <Compile Include="Controllers\FindLogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
@@ -356,6 +358,8 @@
     <Content Include="Views\Carrito\MisCompras.cshtml" />
     <Content Include="Views\Usuario\Edit.cshtml" />
     <Content Include="Views\User\UserRegisterAddress.cshtml" />
+    <Content Include="Views\FindLog\Found.cshtml" />
+    <Content Include="Views\FindLog\Find.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
