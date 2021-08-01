@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<logger>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogOut</Controller>
+    <Date>01/08/2021 18:47:24</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogIn</Controller>
+    <Date>01/08/2021 18:47:33</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogOut</Controller>
+    <Date>01/08/2021 18:59:47</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogIn</Controller>
+    <Date>01/08/2021 19:07:52</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+</logger>

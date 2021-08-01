@@ -36,6 +36,8 @@ namespace Grupo6.Business
             return db.GetById(id);
         }
 
+
+      
         public Usuario TraerPorEmail(string email)
         {
             var db = new BaseDataService<Usuario>();

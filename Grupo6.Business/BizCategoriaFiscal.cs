@@ -26,6 +26,17 @@ namespace Grupo6.Business
             return db.GetById(id);
         }
 
+
+        public List<CategoriaFiscal>  Traer_detalle(int id)
+        {
+            var db = new BaseDataService<CategoriaFiscal>();
+            var lista = db.Get(x => x.Id == id);
+            return lista;
+        }
+
+
+
+
         public void Eliminar(CategoriaFiscal categoriaFiscal)
         {
             var db = new BaseDataService<CategoriaFiscal>();
