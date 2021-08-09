@@ -30,6 +30,37 @@ namespace Grupo6.WebSite.Controllers
 
             ViewBag.Usuario = usuario;
 
+            List<Direccion> Ldireccion = new List<Direccion>();
+
+            BizDireccion bizDireccion = new BizDireccion();
+
+            Ldireccion = bizDireccion.TraerTodos_id(usuario.Id);
+
+
+
+            ViewBag.direccion_completa1 = Ldireccion[0].DireccionCompleta;
+            ViewBag.direccion_completa1 = ViewBag.direccion_completa1 + "  " + Ldireccion[0].Localidad;
+
+            if (Ldireccion.Count >= 2)
+            { 
+            ViewBag.direccion_completa2 = Ldireccion[1].DireccionCompleta;
+            ViewBag.direccion_completa2 = ViewBag.direccion_completa2 + "  " + Ldireccion[1].Localidad;
+            }
+
+
+
+            BizCategoriaFiscal bizCategoriaFiscal = new BizCategoriaFiscal();
+            List<CategoriaFiscal> Lcategoria = new List<CategoriaFiscal>();
+            
+            CategoriaFiscal categoriaFiscal = new CategoriaFiscal();
+
+           Lcategoria = bizCategoriaFiscal.Traer_detalle(usuario.CategoriaFiscalId);
+
+            ViewBag.Fiscal = Lcategoria[0].Detalle;
+
+
+
+
 
             return View();
 
@@ -72,7 +103,7 @@ namespace Grupo6.WebSite.Controllers
 
 
 
-            return View("Index", "Home");
+            return RedirectToAction("Index", "Home");
         }
 
 

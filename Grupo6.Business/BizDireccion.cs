@@ -26,7 +26,14 @@ namespace Grupo6.Business
             return db.GetById(id);
         }
 
-        public void Eliminar(Direccion direccion)
+
+        public List<Direccion> TraerTodos_id(int id)
+        {
+            var db = new BaseDataService<Direccion>();
+            var lista = db.Get(x => x.UsuarioId == id);
+            return lista;
+        }
+            public void Eliminar(Direccion direccion)
         {
             var db = new BaseDataService<Direccion>();
             db.Delete(direccion);
