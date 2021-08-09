@@ -194,6 +194,23 @@ namespace Grupo6.WebSite.Controllers
         public ActionResult UserEditProfile(Usuario usuario)
         {
 
+          
+            if (usuario.Nombre==null || usuario.Apellido==null || usuario.FechaNacimiento.Year<1910 || usuario.Documento==0 )
+            {
+                BizUsuario EbizUsuario = new BizUsuario();
+                Usuario Eusuario = new Usuario();
+                var CUser = (ClaimsIdentity)User.Identity;
+                var VMail = CUser.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email);
+                string eMail = VMail.Value;
+
+                Eusuario = EbizUsuario.TraerPorEmail(eMail);
+
+                ViewBag.Usuario = Eusuario;
+
+                ViewBag.mensaje = "Campos Vacios no estan permitidos";
+                return View();
+            }
+
             BizUsuario bizUsuario = new BizUsuario();
             bizUsuario.Actualizar_profile(usuario);
 

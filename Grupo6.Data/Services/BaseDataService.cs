@@ -31,6 +31,7 @@ namespace Grupo6.Data.Services
             marketContext.Set<T>().Attach(entity);
             marketContext.Set<T>().Remove(entity);
             marketContext.SaveChanges();
+            
         }
 
         public void Delete(int id)

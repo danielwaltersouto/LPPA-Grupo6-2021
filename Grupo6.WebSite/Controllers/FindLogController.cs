@@ -26,11 +26,15 @@ namespace Grupo6.WebSite.Controllers
         public ActionResult Find( Logger model)
         {
 
-           
-            return RedirectToAction ("Found", "FindLog", new {id=model.Date});
+            if (model.Date != null)
+            {
+                return RedirectToAction("Found", "FindLog", new { id = model.Date });
+            }
 
-
-
+            else {
+                ViewBag.mensaje = "INGRESA FECHA";
+                return View();
+            }
 
         }
       

@@ -73,7 +73,7 @@ namespace Grupo6.Business
              var db = new BaseDataService<Usuario>();
             
            
-            Usuario oldUsuario = TraerPorId(usuario.Id);
+            Usuario oldUsuario = db.GetById(usuario.Id);
           
 
             oldUsuario.Nombre = usuario.Nombre;
@@ -83,7 +83,7 @@ namespace Grupo6.Business
             oldUsuario.Password_ = oldUsuario.Password;
            
             
-       
+   
 
             db.Update(oldUsuario);
         }
