@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<logger>
+  <Log>
+    <Severity>Critical</Severity>
+    <Controller>UserEditProfile</Controller>
+    <Date>07/08/2021 19:21:02</Date>
+    <IdMsj>editor</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Critical</Severity>
+    <Controller>UserEditProfile</Controller>
+    <Date>07/08/2021 19:21:26</Date>
+    <IdMsj>editor</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogOut</Controller>
+    <Date>07/08/2021 19:21:35</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogIn</Controller>
+    <Date>07/08/2021 19:21:44</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Critical</Severity>
+    <Controller>UserEditProfile</Controller>
+    <Date>07/08/2021 19:27:49</Date>
+    <IdMsj>An entity object cannot be referenced by multiple instances of IEntityChangeTracker.</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Critical</Severity>
+    <Controller>UserEditProfile</Controller>
+    <Date>07/08/2021 20:24:26</Date>
+    <IdMsj>An error occurred while updating the entries. See the inner exception for details.</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Critical</Severity>
+    <Controller>UserEditProfile</Controller>
+    <Date>07/08/2021 20:31:41</Date>
+    <IdMsj>An error occurred while updating the entries. See the inner exception for details.</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Critical</Severity>
+    <Controller>UserEditProfile</Controller>
+    <Date>07/08/2021 20:34:49</Date>
+    <IdMsj>An error occurred while updating the entries. See the inner exception for details.</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Critical</Severity>
+    <Controller>UserEditProfile</Controller>
+    <Date>07/08/2021 20:36:53</Date>
+    <IdMsj>An error occurred while updating the entries. See the inner exception for details.</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Critical</Severity>
+    <Controller>UserEditProfile</Controller>
+    <Date>07/08/2021 20:52:24</Date>
+    <IdMsj>An error occurred while updating the entries. See the inner exception for details.</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogIn</Controller>
+    <Date>07/08/2021 20:57:37</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Critical</Severity>
+    <Controller>UserEditProfile</Controller>
+    <Date>07/08/2021 20:57:55</Date>
+    <IdMsj>An entity object cannot be referenced by multiple instances of IEntityChangeTracker.</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Critical</Severity>
+    <Controller>UserEditProfile</Controller>
+    <Date>07/08/2021 20:58:22</Date>
+    <IdMsj>An entity object cannot be referenced by multiple instances of IEntityChangeTracker.</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogIn</Controller>
+    <Date>07/08/2021 23:54:07</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogIn</Controller>
+    <Date>07/08/2021 23:55:53</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+</logger>

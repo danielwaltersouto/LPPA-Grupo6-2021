@@ -123,22 +123,32 @@ namespace Grupo6.Services
 
 
             XmlDocument doc = new XmlDocument();
-            doc.Load(ArcXML);
 
-
-            foreach (XmlNode node in doc.SelectNodes("/logger/Log"))
+            if (Directory.Exists(PathXML))
             {
-             
-                loggers.Add(new Logger
+                doc.Load(ArcXML);
+
+
+                foreach (XmlNode node in doc.SelectNodes("/logger/Log"))
                 {
-                    severity = node["Severity"].InnerText,
-                    Controller = node["Controller"].InnerText,
-                    Message = node["IdMsj"].InnerText,
-                    Date = node["Date"].InnerText
-                });
+
+                    loggers.Add(new Logger
+                    {
+                        severity = node["Severity"].InnerText,
+                        Controller = node["Controller"].InnerText,
+                        Message = node["IdMsj"].InnerText,
+                        Date = node["Date"].InnerText
+                    });
+                }
+
+                return (loggers);
+
             }
 
-            return (loggers);
+            else {
+                return (loggers);
+            
+            }
 
         }
 
