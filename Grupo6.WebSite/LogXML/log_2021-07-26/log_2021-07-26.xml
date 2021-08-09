@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<logger>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogOut</Controller>
+    <Date>26/7/2021 16:36:27</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+</logger>

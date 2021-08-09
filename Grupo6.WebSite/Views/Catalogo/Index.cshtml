@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Grupo6.Entities.Models.Producto>
+@using Grupo6.Business;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var bizCatalogo = new BizCatalogo();
+
+}
+
+<div class="wrap"></div>
+<br />
+<h2 class="text-center">Catálogo de Productos</h2>
+<br /><br />
+
+<div class="store-wrapper">
+    <div class="category-list">
+        
+        <a href="#" class="category-item" category="all">Todo</a><br />
+
+        @foreach (var item in bizCatalogo.ListarCategoriasProd())
+        {
+            <a href="#" class="category-item" category=@item.Nombre>@item.Nombre</a><br />
+        }
+
+    </div>
+    <section class="product-list">
+       
+
+        @foreach (var item in Model)
+        {
+
+            <div class="product-item" category= "@item.CategoriaProducto.Nombre">
+                @{
+                    var base64 = Convert.ToBase64String(item.FotoProducto);
+                    var imgSrc = string.Format("data:image/jpg;base64,{0}", base64);
+                }
+                <img src="@imgSrc" style="width:180px;height:180px" alt="" />
+                <h6>@item.Descripcion</h6>
+                <p>$ @item.Precio</p>
+                <a class="btn btn-danger" href="@Url.Action("ItemCart","Carrito", new { idProducto = item.Id })">Agregar</a>
+
+            </div>
+        }
+
+    </section>
+</div>
