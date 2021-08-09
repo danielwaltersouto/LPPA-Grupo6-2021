@@ -360,6 +360,7 @@
     <Content Include="Views\User\UserRegisterAddress.cshtml" />
     <Content Include="Views\FindLog\Found.cshtml" />
     <Content Include="Views\FindLog\Find.cshtml" />
+    <Content Include="Views\User\UserEditProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

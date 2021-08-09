@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Grupo6.Services;
 
+
 namespace Grupo6.Business
 {
     public class BizUsuario
@@ -37,7 +38,8 @@ namespace Grupo6.Business
         }
 
 
-      
+
+
         public Usuario TraerPorEmail(string email)
         {
             var db = new BaseDataService<Usuario>();
@@ -59,9 +61,35 @@ namespace Grupo6.Business
         {
 
             var db = new BaseDataService<Usuario>();
+        
 
             db.Update(usuario);
         }
+
+
+        public void Actualizar_profile(Usuario usuario)
+        {
+
+             var db = new BaseDataService<Usuario>();
+            
+           
+            Usuario oldUsuario = TraerPorId(usuario.Id);
+          
+
+            oldUsuario.Nombre = usuario.Nombre;
+            oldUsuario.Apellido = usuario.Apellido;
+            oldUsuario.Documento = usuario.Documento;
+            oldUsuario.Email_ = oldUsuario.Email;
+            oldUsuario.Password_ = oldUsuario.Password;
+           
+            
+       
+
+            db.Update(oldUsuario);
+        }
+
+
+
 
 
         public void ActualizarPorEmail(string dato, string email)

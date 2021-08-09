@@ -11,6 +11,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Grupo6.Services;
 
+//modelo de logger*******
+//Logger.WriteLog(State.Critical, this.RouteData.Values["action"], ex.Message);
+
 namespace Grupo6.WebSite.Controllers
 {
     public class UserController : Controller
@@ -42,19 +45,19 @@ namespace Grupo6.WebSite.Controllers
             ViewBag.direccion_completa1 = ViewBag.direccion_completa1 + "  " + Ldireccion[0].Localidad;
 
             if (Ldireccion.Count >= 2)
-            { 
-            ViewBag.direccion_completa2 = Ldireccion[1].DireccionCompleta;
-            ViewBag.direccion_completa2 = ViewBag.direccion_completa2 + "  " + Ldireccion[1].Localidad;
+            {
+                ViewBag.direccion_completa2 = Ldireccion[1].DireccionCompleta;
+                ViewBag.direccion_completa2 = ViewBag.direccion_completa2 + "  " + Ldireccion[1].Localidad;
             }
 
 
 
             BizCategoriaFiscal bizCategoriaFiscal = new BizCategoriaFiscal();
             List<CategoriaFiscal> Lcategoria = new List<CategoriaFiscal>();
-            
+
             CategoriaFiscal categoriaFiscal = new CategoriaFiscal();
 
-           Lcategoria = bizCategoriaFiscal.Traer_detalle(usuario.CategoriaFiscalId);
+            Lcategoria = bizCategoriaFiscal.Traer_detalle(usuario.CategoriaFiscalId);
 
             ViewBag.Fiscal = Lcategoria[0].Detalle;
 
@@ -139,7 +142,7 @@ namespace Grupo6.WebSite.Controllers
                     {
 
                         bizUsuario.Agregar(Model);
-                       
+
                         return RedirectToAction("Index", "Home");
 
 
@@ -165,6 +168,42 @@ namespace Grupo6.WebSite.Controllers
             }
 
         }
-    }
 
+
+
+        [HttpGet]
+        public ActionResult UserEditProfile()
+        {
+
+            BizUsuario bizUsuario = new BizUsuario();
+            Usuario usuario = new Usuario();
+            var CUser = (ClaimsIdentity)User.Identity;
+            var VMail = CUser.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Email);
+            string eMail = VMail.Value;
+            
+            usuario = bizUsuario.TraerPorEmail(eMail);
+
+            ViewBag.Usuario = usuario;
+
+
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult UserEditProfile(Usuario usuario)
+        {
+
+            BizUsuario bizUsuario = new BizUsuario();
+            bizUsuario.Actualizar_profile(usuario);
+
+
+
+         
+
+            
+        return RedirectToAction("UserProfile", "User");
+        }
+
+    }
 }
