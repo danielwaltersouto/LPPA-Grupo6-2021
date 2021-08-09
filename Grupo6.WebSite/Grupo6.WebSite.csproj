@@ -184,6 +184,7 @@
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\filtrocatalogo.js" />
     <Content Include="Scripts\index.js.flow" />
     <Content Include="Scripts\esm\popper.min.js.map" />
     <Content Include="Scripts\esm\popper.js.map" />
@@ -285,6 +286,7 @@
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CarritoController.cs" />
+    <Compile Include="Controllers\CatalogoController.cs" />
     <Compile Include="Controllers\CategoriaFiscalController.cs" />
     <Compile Include="Controllers\CategoriaProductoController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
@@ -360,7 +362,11 @@
     <Content Include="Views\User\UserRegisterAddress.cshtml" />
     <Content Include="Views\FindLog\Found.cshtml" />
     <Content Include="Views\FindLog\Find.cshtml" />
+
     <Content Include="Views\User\UserEditProfile.cshtml" />
+
+    <Content Include="Views\Catalogo\Index.cshtml" />
+
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
