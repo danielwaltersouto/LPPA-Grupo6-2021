@@ -49,7 +49,7 @@
             @Html.Label("Imagen Producto", new { @class = "control-label col-md-2", @id = "colorNaranja" })
             <div class="col-md-10">
                 <div class="input-group">
-                    <input type="file" name="imagenProducto" id="imagenProducto" class="form-control" />
+                    <input type="file" name="imagenProducto" id="imagenProducto" class="form-control" onchange="previewFile(this);" />
                 </div>
             </div>
             <br />
@@ -58,7 +58,7 @@
                     var base64 = Convert.ToBase64String(Model.FotoProducto);
                     var imgSrc = string.Format("data:image/jpg;base64,{0}", base64);
                 }
-                <img src="@imgSrc" style="max-width:300px;max-height:300px;" />
+                <img src="@imgSrc" style="max-width:300px;max-height:300px;" id="previewImg" />
             </div>
         </div>
         <div class="float-right">
@@ -67,3 +67,24 @@
         </div>
     </div>
 }
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        function previewFile(input) {
+            var file = $("input[type=file]").get(0).files[0];
+
+            if (file) {
+                var reader = new FileReader();
+
+                reader.onload = function () {
+                    $("#previewImg").attr("src", reader.result);
+                }
+
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+}
+
