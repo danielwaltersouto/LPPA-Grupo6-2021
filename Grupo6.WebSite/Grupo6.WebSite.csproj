@@ -133,6 +133,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\carne.png" />
+    <Content Include="Content\image_not.jpg" />
     <Content Include="Content\LogIn\EstiloLogin.css" />
     <Content Include="Content\entraña-1.jpg" />
     <Content Include="Content\Filet-De-Merluza-Congelado-X-1-Kg-1-63164.jpg" />
@@ -362,11 +363,8 @@
     <Content Include="Views\User\UserRegisterAddress.cshtml" />
     <Content Include="Views\FindLog\Found.cshtml" />
     <Content Include="Views\FindLog\Find.cshtml" />
-
     <Content Include="Views\User\UserEditProfile.cshtml" />
-
     <Content Include="Views\Catalogo\Index.cshtml" />
-
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -6,7 +6,7 @@
 
 <h2 class="text-center">Crear Nuevo Producto</h2>
 
-@using (Html.BeginForm("Create", "Producto",FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Create", "Producto", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="form-horizontal">
         <hr />
@@ -49,8 +49,11 @@
             @Html.Label("Imagen Producto", new { @class = "control-label col-md-2", @id = "colorNaranja" })
             <div class="col-md-10">
                 <div class="input-group">
-                    <input type="file" name="imagenProducto" id="imagenProducto" class="form-control"/>
+                    <input type="file" name="imagenProducto" id="imagenProducto" class="form-control" onchange="previewFile(this);" />
                 </div>
+            </div>
+            <div class="col-md-10 text-center">
+                <img id="previewImg" src="~/Content/image_not.jpg" style="max-width:300px;max-height:300px;" />
             </div>
         </div>
         <div class="float-right">
@@ -58,5 +61,25 @@
             <button type="submit" class="btn btn-primary">Aceptar</button>
         </div>
     </div>
+}
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        function previewFile(input) {
+            var file = $("input[type=file]").get(0).files[0];
+
+            if (file) {
+                var reader = new FileReader();
+
+                reader.onload = function () {
+                    $("#previewImg").attr("src", reader.result);
+                }
+
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
 }
 
