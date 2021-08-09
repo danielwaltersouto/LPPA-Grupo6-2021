@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Grupo6.Services
+namespace Grupo6.Entities.Models
 {
-    public class Class1
+    class Catalogo
     {
     }
 }

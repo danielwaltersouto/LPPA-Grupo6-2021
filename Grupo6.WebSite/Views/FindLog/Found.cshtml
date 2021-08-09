@@ -1,0 +1,42 @@
+﻿
+@using Grupo6.Services;
+@model IEnumerable<Logger>
+@{
+    
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <table cellpadding="10" cellspacing="5">
+        <tr>
+            <th>Severity</th>
+            <th>Controller</th>
+            <th>Message</th>
+            <th>Date</th>
+        </tr>
+        @if (Model != null)
+        {
+
+            foreach (Logger Log in Model)
+
+
+            {
+                <tr>
+                    <td>@Log.severity</td>
+                    <td>@Log.Controller</td>
+                    <td>@Log.Message</td>
+                    <td>@Log.Date</td>
+                </tr>
+            }
+        }
+    </table>
+</body>
+</html>

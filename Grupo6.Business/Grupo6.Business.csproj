@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>a4e5f50a-2bbc-4219-aceb-47d8b6845a70</ProjectGuid>
+    <ProjectGuid>{A4E5F50A-2BBC-4219-ACEB-47D8B6845A70}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Grupo6.Business</RootNamespace>
@@ -31,24 +31,42 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BizCarrito.cs" />
+    <Compile Include="BizCatalogo.cs" />
+    <Compile Include="BizCategoriaFiscal.cs" />
+    <Compile Include="BizCategoriaProducto.cs" />
+    <Compile Include="BizDespacho.cs" />
+    <Compile Include="BizDireccion.cs" />
+    <Compile Include="BizEstadoPedido.cs" />
+    <Compile Include="BizFactura.cs" />
+    <Compile Include="BizProducto.cs" />
+    <Compile Include="BizRol.cs" />
+    <Compile Include="BizUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Grupo6.Data\Grupo6.Data.csproj">
+      <Project>{51913849-1B5C-48A6-BBFD-03AB7980FDBC}</Project>
+      <Name>Grupo6.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grupo6.Entities\Grupo6.Entities.csproj">
+      <Project>{9EEDBFE1-4C36-48DF-B888-987F5D448EAE}</Project>
+      <Name>Grupo6.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grupo6.Services\Grupo6.Services.csproj">
+      <Project>{8e32bd9e-c95f-40fb-9732-bf9665bf0cd4}</Project>
+      <Name>Grupo6.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<logger>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogOut</Controller>
+    <Date>24/07/2021 17:37:22</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogIn</Controller>
+    <Date>24/07/2021 17:46:13</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogOut</Controller>
+    <Date>24/07/2021 17:47:04</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogOut</Controller>
+    <Date>24/07/2021 23:31:58</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>BizChange</Severity>
+    <Controller>StartRecovery</Controller>
+    <Date>24/07/2021 23:32:09</Date>
+    <IdMsj>System.InvalidOperationException: An entity object cannot be referenced by multiple instances of IEntityChangeTracker.
+   en System.Data.Entity.Core.Objects.ObjectContext.VerifyContextForAddOrAttach(IEntityWrapper wrappedEntity)
+   en System.Data.Entity.Core.Objects.ObjectContext.AttachSingleObject(IEntityWrapper wrappedEntity, EntitySet entitySet)
+   en System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.&lt;&gt;c__DisplayClass16_0.&lt;Attach&gt;b__0()
+   en System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   en System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   en System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   en Grupo6.Data.Services.BaseDataService`1.Update(T entity) en C:\Users\DWS\source\repos\danielwaltersouto\LPPA-Grupo6-2021\Grupo6.Data\Services\BaseDataService.cs:línea 66
+   en Grupo6.Business.BizUsuario.Actualizar(Usuario usuario) en C:\Users\DWS\source\repos\danielwaltersouto\LPPA-Grupo6-2021\Grupo6.Business\BizUsuario.cs:línea 61
+   en Grupo6.WebSite.Controllers.AuthController.StartRecovery(ViewModelRecovery model) en C:\Users\DWS\source\repos\danielwaltersouto\LPPA-Grupo6-2021\Grupo6.WebSite\Controllers\AuthController.cs:línea 168</IdMsj>
+  </Log>
+  <Log>
+    <Severity>BizChange</Severity>
+    <Controller>StartRecovery</Controller>
+    <Date>24/07/2021 23:43:46</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>BizChange</Severity>
+    <Controller>StartRecovery</Controller>
+    <Date>24/07/2021 23:46:05</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>BizChange</Severity>
+    <Controller>StartRecovery</Controller>
+    <Date>24/07/2021 23:51:48</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+  <Log>
+    <Severity>Info</Severity>
+    <Controller>LogIn</Controller>
+    <Date>24/07/2021 23:52:26</Date>
+    <IdMsj>daniel.walter.souto@gmail.com</IdMsj>
+  </Log>
+</logger>

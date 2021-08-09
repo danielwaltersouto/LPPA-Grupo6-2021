@@ -1,0 +1,158 @@
+﻿@model Grupo6.Entities.Models.Usuario
+
+<head>
+    <link href="~/Content/LogIn/EstiloLogin.css" rel="stylesheet" />
+
+</head>
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-5 mx-auto">
+
+            <div class="myform form ">
+                <div class="logo mb-3">
+                    <div class="col-md-12 text-center">
+
+
+                        <h1>Editar Datos</h1>
+                        @ViewBag.mensaje
+                        <img src="~/Content/User/user-plus.svg" width="50" height="50" />
+                        <br />
+                        <hr />
+                    </div>
+                </div>
+
+                @using (Html.BeginForm())
+                {
+
+
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+
+                            @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control", @Value = @ViewBag.Usuario.Id , type="hidden"} })
+                            <span>
+                                <img src="~/Content/User/person.svg" />
+                            </span>
+                            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control", @Value = @ViewBag.Usuario.Nombre } })
+
+                                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <span>
+                                <img src="~/Content/User/person.svg" />
+                            </span>
+                            @Html.LabelFor(model => model.Apellido, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Apellido, new { htmlAttributes = new { @class = "form-control", @Value = @ViewBag.Usuario.Apellido } })
+                                @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <span>
+                                <img src="~/Content/User/card.svg" />
+                            </span>
+                            @Html.LabelFor(model => model.Documento, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Documento, new { htmlAttributes = new { @class = "form-control", @Value = @ViewBag.Usuario.Documento } })
+                                @Html.ValidationMessageFor(model => model.Documento, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <span>
+                                <img src="~/Content/User/calendar.svg" />
+                            </span>
+                            @Html.LabelFor(model => model.FechaNacimiento, htmlAttributes: new { @class = "control-label col-md-6" })
+                            <div class="col-md-10">
+
+                                @Html.EditorFor(model => model.FechaNacimiento, new { htmlAttributes = new { @class = "form-control datepicker", @type = "date" } })
+                                @Html.ValidationMessageFor(model => model.FechaNacimiento, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <span>
+                                <img src="~/Content/User/tele.svg" />
+                            </span>
+                            @Html.LabelFor(model => model.Telefono, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control", @Value = @ViewBag.Usuario.Telefono } })
+                                @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <span>
+                                <img src="~/Content/User/cart.svg" />
+                            </span>
+                            @Html.LabelFor(model => model.CategoriaFiscalId, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-10">
+
+
+
+                                @Html.DropDownListFor(model => model.CategoriaFiscalId, new List<SelectListItem>   {
+                                                                                    new SelectListItem{ Text="Consumidor Final", Value = "1" },
+                                                                                    new SelectListItem{ Text="Discimina IVA", Value = "2"},},
+                                                                                    htmlAttributes: new { @class = "form-control" })
+
+
+
+
+                                @Html.ValidationMessageFor(model => model.CategoriaFiscalId, "", new { @class = "text-danger" })
+
+
+                            </div>
+                           
+                        </div>
+
+                     
+                       
+
+                        <br />
+                        <hr />
+
+                        <div class="col-md-12 text-center ">
+                           
+
+                            <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Modificar</button>
+                        </div>
+                    </div>
+                }
+
+                <hr />
+                <div>
+                    <span>
+                        <img src="~/Content/User/box-arrow-in-left.svg" />
+                    </span>
+                    <a href="/Home/Index">Regresar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+

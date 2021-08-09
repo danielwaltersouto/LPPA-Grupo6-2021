@@ -1,0 +1,187 @@
+﻿body {
+    padding-top: 4.2rem;
+    padding-bottom: 4.2rem;
+  
+    background: rgba(0, 0, 0, 0.90);
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3 {
+    font-family: 'Lobster', cursive;
+}
+
+.myform {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 1rem;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 1.1rem;
+    outline: 0;
+    max-width: 500px;
+}
+
+.tx-tfm {
+    text-transform: uppercase;
+}
+
+.mybtn {
+    border-radius: 50px;
+}
+
+.login-or {
+    position: relative;
+    color: #aaa;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.span-or {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    margin-left: -25px;
+    background-color: #fff;
+    width: 50px;
+    text-align: center;
+}
+
+.hr-or {
+    height: 1px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+
+
+
+.form-horizontal {
+
+    font-weight:bold;
+
+}
+
+
+
+#second {
+    display: none;
+}
+
+#profile {
+    
+}
+
+.panel-heading {
+  
+    background-color:black;
+    color:white;
+    padding: 4px 4px 4px 4px;
+    font-weight:lighter;
+}
+
+.panel-heading-CP {
+    padding: 4px 4px 4px 4px;
+    text-align: center;
+    font-weight:bold;
+}
+
+
+.panel-title-CP {
+    font-size: 30px;
+    color: black;
+    text-align:center;
+}
+    .panel-title {
+    
+    font-size: 25px;
+    color: white;
+}
+
+.panel-info {
+    background-color: white;
+    font-size: 20px;
+    font-family:Arial;
+    font-weight:bold;
+}
+
+.btn4 {
+    height: 40px;
+    width: 10%;
+    outline: none;
+    background-color: green;
+    color: white;
+    border-radius: 60px;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 5px;
+}
+
+    .btn4:hover {
+        background-color: blue;
+        color: black;
+    }
+
+
+.btn6:hover {
+    background-color: black;
+}
+
+.btn5 {
+    height: 40px;
+    width: 10%;
+    outline: none;
+    background-color: blue;
+    color: white;
+    border-radius: 60px;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 5px;
+}
+
+
+    .btn5:hover {
+        background-color: green;
+        color: black;
+    }
+
+.btn6 {
+    height: 40px;
+    width: 10%;
+    outline: none;
+    background-color: black;
+    color: white;
+    border-radius: 60px;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 5px;
+}
+
+ .btn6:hover {
+        background-color: red;
+        color: black;
+    }
+
+hr {
+   
+    height: 10px; 
+ color:black;
+    background-color: black; 
+}
+
+
+
